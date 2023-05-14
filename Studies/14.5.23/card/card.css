@@ -1,0 +1,52 @@
+body {
+    background-color: aliceblue;
+}
+
+main {
+    width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.card {
+    border: 2px solid gray;
+    background-color: #FFFFFF;
+    width: 500px;
+
+    /* offset-y offset-x blur-radius spread-radius color */
+    box-shadow: 0px 0px 15px 3px #000000;
+    
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.card-header {
+    text-align: center;
+    background-color: burlywood;
+    margin-top: 0;
+    border-bottom: 2px solid gray;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.card-body {
+    padding: 12px;
+    text-align: center;
+}
+
+a.card-link1 {
+    color: blueviolet;
+}
+
+a.card-link2 {
+    color: gold;
+}
+a.card-link1:visited {
+    color: red;
+}
+a.card-link1:hover{
+    color: black;
+    cursor: progress;
+}
+
+

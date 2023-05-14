@@ -1,0 +1,38 @@
+.div1, .div2 {
+    border: 1px solid red;
+}
+
+span {
+    background-color: blue;
+    width: 100px;
+}
+
+/* 
+width and height does not effect inline elements
+we can convert said elements to block
+*/
+.span2 {
+    display: block;
+}
+
+/* 
+we can set the element to inline-block
+it will make the element remain as inline but have the ability to be affected
+by width and height  
+*/
+.span3 {
+    display: inline-block;
+}
+
+.span4 {
+    display: none;
+}
+
+/*
+we can also convert block elements to inline
+*/
+.div2 {
+    width: 200px;
+    height: 100px;
+    display: inline;
+}
