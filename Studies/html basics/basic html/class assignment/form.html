@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs</title>
+    <link rel="stylesheet" href="../style/divs.css">
+</head>
+
+<body>
+    <div id="page-navigation">
+        <a class="page-link" href="/index.html">Index</a>
+        <a class="page-link" href="./tables.html">Tables</a>
+        <a class="page-link" href="./shopping-list.html">Shopping list</a>
+        <a class="page-link" href="./divs.html">Divs</a>
+        <a class="page-link" href="./iframe.html">iFrame</a>
+        <a class="page-link" href="./signup.html">Signup</a>
+    </div>
+<!-- to have the URL get params from the form, 
+input parameters must have name="" defined in them! -->
+    <div id="form-container">
+        <h2>Gimmie some information</h2>
+        <form>
+            <div id="first-name-container">
+                <label for="first-name">First name:</label>
+                <input id="first-name" name="firstName" type="text" required/>
+            </div>
+            <br/>
+            <div id="last-name-container">
+                <label for="last-name">Last name:</label>
+                <input id="last-name" name="lastName" type= "text" required/>
+            </div>
+            <br/>
+            <div id="checkbox-container">
+                <label for="join-name">Join name</label>
+                <input id="join-name" type="checkbox">
+            </div>
+            <br/>
+            <div>
+                <label for="just-for-fun">Press me!</label>
+                <input type="radio" name="just-for-fun">
+                <br/>
+                <label for="just-for-fun">No! Press me!</label>
+                <input type="radio" name="just-for-fun">
+            </div>
+            <br/>
+            <div>
+                <button id="submit-button">submit</button>
+            </div>
+        </form>
+        <br/>
+        <div id="text-area-container">
+            <span id="text-area">Your name is..</span>
+        </div>
+    </div>
+</body>
+<script src="../utils/scripts/formPage.js"></script>
+</html>

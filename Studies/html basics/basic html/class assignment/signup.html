@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="../style/divs.css">
+</head>
+
+<body>
+    <div id="page-navigation">
+        <a class="page-link" href="/index.html">Index</a>
+        <a class="page-link" href="./tables.html">Tables</a>
+        <a class="page-link" href="./shopping-list.html">Shopping list</a>
+        <a class="page-link" href="./divs.html">Divs</a>
+        <a class="page-link" href="./iframe.html">iFrame</a>
+        <a class="page-link" href="./form.html">Form</a>
+    </div>
+
+    <div id="form-container">
+        <h2>Sign-up here:</h2>
+        <form method="get">
+            <div id="first-name-container">
+                <label for="first-name">First name:</label>
+                <input id="first-name" type="text" placeholder="first name"/>
+            </div>
+            <br/>
+            <div id="last-name-container">
+                <label for="last-name">Last name:</label>
+                <input id="last-name" type= "text" placeholder="last name"/>
+            </div>
+            <hr/>
+            <div id="checkbox-container">
+                <h4>Fill in your skills below:</h4>
+                <input id="skills" type="checkbox">
+                <label for="skills">Javascript</label>
+                <br/>
+                <input id="c-plus-plus" type="checkbox">
+                <label for="skills">C++</label>
+                <br/>
+                <input id="c-sharp" type="checkbox">
+                <label for="skills">C#</label>
+            </div>
+            <hr/>
+            <div>
+                <h4>Gender:</h4>
+                <input type="radio" name="gender">
+                <label for="gender">Other</label>
+                <br/>
+                <input type="radio" name="gender">
+                <label for="gender">Male</label>
+                <br/>
+                <input type="radio" name="gender">
+                <label for="gender">Female</label>
+            </div>
+            <hr/>
+            <div id="comment-box">
+                <label for="comment">Comment here:</label>
+                <br/>
+                <textarea rows="5" cols="40" id="comment"></textarea>
+            </div>
+            <hr/>
+            <div>
+                <label for="color">Favorite color:</label>
+                <br/>
+                <input type="color" id="colorPicker">
+            </div>
+            <hr/>
+            <div>
+                <label for="birthday">Your birthday:</label>
+                <br/>
+                <input type="time" id="birthday">
+            </div>
+            <hr/>
+            <div>
+                <label for="file-upload">Upload CV:</label>
+                <br/>
+                <input type="file" id="file-upload">
+            </div>
+            <hr/>
+            <div>
+                <label for="age">Your age:</label>
+                <br/>
+                <input type="number" id="age" min="18" max="30" required>
+            </div>
+            <hr/>
+            <div>
+                <label for="age">Your email:</label>
+                <br/>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <hr/>
+            <div>
+                <label for="age">Phone number:</label>
+                <br/>
+                <input type="tel" id="phone-number" name="phone-number" 
+                pattern="[0-9]{3}-[0-9]{7}" placeholder="123-4567890">
+            </div>
+            <hr/>
+            <div>
+                <label for="city">Your city:</label>
+                <br/>
+                <select id="city" name="city">
+                    <option value="---">  </option>
+                    <option value="tel-aviv">Tel Aviv</option>
+                    <option value="kefar-saba">Kefar Saba</option>
+                    <option value="jerusalem">Jerusalem</option>
+                </select>
+            </div>
+            <hr/>
+            <div>
+                <label for="city">Your city (multiple choice):</label>
+                <br/>
+                <select multiple id="city" name="city">
+                    <option value="---">  </option>
+                    <option value="tel-aviv">Tel Aviv</option>
+                    <option value="kefar-saba">Kefar Saba</option>
+                    <option value="jerusalem">Jerusalem</option>
+                </select>
+            </div>
+            <hr/>
+            <div>
+                <button type="submit">submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

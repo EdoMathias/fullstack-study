@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+}
+
+.p-class {
+  border-style: dotted;
+  border-width: 1px;
+  text-align: center;
+}
+
+.p-class #right-p {
+  text-align: right;
+}
+
+.p-class #left-p {
+  text-align: left;
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th {
+  background-color: #96d4d4;
+}
+
+tr {
+  background-color: blueviolet;
+}
+
+table .even-rows {
+  background-color: bisque;
+}
+
+.div-container {
+  width: 900px;
+  border: 2px dashed goldenrod;
+}
+
+.div-container section {
+  width: 600px;
+  border: 2px dashed #96d4d4;
+}
+
+.div-container .section-class.right-section {
+  margin-left: auto;
+  text-align: right;
+}
+
+.div-container .section-class.center-section {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.div-container .section-class h3 {
+  text-align: center;
+}

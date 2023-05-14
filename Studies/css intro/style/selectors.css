@@ -1,0 +1,16 @@
+/*  */
+section h1 {
+  color: red;
+}
+
+.section3 {
+  background-color: bisque;
+}
+
+div h1 {
+  background-color: aqua;
+}
+
+h1 .section3 {
+  background-color: brown;
+}

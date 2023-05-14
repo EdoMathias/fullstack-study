@@ -1,0 +1,21 @@
+h2 {
+  color: orange;
+  background-color: brown;
+}
+
+p {
+  color: darkgoldenrod;
+}
+
+.subtitle {
+  color: goldenrod;
+}
+
+.subtitle-bg {
+  background-color: brown;
+}
+
+#footer-header {
+  color: orange;
+  background-color: brown;
+}
