@@ -1,0 +1,20 @@
+.form-container {
+    border: 1px solid grey;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    /* display: flex; */
+}
+
+
+form>div {
+    position: relative;
+    margin: 8px;
+}
+
+form label {
+    text-align: left;
+    left: 0;
+    position: absolute;
+}
