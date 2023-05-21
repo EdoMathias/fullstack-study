@@ -1,0 +1,41 @@
+.grid-container {
+    border: 1px solid black;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas: 
+    "header header"
+    "main aside"
+    "footer footer";
+}
+
+.grid-child-header {
+    background-color: aquamarine;
+    grid-area: header;
+}
+
+.grid-child-main {
+    background-color: bisque;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.grid-child-section {
+    border: 1px solid red;
+}
+
+.grid-child-aside {
+    background-color: coral;
+    grid-area: aside;
+}
+
+.grid-child-footer {
+    background-color: darksalmon;
+    grid-area: footer;
+}
+
