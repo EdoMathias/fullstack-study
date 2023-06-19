@@ -1,60 +1,60 @@
 <mxfile host="65bd71144e">
     <diagram id="PMfPm_m9FSrddyUOyoKl" name="Page-1">
-        <mxGraphModel dx="1066" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="878" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="2" target="6">
+                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="2" target="6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+                <mxCell id="2" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="310" y="20" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" edge="1" parent="1" source="6" target="31">
+                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" parent="1" source="6" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" vertex="1" parent="1">
+                <mxCell id="6" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
                     <mxGeometry x="310" y="100" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="30" target="36">
+                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="30" target="36" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" value="num != 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" vertex="1" parent="1">
+                <mxCell id="30" value="num != 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" parent="1" vertex="1">
                     <mxGeometry x="325" y="280" width="70" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="35" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="31" target="30">
+                <mxCell id="35" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="31" target="30" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="31" target="52">
+                <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="31" target="52" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="highest = 0&lt;br&gt;lowest = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="31" value="highest = 0&lt;br&gt;lowest = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="290" y="190" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" value="1, 18, 7, 3, 25, 0" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="32" value="1, 18, 7, 3, 25, 0" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="35" y="115" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" edge="1" parent="1" source="36" target="38">
+                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" parent="1" source="36" target="38" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="36" target="42">
+                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="36" target="42" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="num &amp;gt; highest" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="36" value="num &amp;gt; highest" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="170" y="350" width="120" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Lucida Console;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" edge="1" parent="1" source="38" target="49">
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Lucida Console;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" parent="1" source="38" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="40" y="230" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="38" value="highest = num" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="38" value="highest = num" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="70" y="420" width="105" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="42" target="44">
+                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;" parent="1" source="42" target="44" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" edge="1" parent="1" source="42" target="49">
+                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" parent="1" source="42" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="80" y="225" as="targetPoint"/>
                         <Array as="points">
@@ -64,10 +64,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="42" value="num &amp;lt; lowest" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="42" value="num &amp;lt; lowest" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="300" y="410" width="120" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Lucida Console;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" edge="1" parent="1" source="44" target="49">
+                <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Lucida Console;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" parent="1" source="44" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="40" y="230" as="targetPoint"/>
                         <Array as="points">
@@ -76,288 +76,545 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="44" value="lowest = num" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="44" value="lowest = num" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="220" y="500" width="105" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Lucida Console;" edge="1" parent="1" source="49" target="31">
+                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Lucida Console;" parent="1" source="49" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" vertex="1" parent="1">
+                <mxCell id="49" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
                     <mxGeometry x="100" y="195" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="lowest, highest" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" vertex="1" parent="1">
+                <mxCell id="52" value="lowest, highest" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" parent="1" vertex="1">
                     <mxGeometry x="530" y="195" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="56" target="58">
+                <mxCell id="184" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="185" target="187" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="1279.8600000000001" y="80" width="100" height="60" as="geometry"/>
+                <mxCell id="185" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1289.8600000000001" y="1150" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" edge="1" parent="1" source="58" target="63">
+                <mxCell id="186" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" parent="1" source="187" target="190" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" vertex="1" parent="1">
-                    <mxGeometry x="1279.8600000000001" y="160" width="100" height="60" as="geometry"/>
+                <mxCell id="187" value="&lt;pre style=&quot;&quot;&gt;digit, num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
+                    <mxGeometry x="1289.8600000000001" y="1230" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="60" value="num &amp;gt; 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="1294.8600000000001" y="340" width="70" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="63" target="60">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="63" value="num2 = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1259.8600000000001" y="250" width="140" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="64" value="15" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1219.8600000000001" y="175" width="40" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="78" value="digit1 = num % 10" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1259.86" y="440" width="140" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="81" value="num = (int)(num / 10)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1252.36" y="540" width="155" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="83" value="num2 = num2*10 + digit" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1239.86" y="640" width="180" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="84" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="85" target="87">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="85" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="390" y="1220" width="100" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="87" target="107">
+                <mxCell id="266" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="188" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="440" y="1390" as="targetPoint"/>
+                        <mxPoint x="1215.0000000000007" y="1760" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="87" value="&lt;pre style=&quot;&quot;&gt;num1, num2&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" vertex="1" parent="1">
-                    <mxGeometry x="390" y="1300" width="100" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="126" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="89">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="567.5" y="1520" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="128" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="89" target="109">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="89" value="count &amp;lt;= num2" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="390" y="1480" width="97.5" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="108" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="107" target="89">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="107" value="count = num1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="387.5" y="1400" width="105" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="111" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="109" target="110">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="115" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="109" target="112">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="109" value="count % 3 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="260" y="1580" width="110" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="121" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="110" target="119">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" edge="1" parent="1" source="110" target="130">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="110" value="count % 2 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="385" y="1650" width="110" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="117" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="112" target="113">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="112" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="150" y="1650" width="100" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="116" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="113" target="89">
+                <mxCell id="271" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="188" target="259" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="80" y="1765"/>
-                            <mxPoint x="80" y="1520"/>
+                            <mxPoint x="1480" y="1655"/>
+                            <mxPoint x="1480" y="1970"/>
+                            <mxPoint x="1520" y="1970"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="113" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="143.75" y="1740" width="112.5" height="50" as="geometry"/>
+                <mxCell id="188" value="num &amp;gt; 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1179.3200000000004" y="1620" width="70" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="118" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="119" target="120">
+                <mxCell id="263" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="190" target="258" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="390" y="1780" width="100" height="60" as="geometry"/>
+                <mxCell id="190" value="count = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1269.8600000000001" y="1320" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="122" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="120" target="89">
+                <mxCell id="191" value="1, 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1229.8600000000001" y="1230" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="260" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="258" target="259" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="264" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="258" target="188" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="258" value="num &amp;gt;= single" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1277.47" y="1420" width="124.79" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="262" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="259" target="261" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="259" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="1470.0000000000002" y="2010" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="261" value="stop" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="1580.0000000000002" y="1840" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="269" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="267" target="268" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="267" value="currDigit = num % 10&lt;br&gt;num = int(num/10)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="1140" y="1710" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="272" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="268" target="273" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1050" y="1830" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="276" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="268" target="188" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="50" y="1895"/>
-                            <mxPoint x="50" y="1520"/>
+                            <mxPoint x="1214" y="1940"/>
+                            <mxPoint x="880" y="1940"/>
+                            <mxPoint x="880" y="1655"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="120" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="382.5" y="1870" width="112.5" height="50" as="geometry"/>
+                <mxCell id="268" value="currDigit == digit" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1155.64" y="1820" width="117.36" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" value="stop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="570" y="1490" width="100" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="132" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="130" target="89">
+                <mxCell id="274" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="273" target="188" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="614" y="1950"/>
-                            <mxPoint x="30" y="1950"/>
-                            <mxPoint x="30" y="1520"/>
+                            <mxPoint x="1005" y="1655"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="130" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="557.5" y="1870" width="112.5" height="50" as="geometry"/>
+                <mxCell id="273" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="930" y="1780" width="150" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="133" value="2, 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="345" y="1290" width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="134" value="2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="357.5" y="1390" width="30" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="135" value="2 &amp;lt; 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="337.5" y="1470" width="70" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="136" value="2 % 3 = 1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="225" y="1570" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="137" value="2 % 2 = 0" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="480" y="1650" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="138" value="print 2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="1790" width="70" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="139" value="2 + 1 = 3" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="297.5" y="1870" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="140" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="141" target="143">
+                <mxCell id="311" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="312" target="314" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="141" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
-                    <mxGeometry x="1279.8600000000001" y="1230" width="100" height="60" as="geometry"/>
+                <mxCell id="312" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1315" y="185" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="142" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="143" target="148">
+                <mxCell id="313" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Lucida Console;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="314" target="319" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1329.8600000000001" y="1400" as="targetPoint"/>
+                        <mxPoint x="1365" y="355" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="143" value="&lt;pre style=&quot;&quot;&gt;num1, num2&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" vertex="1" parent="1">
-                    <mxGeometry x="1279.8600000000001" y="1310" width="100" height="60" as="geometry"/>
+                <mxCell id="314" value="&lt;pre style=&quot;&quot;&gt;num1, num2&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
+                    <mxGeometry x="1315" y="265" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="144" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="146">
+                <mxCell id="315" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" parent="1" source="317" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1457.3599999999997" y="1530" as="targetPoint"/>
+                        <mxPoint x="1492.5" y="485" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="145" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="146" target="151">
+                <mxCell id="316" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="317" target="322" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="146" value="count &amp;lt;= num2" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="1279.8600000000001" y="1490" width="97.5" height="80" as="geometry"/>
+                <mxCell id="317" value="count &amp;lt;= num2" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1315" y="445" width="97.5" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="147" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="148" target="146">
+                <mxCell id="318" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="319" target="317" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="148" value="count = num1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1277.3600000000001" y="1410" width="105" height="50" as="geometry"/>
+                <mxCell id="319" value="count = num1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1312.5" y="365" width="105" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="149" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="151" target="154">
+                <mxCell id="320" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="322" target="325" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="150" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="151" target="156">
+                <mxCell id="321" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="322" target="327" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="151" value="count % 3 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1149.8600000000001" y="1590" width="110" height="100" as="geometry"/>
+                <mxCell id="322" value="count % 3 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1185" y="545" width="110" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="154" target="160">
+                <mxCell id="323" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" parent="1" source="325" target="331" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="153" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" edge="1" parent="1" source="154" target="165">
+                <mxCell id="324" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" parent="1" source="325" target="336" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="154" value="count % 2 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1274.8600000000001" y="1660" width="110" height="100" as="geometry"/>
+                <mxCell id="325" value="count % 2 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1310" y="615" width="110" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="155" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="156" target="158">
+                <mxCell id="326" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" parent="1" source="327" target="329" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="156" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1039.8600000000001" y="1660" width="100" height="60" as="geometry"/>
+                <mxCell id="327" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1075" y="615" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="157" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="158" target="146">
+                <mxCell id="328" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="329" target="317" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="969.86" y="1775"/>
-                            <mxPoint x="969.86" y="1530"/>
+                            <mxPoint x="1005" y="730"/>
+                            <mxPoint x="1005" y="485"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="158" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1033.6100000000001" y="1750" width="112.5" height="50" as="geometry"/>
+                <mxCell id="329" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1068.75" y="705" width="112.5" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="159" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" edge="1" parent="1" source="160" target="162">
+                <mxCell id="330" style="edgeStyle=orthogonalEdgeStyle;html=1;fontFamily=Lucida Console;" parent="1" source="331" target="333" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="160" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1279.8600000000001" y="1790" width="100" height="60" as="geometry"/>
+                <mxCell id="331" value="count" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1315" y="745" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="161" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="162" target="146">
+                <mxCell id="332" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="333" target="317" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="939.86" y="1905"/>
-                            <mxPoint x="939.86" y="1530"/>
+                            <mxPoint x="975" y="860"/>
+                            <mxPoint x="975" y="485"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="162" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1272.3600000000001" y="1880" width="112.5" height="50" as="geometry"/>
+                <mxCell id="333" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1307.5" y="835" width="112.5" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="stop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1459.8600000000001" y="1500" width="100" height="60" as="geometry"/>
+                <mxCell id="334" value="stop" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1495" y="455" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="164" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" edge="1" parent="1" source="165" target="146">
+                <mxCell id="335" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="336" target="317" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1503.8600000000001" y="1960"/>
-                            <mxPoint x="919.86" y="1960"/>
-                            <mxPoint x="919.86" y="1530"/>
+                            <mxPoint x="1539" y="915"/>
+                            <mxPoint x="955" y="915"/>
+                            <mxPoint x="955" y="485"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="165" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1447.3600000000001" y="1880" width="112.5" height="50" as="geometry"/>
+                <mxCell id="336" value="count++" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1482.5" y="835" width="112.5" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="166" value="2, 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1234.8600000000001" y="1300" width="60" height="30" as="geometry"/>
+                <mxCell id="337" value="2, 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1270" y="255" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="167" value="2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1247.3600000000001" y="1400" width="30" height="30" as="geometry"/>
+                <mxCell id="338" value="2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1282.5" y="355" width="30" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="168" value="2 &amp;lt; 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1227.3600000000001" y="1480" width="70" height="30" as="geometry"/>
+                <mxCell id="339" value="2 &amp;lt; 10" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1262.5" y="435" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="169" value="2 % 3 = 1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1114.8600000000001" y="1580" width="90" height="30" as="geometry"/>
+                <mxCell id="340" value="2 % 3 = 1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1150" y="535" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="170" value="2 % 2 = 0" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1369.8600000000001" y="1660" width="90" height="30" as="geometry"/>
+                <mxCell id="341" value="2 % 2 = 0" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1405" y="615" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="171" value="print 2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1209.8600000000001" y="1800" width="70" height="30" as="geometry"/>
+                <mxCell id="342" value="print 2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1245" y="755" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="172" value="2 + 1 = 3" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
-                    <mxGeometry x="1187.3600000000001" y="1880" width="90" height="30" as="geometry"/>
+                <mxCell id="343" value="2 + 1 = 3" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1222.5" y="835" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="344" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="345" target="347" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="345" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="252.86000000000013" y="1275" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="346" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Lucida Console;" parent="1" source="347" target="352" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="347" value="&lt;pre style=&quot;&quot;&gt;num1, num2&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
+                    <mxGeometry x="252.86000000000013" y="1355" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="348" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="350" target="355" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="349" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="350" target="363" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="482.86" y="1575" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="350" value="num1 &amp;lt; num2" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="260.36" y="1535" width="85" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="351" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Lucida Console;" parent="1" source="352" target="350" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="352" value="wholeNum = 0,&lt;br&gt;remainder = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="232.86000000000013" y="1445" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="353" value="4, 15&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="182.86000000000013" y="1370" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="354" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="355" target="357" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="355" value="num2 = num2 - num1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="232.8599999999999" y="1655" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="356" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="357" target="350" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="152.86" y="1800"/>
+                            <mxPoint x="152.86" y="1575"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="357" value="wholeNum++,&lt;br&gt;remainder = num2" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="225.3599999999999" y="1765" width="155" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="358" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="359" target="360" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="359" value="count,&lt;br&gt;remainder" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="592.86" y="1700" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="360" value="stop" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="605.36" y="1805" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="361" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="363" target="359" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="362" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="363" target="365" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="467.86" y="1645"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="363" value="num1 = num2" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="482.86" y="1595" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="364" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="365" target="367" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="365" value="remainder = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="412.86" y="1725" width="110" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="366" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="367" target="368" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="367" value="count,&lt;br&gt;remainder" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="415.36" y="1845" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="368" value="stop" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="427.86" y="1945" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="389" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="369" target="372" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="369" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="375.0000000000001" y="2270" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="371" value="קלטו מספר והציגו את כל המחלקים השלמים שלו&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="2275" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="388" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="372" target="376" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="372" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
+                    <mxGeometry x="375.0000000000001" y="2370" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="385" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="374" target="384" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="386" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="374" target="375" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="374" value="num &amp;gt;= divider &lt;br&gt;&amp;amp;&amp;amp;&lt;br&gt;&amp;nbsp;divider &amp;gt; 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="366" y="2570" width="118" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="379" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="375" target="378" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="382" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="375" target="377" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="375" value="num % divider = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="352" y="2710" width="145" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="387" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="376" target="374" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="376" value="divider = num" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="354.9999999999999" y="2470" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="381" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="377" target="374" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="130" y="2965"/>
+                            <mxPoint x="130" y="2625"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="377" value="divider--" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="215.3599999999999" y="2930" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="380" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="378" target="377" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="378" value="divider" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="232.86" y="2810" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="384" value="stop" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="583" y="2585" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="390" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="391" target="394" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="391" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1340.8700000000001" y="2275" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="392" value="קלטו מספר והציגו את כל המחלקים השלמים שלו&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1050.87" y="2280" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="393" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="394" target="402" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="394" value="&lt;pre style=&quot;&quot;&gt;num&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" parent="1" vertex="1">
+                    <mxGeometry x="1340.8700000000001" y="2375" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="409" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="402" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1390.87" y="2585" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="402" value="divider = num" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1320.87" y="2475" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="447" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="428" target="429" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="428" value="1, divider" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="1338.37" y="2585" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="444" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="429" target="434" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1480" y="2770"/>
+                            <mxPoint x="1480" y="3020"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="445" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="429" target="430" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="429" value="num % 2 = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1318.37" y="2700" width="145" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="446" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="430" target="431" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="430" value="divider = divider / 2" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1170" y="2800" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="443" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="431" target="434" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1240" y="3010"/>
+                            <mxPoint x="1419" y="3010"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="431" value="divider" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="1187.5" y="2910" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="432" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="434" target="442" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="433" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="434" target="437" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="434" value="num &amp;gt;= divider &lt;br&gt;&amp;amp;&amp;amp;&lt;br&gt;&amp;nbsp;divider &amp;gt; 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1359.87" y="3030" width="118" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="435" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="437" target="441" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="436" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="437" target="439" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="437" value="num % divider = 0" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="1346.37" y="3160" width="145" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="438" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="439" target="434" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1124" y="3415"/>
+                            <mxPoint x="1124" y="3085"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="439" value="divider--" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1209.73" y="3380" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="440" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="441" target="439" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="441" value="divider" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
+                    <mxGeometry x="1227.23" y="3260" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="442" value="stop" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
+                    <mxGeometry x="1580" y="3045" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="448" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="449" target="452">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="449" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="425.5000000000001" y="3370" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="450" value="קלטו מספר והציגו את כל המחלקים השלמים שלו&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="135.5" y="3375" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="451" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="452" target="460">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="452" value="&lt;pre style=&quot;&quot;&gt;num, digit&lt;/pre&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;align=center;labelPosition=center;" vertex="1" parent="1">
+                    <mxGeometry x="425.5000000000001" y="3470" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="467" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="460" target="466">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="460" value="counter = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
+                    <mxGeometry x="405.4999999999999" y="3570" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="471" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="466" target="470">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="473" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="466" target="468">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="466" value="num &amp;gt;= digit" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="403" y="3690" width="145" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="472" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="468" target="470">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="475" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="468" target="469">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="342" y="3935"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="468" value="num &amp;gt; 0" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.flowchart.on-page_reference;fontFamily=Lucida Console;labelPosition=center;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="416.5" y="3880" width="118" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="476" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="469" target="474">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="469" value="currDigit == num % 10&lt;br&gt;num == int(num/10)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontFamily=Lucida Console;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="4020" width="165" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="470" value="divider" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="3840" width="105" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="478" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="474" target="477">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="480" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.145;entryY=0.145;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="474" target="468">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="190" y="4210"/>
+                            <mxPoint x="190" y="3896"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="474" value="num &amp;gt;= digit" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="4140" width="145" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="479" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.145;entryY=0.145;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="477" target="468">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="130" y="4345"/>
+                            <mxPoint x="130" y="3896"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="477" value="counter++" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" vertex="1" parent="1">
+                    <mxGeometry x="475" y="4310" width="105" height="70" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
