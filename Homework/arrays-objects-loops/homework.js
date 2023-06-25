@@ -62,18 +62,34 @@
 // getYoungest();
 
 function randomString() {
-  let finalArr = [];
-  let str = '';
+  //   let finalArr = [];
+  //   let str = '';
+  //   const lettersArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+  //   do {
+  //     do {
+  //       let randomNum = Math.floor(Math.random() * lettersArr.length);
+  //       str += lettersArr[randomNum];
+  //     } while (str.length < 4);
+  //     finalArr.push(str);
+  //     str = '';
+  //   } while (finalArr.length < 3);
+  //   console.log(finalArr);
+
+  const finalArr = [];
   const lettersArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
-  do {
-    do {
+  for (let i = 0; i < 3; i++) {
+    let str = '';
+
+    for (let j = 0; j < 4; j++) {
       let randomNum = Math.floor(Math.random() * lettersArr.length);
       str += lettersArr[randomNum];
-    } while (str.length < 4);
+    }
+
     finalArr.push(str);
-    str = '';
-  } while (finalArr.length < 3);
+  }
+
   console.log(finalArr);
 }
 randomString();
