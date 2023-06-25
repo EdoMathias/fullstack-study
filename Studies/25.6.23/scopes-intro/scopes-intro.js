@@ -19,13 +19,13 @@ if (Math.random() > 0.5) {
     // external will return to it's initial value
     const external = 77;
 
-    console.log(internal);
-    console.log(external);
+    // console.log(internal);
+    // console.log(external);
   }
   // Will throw an error since internal can only
   // be accessed within the scope it is defined in
   // console.log(internal, external);
-  console.log(external);
+  // console.log(external);
 }
 
 console.log(`--------`);
@@ -43,4 +43,14 @@ let name = 'Edo';
     // console.log(name);
   }
 }
-console.log(name);
+// console.log(name);
+
+var eliran = 'eliran';
+{
+  var eliran = 'not eliran';
+  {
+    var eliran = 'eliran2';
+    // console.log(eliran);
+  }
+  console.log(eliran);
+}
