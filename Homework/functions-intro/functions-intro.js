@@ -1,5 +1,5 @@
 // Question 1
-const arrayOfNumbers = [1, 2, 3, 4, 100, 10, 8, 99];
+const arrayOfNumbers = [2, 3, 4, 10, 8, 99];
 function doesArrayContain(array, number) {
   for (currentNum of array) {
     if (currentNum === number) {
@@ -11,7 +11,7 @@ function doesArrayContain(array, number) {
 // console.log(doesArrayContain(arrayOfNumbers, 100));
 
 // Question 2
-const numbersToSum = [1, 2, 3, 4, 5, 6];
+const numbersToSum = [2, 2, 2];
 function sumOfProperties(array) {
   let sum = 0;
   let average = 0;
@@ -23,7 +23,7 @@ function sumOfProperties(array) {
 // console.log(sumOfProperties(numbersToSum));
 
 // Question 3
-const numbers = [3, 2, 6, 1, 7, 5];
+const numbers = [3, 2, 6, 7, 5];
 
 function createObj(arr) {
   let bigNum = arr[0];
@@ -31,11 +31,11 @@ function createObj(arr) {
   let finalObj = {};
 
   for (number of arr) {
-    if (number > bigNum) {
+    if (number >= bigNum) {
       bigNum = number;
       finalObj.biggestNumber = bigNum;
     }
-    if (number < smallNum) {
+    if (number <= smallNum) {
       smallNum = number;
       finalObj.smallestNumber = smallNum;
     }
