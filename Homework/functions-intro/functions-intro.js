@@ -23,7 +23,7 @@ function sumOfProperties(array) {
 // console.log(sumOfProperties(numbersToSum));
 
 // Question 3
-const numbers = [3, 2, 6, 7, 5];
+const numbers = [8, 3, 2, 6, 7, 5];
 
 function createObj(arr) {
   let bigNum = arr[0];
@@ -46,7 +46,7 @@ function createObj(arr) {
 // console.log(createObj(numbers));
 
 // Question 4
-const array1 = [1, 2, 3];
+const array1 = [1, 2, 3, 4];
 const array2 = ['a', 'b', 'c', 'd'];
 
 function combineArrays(arr1, arr2) {
@@ -62,4 +62,18 @@ function combineArrays(arr1, arr2) {
   }
   return finalArray;
 }
-// console.log(combineArrays(array1, array2));
+
+function combineArrays2(arr1, arr2) {
+  const maxLength = arr1.length > arr2.length ? arr1.length : arr2.length;
+  let finalArray = [];
+  for (let i = 0; i < maxLength; i++) {
+    if (i < arr1.length) {
+      finalArray[finalArray.length] = arr1[i];
+    }
+    if (i < arr2.length) {
+      finalArray[finalArray.length] = arr2[i];
+    }
+  }
+  return finalArray;
+}
+console.log(combineArrays2(array1, array2));
