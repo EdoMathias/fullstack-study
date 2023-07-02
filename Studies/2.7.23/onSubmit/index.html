@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./index.js"></script>
+</head>
+<body>
+    <form onsubmit="logInfo(); return false" name="userInformation">
+        <div id="input-firstName-div">
+            <label for="firstName">User Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div id="input-lastName-div">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div id="input-email-div">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div id="input-gender-div">
+            <label for="gender">Your Gender:</label>
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female"required>Female
+        </div>
+        <div id="input-password-div">
+            <label for="color">Favorite color</label>
+            <select id="color" name="color">
+                <option value="Red">Red</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+            </select>
+        </div>
+        <div id="checkbox-div">
+            <input type="checkbox" id="addToTable" name="addToTable">
+            <label for="addToTable">Add to table?</label>
+        </div>
+        <button>Register</button>
+    </form>
+    <hr>
+    <div id="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Color</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+</body>
+</html>
