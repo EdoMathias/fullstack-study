@@ -76,4 +76,4 @@ function combineArrays2(arr1, arr2) {
   }
   return finalArray;
 }
-console.log(combineArrays2(array1, array2));
+// console.log(combineArrays2(array1, array2));
