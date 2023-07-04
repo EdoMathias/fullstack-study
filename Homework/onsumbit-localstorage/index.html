@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <form onsubmit="logInfo(); return false" name="userInformation">
+      <div id="input-userName-div">
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName" required />
+      </div>
+      <div id="input-password-div">
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required />
+      </div>
+      <button>Register</button>
+    </form>
+    <hr />
+    <div id="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
