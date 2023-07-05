@@ -47,8 +47,9 @@ function loadAndResetKey(obj) {
 }
 
 function loadTableFromLocalStorage() {
-  userInformation['userName'].value = '';
-  userInformation['password'].value = '';
+  // userInformation['userName'].value = '';
+  // userInformation['password'].value = '';
+  userInformation.reset();
   const usersFromLocalStorage = JSON.parse(localStorage.getItem('data')) || [];
   for (user of usersFromLocalStorage) {
     addToTable(user);
