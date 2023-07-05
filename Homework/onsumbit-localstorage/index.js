@@ -29,6 +29,7 @@ function addToTable(obj) {
     const tableBody = document.getElementById("table-body");
   const newRow = document.createElement("tr");
 
+  // User the following in test for better performance!!
   let htmlString = "";
   for (const key in user) {
     htmlString += `<td>${user[key]}</td>`;
