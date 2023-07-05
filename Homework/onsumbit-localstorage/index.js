@@ -1,7 +1,7 @@
 function logInfo() {
-  const userInformation = document.forms["userInformation"];
-  let userName = userInformation["userName"].value;
-  let password = userInformation["password"].value;
+  const userInformation = document.forms['userInformation'];
+  let userName = userInformation['userName'].value;
+  let password = userInformation['password'].value;
 
   let user = {
     userName: userName,
@@ -13,11 +13,11 @@ function logInfo() {
 }
 
 function addToTable(obj) {
-  const tableBody = document.getElementById("table-body");
-  let newTr = document.createElement("tr");
+  const tableBody = document.getElementById('table-body');
+  let newTr = document.createElement('tr');
 
   for (const info in obj) {
-    const newTd = document.createElement("td");
+    const newTd = document.createElement('td');
     newTd.textContent = obj[info];
     newTr.appendChild(newTd);
   }
@@ -39,16 +39,16 @@ function addToTable(obj) {
 }
 
 function loadAndResetKey(obj) {
-  let usersFromLocalStorage = JSON.parse(localStorage.getItem("data")) || [];
-  console.log(usersFromLocalStorage);
+  let usersFromLocalStorage = JSON.parse(localStorage.getItem('data')) || [];
   usersFromLocalStorage.push(obj);
-  localStorage.setItem("data", JSON.stringify(usersFromLocalStorage));
+  localStorage.setItem('data', JSON.stringify(usersFromLocalStorage));
+  console.log(usersFromLocalStorage);
 }
 
 function loadTableFromLocalStorage() {
-  userInformation["userName"].value = "";
-  userInformation["password"].value = "";
-  const usersFromLocalStorage = JSON.parse(localStorage.getItem("data"));
+  userInformation['userName'].value = '';
+  userInformation['password'].value = '';
+  const usersFromLocalStorage = JSON.parse(localStorage.getItem('data')) || [];
   for (user of usersFromLocalStorage) {
     addToTable(user);
   }
