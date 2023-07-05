@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script defer src="./index.js"></script>
+    <!-- <script defer src="./index.js"></script> -->
+    <script defer src="./index2.js"></script>
   </head>
   <body>
     <form onsubmit="logInfo(); return false" name="userInformation">
@@ -17,7 +18,7 @@
         <input type="text" id="password" name="password" required />
       </div>
       <button>Register</button>
-    </form>
+    </form> 
     <hr />
     <div id="table-container">
       <table>
@@ -25,9 +26,10 @@
           <tr>
             <th>User Name</th>
             <th>Password</th>
+            <th>Delete</th>
           </tr>
         </thead>
-        <tbody id="table-body"></tbody>
+        <tbody id="tbody"></tbody>
       </table>
     </div>
   </body>

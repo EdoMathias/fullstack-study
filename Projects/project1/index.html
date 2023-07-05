@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./project.css">
+    <script defer src="./project.js"></script>
+    <title>Assignment Board</title>
+</head>
+<body>
+    <header>
+        <h1 id="board-header">My Task Board</h1>
+    </header>
+    <main>
+        <section id="form-section">
+            <form id="task-board-form" name="task-board-form" onsubmit="submitTask();return false" >
+                <div id="form-container">
+                    <div id="form-text-area-container">
+                        <label>Enter task's information:</label>
+                        <textarea id="form-text-area"></textarea>
+                    </div>
+                    <div id="form-date-container">
+                        <label id="form-date" for="date">Enter task's deadline</label>
+                        <input id="date" type="date" name="date">
+                    </div>
+                    <div id="form-time-container">
+                        <label id="form-time" for="time">Enter task's deadline</label>
+                        <input id="time" type="time" name="time">
+                    </div>
+                    <button id="submit-task">Submit task!</button>
+                </div>
+            </form>
+        </section>
+        <hr>
+        <section id="open-task-section">
+            <div id="open-task-container"></div>
+        </section>
+    </main>
+</body>
+</html>

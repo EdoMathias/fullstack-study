@@ -1,0 +1,13 @@
+html {
+    background-image: url("./tile.jpg");
+}
+
+/* Header style */
+#board-header {
+    text-align: center;
+}
+/* Form style */
+#task-board-form {
+    background-image: url("./formbg.jpg");
+}
+/* Note style */
