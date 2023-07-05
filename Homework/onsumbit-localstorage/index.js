@@ -41,7 +41,7 @@ function addToTable(obj) {
 
 function loadAndResetKey(obj) {
   let usersFromLocalStorage = JSON.parse(localStorage.getItem('data')) || [];
-  usersFromLocalStorage.push(obj);
+  usersFromLocalStorage.push(obj); // can also use usersFromLocalStorage[usersFromLocalStorage.length]
   localStorage.setItem('data', JSON.stringify(usersFromLocalStorage));
   console.log(usersFromLocalStorage);
 }
