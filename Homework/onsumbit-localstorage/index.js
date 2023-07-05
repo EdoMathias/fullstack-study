@@ -10,6 +10,7 @@ function logInfo() {
 
   addToTable(user);
   loadAndResetKey(user);
+  userInformation.reset();
 }
 
 function addToTable(obj) {
