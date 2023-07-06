@@ -15,8 +15,9 @@ function submitTask() {
     dueDate: dueDate,
     dueTime: dueTime,
   };
-  console.log(tasks);
+  // console.log(tasks);
   createTaskCard();
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 // function for creating a task card from an object
@@ -28,6 +29,7 @@ function createTaskCard() {
         <p>${tasks[i].taskInfo}</p>
         <p>${tasks[i].dueDate}</p>
         <p>${tasks[i].dueTime}</p>
+        <button onclick='deleteTask()'>X</button>
       </div>
       `;
   }
@@ -35,3 +37,18 @@ function createTaskCard() {
 
 // function for deleteing a task
 function deleteTask() {}
+
+// function for loading and re-setting local storage
+function loadAndResetKey() {
+  let tasksFromLocalStorage = localStorage.getItem('tasks');
+  if (tasksFromLocalStorage) {
+    tasks = JSON.parse(tasksFromLocalStorage);
+  } else {
+    tasksFromLocalStorage = [];
+  }
+  createTaskCard();
+  // console.log(tasksFromLocalStorage);
+}
+loadAndResetKey();
+
+// localStorage.setItem('users', JSON.stringify(users));
