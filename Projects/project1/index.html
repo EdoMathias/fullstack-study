@@ -16,16 +16,16 @@
             <form id="task-board-form" name="task-board-form" onsubmit="submitTask();return false" >
                 <div id="form-container">
                     <div id="form-text-area-container">
-                        <label>Enter task's information:</label>
-                        <textarea id="form-text-area"></textarea>
+                        <label for="form-text-area">Enter task's information:</label>
+                        <textarea id="form-text-area" name="form-text-area"></textarea>
                     </div>
                     <div id="form-date-container">
-                        <label id="form-date" for="date">Enter task's deadline</label>
-                        <input id="date" type="date" name="date">
+                        <label id="form-date" for="form-date">Enter task's deadline</label>
+                        <input id="date" type="date" name="form-date">
                     </div>
                     <div id="form-time-container">
-                        <label id="form-time" for="time">Enter task's deadline</label>
-                        <input id="time" type="time" name="time">
+                        <label id="form-time" for="form-time">Enter task's deadline</label>
+                        <input id="time" type="time" name="form-time">
                     </div>
                     <button id="submit-task">Submit task!</button>
                 </div>
