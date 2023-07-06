@@ -16,3 +16,10 @@ html {
     width: 200px;
     height: 250px;
 }
+/* Delete button style */
+.delete-button {
+    display: none;
+}
+.task-card:hover .delete-button {
+    display: block;
+}

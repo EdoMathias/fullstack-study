@@ -29,14 +29,24 @@ function createTaskCard() {
         <p>${tasks[i].taskInfo}</p>
         <p>${tasks[i].dueDate}</p>
         <p>${tasks[i].dueTime}</p>
-        <button onclick='deleteTask()'>X</button>
+        <button class='delete-button' onclick='deleteTask(${i})'>X</button>
       </div>
       `;
   }
 }
 
 // function for deleteing a task
-function deleteTask() {}
+function deleteTask(taskCardIndex) {
+  let newTaskCards = [];
+  for (let i = 0; i < tasks.length; i++) {
+    if (taskCardIndex !== i) {
+      newTaskCards[newTaskCards.length] = tasks[i];
+    }
+  }
+  tasks = newTaskCards;
+  createTaskCard();
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
 // function for loading and re-setting local storage
 function loadAndResetKey() {
@@ -50,5 +60,3 @@ function loadAndResetKey() {
   // console.log(tasksFromLocalStorage);
 }
 loadAndResetKey();
-
-// localStorage.setItem('users', JSON.stringify(users));
