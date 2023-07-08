@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./project.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./project2.css" />
     <script defer src="./project.js"></script>
     <title>Assignment Board</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1 id="board-header">My Task Board</h1>
+      <h1 id="board-header">My Task Board</h1>
     </header>
     <main>
-        <section id="form-section">
-            <form id="task-board-form" name="task-board-form" onsubmit="submitTask();return false" >
-                <div id="form-container">
-                    <div class="form-label-containers" id="form-text-area-label-container">
-                        <label for="form-text-area-label">Enter task's information:</label>
-                    </div>
-                    <div id="form-text-area-container">
-                        <textarea id="form-text-area" name="form-text-area"></textarea>
-                    </div>
-                    <div class="form-label-containers" id="form-date-container">
-                        <label id="form-date-label" for="form-date">Due date:</label>
-                    </div>
-                    <div id="form-date-input-container">
-                        <input onclick="this.showPicker()" id="form-date" type='date' name="form-date">
-                    </div>
-                    <div class="form-label-containers" id="form-time-container">
-                        <label id="form-time-label" for="form-time">Due time:</label>
-                    </div>
-                    <div id="form-time-input-container">
-                        <input onclick="this.showPicker()" id="time" type="time" name="form-time">
-                    </div>
-                    <button id="submit-task">Submit task!</button>
-                </div>
-            </form>
-        </section>
-        <hr>
-        <section id="open-task-section">
-            <div id="open-task-container"></div>
-        </section>
+      <section id="form-section">
+        <form
+          id="task-board-form"
+          name="task-board-form"
+          onsubmit="submitTask();return false"
+        >
+          <div id="form-container">
+            <div
+              class="form-label-containers"
+              id="form-text-area-label-container"
+            >
+              <label for="form-text-area-label"
+                >Enter task's information:</label
+              >
+            </div>
+            <div id="form-text-area-container">
+              <textarea id="form-text-area" name="form-text-area"></textarea>
+            </div>
+            <div class="form-label-containers" id="form-date-container">
+              <label id="form-date-label" for="form-date">Due date:</label>
+            </div>
+            <div id="form-date-input-container">
+              <input
+                onclick="this.showPicker()"
+                id="form-date"
+                type="date"
+                name="form-date"
+              />
+            </div>
+            <div class="form-label-containers" id="form-time-container">
+              <label id="form-time-label" for="form-time">Due time:</label>
+            </div>
+            <div id="form-time-input-container">
+              <input
+                onclick="this.showPicker()"
+                id="time"
+                type="time"
+                name="form-time"
+              />
+            </div>
+            <button id="submit-task">Submit task!</button>
+          </div>
+        </form>
+      </section>
+      <hr />
+      <section id="open-task-section">
+        <div id="open-task-container"></div>
+      </section>
     </main>
-</body>
+  </body>
 </html>

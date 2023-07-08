@@ -6,14 +6,13 @@ html {
   background-image: url("./tile.jpg");
 }
 
+body {
+  background-color: transparent !important;
+}
+
 /* Header style */
 #board-header {
   text-align: center;
-}
-
-#form-section {
-  display: flex;
-  justify-content: center;
 }
 
 /* Form style */
@@ -21,16 +20,19 @@ html {
   background-image: url("./formbg.jpg");
   margin: 0 auto; /* Center the form horizontally */
   text-align: center;
+  width: 80%; /* Adjust the width to fit the screen */
 }
 
 #form-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 80px 200px 80px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 200px 200px 80px;
   grid-template-areas:
-    "header header header"
-    "text date time"
-    "submit submit submit";
+    "header"
+    "text"
+    "date"
+    "time"
+    "submit";
   gap: 10px;
 }
 
@@ -38,6 +40,13 @@ html {
 .form-label-containers {
   display: grid;
   align-items: center;
+}
+
+#form-date-label {
+  display: none;
+}
+#form-time-label {
+  display: none;
 }
 
 /* Text Area style */
@@ -63,8 +72,8 @@ html {
 }
 
 input[type="date"] {
-  width: 90%;
-  height: 90%;
+  width: 60%;
+  height: 60%;
   text-align: center;
 }
 
@@ -75,20 +84,25 @@ input[type="date"] {
   justify-items: center;
   align-items: center;
 }
+
 input[type="time"] {
-  width: 90%;
-  height: 90%;
+  width: 60%;
+  height: 60%;
   text-align: center;
 }
 
 /* Submit button style */
 #submit-task {
   grid-area: submit;
+  width: 50%;
+  justify-self: center;
 }
 
 /* Task Card container style */
 #open-task-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 /* Task Card style */
@@ -96,6 +110,14 @@ input[type="time"] {
   background-image: url("./notebg.png");
   width: 200px;
   height: 250px;
+  opacity: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas: "delete" "taskInfo" "taskDateTime";
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 5px;
 }
 
 /* Delete button style */
@@ -105,21 +127,33 @@ input[type="time"] {
 
 .task-card:hover .delete-button {
   display: block;
+  justify-self: end;
 }
 
-/* Responsive Styles */
+.taskInfo {
+  grid-area: taskInfo;
+  margin-top: 0px;
+}
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+.taskDate {
+  margin-top: 0px;
+  grid-area: taskDateTime;
+}
+
+.taskTime {
+  grid-area: taskDateTime;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
   #form-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 200px 200px 80px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 80px 200px 80px;
     grid-template-areas:
-      "header"
-      "text"
-      "date"
-      "time"
-      "submit";
+      "header header header"
+      "text date time"
+      "submit submit submit";
+    gap: 10px;
   }
 
   #form-text-area {
@@ -128,25 +162,32 @@ input[type="time"] {
   }
 
   input[type="date"] {
-    width: 60%;
-    height: 60%;
+    width: 90%;
+    height: 90%;
     text-align: center;
   }
+
   input[type="time"] {
-    width: 60%;
-    height: 60%;
+    width: 90%;
+    height: 90%;
     text-align: center;
   }
 
   #task-board-form {
-    width: 80%;
-    margin: 0 auto; /* Center the form horizontally */
+    width: auto; /* Remove the fixed width to allow it to expand */
+    margin: 0 auto; /* Remove the horizontal margin */
+    width: 60%;
   }
 
   #form-date-label {
-    display: none;
+    display: block; /* Show the date label */
   }
+
   #form-time-label {
-    display: none;
+    display: block; /* Show the time label */
+  }
+
+  #open-task-container {
+    display: flex;
   }
 }
