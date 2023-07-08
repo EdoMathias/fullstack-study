@@ -22,25 +22,28 @@ function createTaskCard() {
   for (let i = 0; i < tasks.length; i++) {
     document.querySelector("#open-task-container").innerHTML += `
     <div class="task-card fade-in">
-        <div class="row">
-            <div class="col-12">
-                <button class="delete-button" onclick="deleteTask(${i})">X</button>
-            </div>
+    <div class="row">
+      <div class="col-12">
+        <button class="delete-button btn" onclick="deleteTask(${i})">
+          <i class="bi bi-trash-fill fs-5"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="task-info-container">
+          <p class="taskInfo larger-text">${tasks[i].taskInfo}</p>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="task-info-container">
-                    <p class="taskInfo">${tasks[i].taskInfo}</p>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-auto">
-            <div class="col-12 d-flex flex-column">
-                <p class="taskDate">${tasks[i].dueDate}</p>
-                <p class="taskTime">${tasks[i].dueTime}</p>
-            </div>
-        </div>
-    </div>`;
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <p class="taskDate mb-0">${tasks[i].dueDate}</p>
+        <p class="taskTime">${tasks[i].dueTime}</p>
+      </div>
+    </div>
+  </div>
+  `;
   }
 }
 

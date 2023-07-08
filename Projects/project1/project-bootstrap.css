@@ -31,7 +31,7 @@ body {
 
 .delete-button {
   float: right;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .task-card:hover .delete-button {
@@ -41,13 +41,6 @@ body {
 .task-info-container {
   overflow-wrap: break-word;
   overflow-y: scroll;
-  max-height: 100px;
-}
-
-.taskInfo {
-  margin-bottom: 0;
-}
-
-.taskDateTime {
-  margin-top: auto;
+  height: 110px;
+  max-height: 110px;
 }
