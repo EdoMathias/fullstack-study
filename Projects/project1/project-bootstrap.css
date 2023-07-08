@@ -31,7 +31,7 @@ body {
 
 .delete-button {
   float: right;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .task-card:hover .delete-button {

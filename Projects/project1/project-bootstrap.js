@@ -24,7 +24,7 @@ function createTaskCard() {
     <div class="task-card fade-in">
     <div class="row">
       <div class="col-12">
-        <button class="delete-button btn" onclick="deleteTask(${i})">
+        <button class="delete-button btn focus" onclick="deleteTask(${i})">
           <i class="bi bi-trash-fill fs-5"></i>
         </button>
       </div>
