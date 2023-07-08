@@ -174,17 +174,17 @@ input[type="time"] {
   }
 
   #task-board-form {
-    width: auto; /* Remove the fixed width to allow it to expand */
-    margin: 0 auto; /* Remove the horizontal margin */
+    width: auto;
+    margin: 0 auto;
     width: 60%;
   }
 
   #form-date-label {
-    display: block; /* Show the date label */
+    display: block;
   }
 
   #form-time-label {
-    display: block; /* Show the time label */
+    display: block;
   }
 
   #open-task-container {
