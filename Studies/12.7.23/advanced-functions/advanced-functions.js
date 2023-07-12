@@ -50,7 +50,7 @@ const btn4Handler = () => {
   writeMessage('hello');
 };
 
-// Callback function
+// setTimeout function
 function btn5Handler() {
   const fn1 = (msg) => {
     setTimeout(() => {
@@ -58,4 +58,20 @@ function btn5Handler() {
     }, 5000);
   };
   fn1('hello after timeout');
+}
+
+// setInterval function
+function btn6Handler() {
+  const fn = () => {
+    // setInterval(() => {
+    //   document.getElementById('randomNumber').innerText = Math.floor(
+    //     Math.random() * 10
+    //   );
+    // }, 2000);
+    setInterval(() => {
+      document.getElementById('randomNumber').innerText =
+        new Date().toLocaleString();
+    }, 1000);
+  };
+  fn();
 }
