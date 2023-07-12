@@ -66,3 +66,26 @@ function btn4Handler() {
     console.log('Finally block');
   }
 }
+
+// Class assignment //
+function divide() {
+  let a = +prompt('Enter first number');
+  let b = +prompt('Enter first number');
+  if (b === 0) {
+    throw new Error('Cannot divide by 0');
+  }
+  return a / b;
+}
+function callToDivide() {
+  let finalNum;
+  try {
+    finalNum = divide();
+  } catch (error) {
+    console.log(error);
+  }
+  if (finalNum !== undefined) {
+    console.log(`Final num is ${finalNum}`);
+  } else {
+    console.log(`You can't divide by 0`);
+  }
+}
