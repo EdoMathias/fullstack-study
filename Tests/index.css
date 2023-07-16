@@ -1,0 +1,11 @@
+#form-container {
+    border: 1px solid black;
+}
+
+textarea{
+    resize: none !important;
+}
+
+.img-fluid {
+    max-width: 20% !important;
+}
