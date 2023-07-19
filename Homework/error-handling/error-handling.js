@@ -48,3 +48,23 @@ function getAveragePay() {
     console.log('could not calc average pay');
   }
 }
+
+/////////
+
+const arrOfStrings = ['edo', 'shira', 'noa', '4', '56', '8'];
+
+function printList(arr) {
+  document.querySelector('#list').innerHTML = '';
+
+  let i = 0;
+  setInterval(() => {
+    if (i < arr.length) {
+      document.querySelector('#list').innerHTML += `<li>${arr[i]}</li>`;
+      i++;
+    }
+  }, 1000);
+}
+
+function callPrintList() {
+  printList(arrOfStrings);
+}
