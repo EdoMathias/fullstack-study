@@ -1,7 +1,7 @@
 let tasks = [];
 const taskForm = document.forms['task-board-form'];
 
-// function for submitTask()
+// function to sumbit a task based on form's values
 function submitTask() {
   const taskInfo = taskForm['task-info'].value;
   const dueDate = taskForm['due-date'].value;
@@ -16,7 +16,13 @@ function submitTask() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// function for creating a task card from an object
+// function to clear form
+function clearForm() {
+  taskForm.reset();
+}
+
+// function for creating a task card with fade that takes a condition
+// to use fade-in class or not
 function createTaskCardWithFade(condition) {
   document.querySelector('#open-task-container').innerHTML = '';
   let taskCard = '';

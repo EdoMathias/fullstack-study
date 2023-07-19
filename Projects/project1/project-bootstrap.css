@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 html {
   background-image: url("./tile.jpg");
+}
+
+#board-header{
+  font-family: 'Roboto Mono', monospace;
 }
 
 body {
