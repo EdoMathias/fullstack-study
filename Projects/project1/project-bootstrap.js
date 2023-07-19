@@ -12,16 +12,23 @@ function submitTask() {
     dueDate: dueDate,
     dueTime: dueTime,
   };
-  createTaskCardWithFade();
+  createTaskCardWithFade(true);
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 // function for creating a task card from an object
-function createTaskCard() {
+function createTaskCardWithFade(condition) {
   document.querySelector('#open-task-container').innerHTML = '';
+  let taskCard = '';
   for (let i = 0; i < tasks.length; i++) {
-    document.querySelector('#open-task-container').innerHTML += `
-    <div class="task-card">
+    if (condition === true) {
+      taskCard += `
+      <div class="task-card fade-in">`;
+    } else {
+      taskCard += `
+      <div class="task-card">`;
+    }
+    taskCard += `
     <div class="row">
       <div class="col-12">
         <button class="delete-button btn focus" onclick="deleteTask(${i})">
@@ -45,36 +52,7 @@ function createTaskCard() {
   </div>
   `;
   }
-}
-// function for creating a task card from an object
-function createTaskCardWithFade() {
-  document.querySelector('#open-task-container').innerHTML = '';
-  for (let i = 0; i < tasks.length; i++) {
-    document.querySelector('#open-task-container').innerHTML += `
-    <div class="task-card fade-in">
-    <div class="row">
-      <div class="col-12">
-        <button class="delete-button btn focus" onclick="deleteTask(${i})">
-          <i class="bi bi-trash-fill fs-5"></i>
-        </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="task-info-container">
-          <p class="taskInfo larger-text">${tasks[i].taskInfo}</p>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-12">
-        <p class="taskDate mb-0">${tasks[i].dueDate}</p>
-        <p class="taskTime">${tasks[i].dueTime}</p>
-      </div>
-    </div>
-  </div>
-  `;
-  }
+  document.querySelector('#open-task-container').innerHTML += taskCard;
 }
 
 // function for deleteing a task
@@ -86,7 +64,7 @@ function deleteTask(taskCardIndex) {
     }
   }
   tasks = newTaskCards;
-  createTaskCard();
+  createTaskCardWithFade(false);
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -98,6 +76,6 @@ function loadAndResetKey() {
   } else {
     tasksFromLocalStorage = [];
   }
-  createTaskCard();
+  createTaskCardWithFade(false);
 }
 loadAndResetKey();
