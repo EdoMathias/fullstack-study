@@ -24,7 +24,6 @@ function clearForm() {
 // function for creating a task card with fade that takes a condition
 // to use fade-in class or not
 function createTaskCardWithFade(condition) {
-  document.querySelector('#open-task-container').innerHTML = '';
   let taskCard = '';
   for (let i = 0; i < tasks.length; i++) {
     if (condition === true) {
@@ -58,7 +57,7 @@ function createTaskCardWithFade(condition) {
   </div>
   `;
   }
-  document.querySelector('#open-task-container').innerHTML += taskCard;
+  document.querySelector('.open-task-container').innerHTML = taskCard;
 }
 
 // function for deleteing a task

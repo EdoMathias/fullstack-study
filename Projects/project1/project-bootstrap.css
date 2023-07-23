@@ -4,7 +4,7 @@ html {
   background-image: url("./tile.jpg");
 }
 
-#board-header{
+.board-header{
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -12,12 +12,8 @@ body {
   background-color: transparent !important;
 }
 
-#form-container {
+.form-container {
   background-image: url("./formbg.jpg");
-}
-
-#task-info {
-  resize: none;
 }
 
 .task-card {
