@@ -57,7 +57,7 @@ function createTaskCardWithFade(condition) {
   </div>
   `;
   }
-  document.querySelector('.open-task-container').innerHTML = taskCard;
+  document.querySelector('#open-task-container').innerHTML = taskCard;
 }
 
 // function for deleteing a task
