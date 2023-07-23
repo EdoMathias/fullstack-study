@@ -1,27 +1,39 @@
 let tasks = [];
-const taskForm = document.forms["task-board-form"];
+const taskForm = document.forms['task-board-form'];
 
-// function for submitTask()
+// function to sumbit a task based on form's values
 function submitTask() {
-  const taskInfo = taskForm["task-info"].value;
-  const dueDate = taskForm["due-date"].value;
-  const dueTime = taskForm["due-time"].value;
+  const taskInfo = taskForm['task-info'].value;
+  const dueDate = taskForm['due-date'].value;
+  const dueTime = taskForm['due-time'].value;
 
   tasks[tasks.length] = {
     taskInfo: taskInfo,
     dueDate: dueDate,
     dueTime: dueTime,
   };
-  createTaskCard();
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  createTaskCardWithFade(true);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// function for creating a task card from an object
-function createTaskCard() {
-  document.querySelector("#open-task-container").innerHTML = "";
+// function to clear form
+function clearForm() {
+  taskForm.reset();
+}
+
+// function for creating a task card with fade that takes a condition
+// to use fade-in class or not
+function createTaskCardWithFade(condition) {
+  let taskCard = '';
   for (let i = 0; i < tasks.length; i++) {
-    document.querySelector("#open-task-container").innerHTML += `
-    <div class="task-card fade-in">
+    if (condition === true) {
+      taskCard += `
+      <div class="task-card fade-in">`;
+    } else {
+      taskCard += `
+      <div class="task-card">`;
+    }
+    taskCard += `
     <div class="row">
       <div class="col-12">
         <button class="delete-button btn focus" onclick="deleteTask(${i})">
@@ -45,6 +57,7 @@ function createTaskCard() {
   </div>
   `;
   }
+  document.querySelector('#open-task-container').innerHTML = taskCard;
 }
 
 // function for deleteing a task
@@ -56,18 +69,18 @@ function deleteTask(taskCardIndex) {
     }
   }
   tasks = newTaskCards;
-  createTaskCard();
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  createTaskCardWithFade(false);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 // function for loading and re-setting local storage
 function loadAndResetKey() {
-  let tasksFromLocalStorage = localStorage.getItem("tasks");
+  let tasksFromLocalStorage = localStorage.getItem('tasks');
   if (tasksFromLocalStorage) {
     tasks = JSON.parse(tasksFromLocalStorage);
   } else {
     tasksFromLocalStorage = [];
   }
-  createTaskCard();
+  createTaskCardWithFade(false);
 }
 loadAndResetKey();

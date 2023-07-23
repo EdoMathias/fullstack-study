@@ -1,17 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 html {
   background-image: url("./tile.jpg");
+}
+
+.board-header{
+  font-family: 'Roboto Mono', monospace;
 }
 
 body {
   background-color: transparent !important;
 }
 
-#form-container {
+.form-container {
   background-image: url("./formbg.jpg");
-}
-
-#task-info {
-  resize: none;
 }
 
 .task-card {
@@ -27,6 +29,23 @@ body {
   padding-top: 20px;
   padding-right: 20px;
   padding-left: 5px;
+}
+
+.fade-in:last-child {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .delete-button {
