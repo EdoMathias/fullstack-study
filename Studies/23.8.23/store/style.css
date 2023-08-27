@@ -1,0 +1,19 @@
+.products-table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.products-table td, .products-table th {
+    border: 1px solid black;
+}
+
+.product-image {
+    width: 50px;
+}
+
+.ellipsis-150 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
