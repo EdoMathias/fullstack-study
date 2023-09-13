@@ -71,8 +71,42 @@
           class="container-fluid d-flex flex-row flex-wrap"
         >
           <div class="card">
-            <div class="card-body" id="card1">
-              This is some text within a card body.
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>${coinId}</h4>
+                </div>
+                <div class="col-md-6 text-end">
+                  <button type="button" class="btn" data-bs-toggle="button">
+                    Track Coin
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>${coinName}</h6>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#more-info-collapse"
+                    aria-expanded="false"
+                    aria-controls="more-info-collapse"
+                  >
+                    More info
+                  </button>
+                </div>
+              </div>
+              <div
+                class="collapse card-footer bg-transparent"
+                id="more-info-collapse"
+              >
+                <p class="text-justify text-wrap mt-2">placeholder text</p>
+              </div>
             </div>
           </div>
         </div>
