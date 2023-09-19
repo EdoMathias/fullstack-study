@@ -41,10 +41,9 @@ export function generateCards(data) {
               class="btn btn-primary"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#more-info-collapse"
+              data-bs-target="#cardNum${i}"
               aria-expanded="false"
-              aria-controls="more-info-collapse"
-              id="cardNum${i}"
+              aria-controls="cardNum${i}"
             >
               More info
             </button>
@@ -52,7 +51,7 @@ export function generateCards(data) {
         </div>
         <div
           class="collapse card-footer bg-transparent"
-          id="more-info-collapse"
+          id="cardNum${i}"
         >
           <p class="text-justify text-wrap mt-2">placeholder text</p>
         </div>
