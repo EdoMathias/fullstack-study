@@ -6,7 +6,7 @@ async function init() {
   try {
     const coins = await getAllCoins();
     console.log(coins);
-    // generateCards(coins);
+    generateCards(coins);
   } catch (error) {
     console.error(error);
   }

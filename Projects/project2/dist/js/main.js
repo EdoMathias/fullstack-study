@@ -8,13 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { getAllCoins } from './utils/Coins.js';
+import { generateCards } from './utils/Card.js';
 // import { Coins } from './utils/Coins.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const coins = yield getAllCoins();
             console.log(coins);
-            // generateCards(coins);
+            generateCards(coins);
         }
         catch (error) {
             console.error(error);
