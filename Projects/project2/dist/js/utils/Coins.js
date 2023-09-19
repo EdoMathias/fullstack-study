@@ -7,19 +7,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+// import { Coin } from '../types/Coin-type';
 const baseUrl = `https://api.coingecko.com/api/v3/coins/list`;
-export class Coins {
-    constructor(_coins) {
-        this._coins = _coins;
-    }
-    static getAllCoins() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const result = yield fetch(baseUrl);
-            const _coins = yield result.json();
-            console.log(_coins);
-        });
-    }
-    static getFilteredCoin(search) {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+let coinsData = [];
+export function getAllCoins() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const result = yield fetch(`https://api.coingecko.com/api/v3/coins/list`);
+            coinsData = yield result.json();
+            return coinsData;
+        }
+        catch (error) {
+            console.error(error);
+            return coinsData;
+        }
+    });
 }
+// export async function main() {
+//   try {
+//     const coins = await getAllCoins();
+//     console.log(coins);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+// main();

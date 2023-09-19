@@ -1,12 +1,15 @@
 import { Fetch } from './utils/Fetch.js';
-import { Coins } from './utils/Coins.js';
+import { getAllCoins } from './utils/Coins.js';
+import { generateCards } from './utils/Card.js';
+// import { Coins } from './utils/Coins.js';
 async function init() {
-  // const baseUrl = 'https://api.coingecko.com/api/v3/coins';
-  const result = await Coins.getAllCoins();
-  console.log(result);
-  const filteredCoin = result.getFilteredCoin('BTC');
-  console.log(filteredCoin);
-
+  try {
+    const coins = await getAllCoins();
+    console.log(coins);
+    // generateCards(coins);
+  } catch (error) {
+    console.error(error);
+  }
   ///...
 }
 init();

@@ -1,23 +1,27 @@
-import { Coin } from '../types/card';
+import { Coin } from '../types/Coin-type';
+
+// import { Coin } from '../types/Coin-type';
 const baseUrl = `https://api.coingecko.com/api/v3/coins/list`;
-export class Coins {
-  constructor(private _coins: Coin[]) {}
 
-  static async getAllCoins() {
-    const result = await fetch(baseUrl);
-    const coins = await result.json();
-    return new Coins(coins);
-  }
+let coinsData: Coin[] = [];
 
-  getFilteredCoin(search: string) {
-    const filteredCoin = this._coins.find(
-      (coin: { symbol: string }) => coin.symbol === search
-    );
-    if (!filteredCoin) {
-      throw new Error('Coin does not exist!');
-    }
-    if (filteredCoin.symbol) {
-      return filteredCoin;
-    }
+export async function getAllCoins() {
+  try {
+    const result = await fetch(`https://api.coingecko.com/api/v3/coins/list`);
+    coinsData = await result.json();
+    return coinsData;
+  } catch (error) {
+    console.error(error);
+    return coinsData;
   }
 }
+
+// export async function main() {
+//   try {
+//     const coins = await getAllCoins();
+//     console.log(coins);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+// main();
