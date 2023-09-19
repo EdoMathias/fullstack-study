@@ -7,8 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// import { Coin } from '../types/Coin-type';
-const baseUrl = `https://api.coingecko.com/api/v3/coins/list`;
 let coinsData = [];
 export function getAllCoins() {
     return __awaiter(this, void 0, void 0, function* () {

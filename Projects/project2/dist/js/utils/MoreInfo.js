@@ -7,33 +7,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { getAllCoins } from './utils/Coins.js';
-import { generateCards } from './utils/Card.js';
-import { fetchMoreInfo } from './utils/MoreInfo.js';
-// import { Coins } from './utils/Coins.js';
-function init() {
+export function fetchMoreInfo(cardId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const coins = yield getAllCoins();
-            console.log(coins);
-            generateCards(coins);
-        }
-        catch (error) {
-            console.error(error);
-        }
-        ///...
-    });
-}
-init();
-function moreInfo(id) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const result = yield fetchMoreInfo(id);
-            console.log(result);
+            const result = yield fetch(`https://api.coingecko.com/api/v3/coins/${cardId}`);
+            const coinData = yield result.json();
+            const currentPrice = coinData.market_data.current_price;
+            const filteredCoin = {
+                coinData: {
+                    usd: currentPrice.usd,
+                    eur: currentPrice.eur,
+                    ils: currentPrice.ils,
+                    picture: coinData.image.small,
+                },
+            };
+            return filteredCoin;
         }
         catch (error) {
             console.error(error);
         }
     });
 }
-moreInfo('01coin');

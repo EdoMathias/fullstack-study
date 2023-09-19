@@ -1,6 +1,7 @@
 import { Fetch } from './utils/Fetch.js';
 import { getAllCoins } from './utils/Coins.js';
 import { generateCards } from './utils/Card.js';
+import { fetchMoreInfo } from './utils/MoreInfo.js';
 // import { Coins } from './utils/Coins.js';
 async function init() {
   try {
@@ -14,7 +15,12 @@ async function init() {
 }
 init();
 
-async function getMoreInfo(id: string) {
-  const baseUrl = 'https://api.coingecko.com/api/v3/coins';
-  // const data = Fetch.get(`${baseUrl}/${id}`);
+async function moreInfo(id: string) {
+  try {
+    const result = await fetchMoreInfo(id);
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
 }
+moreInfo('01coin');

@@ -1,8 +1,4 @@
 import { Coin } from '../types/Coin-type';
-
-// import { Coin } from '../types/Coin-type';
-const baseUrl = `https://api.coingecko.com/api/v3/coins/list`;
-
 let coinsData: Coin[] = [];
 
 export async function getAllCoins() {
