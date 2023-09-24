@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { getAllCoins } from "./utils/Coins.js";
 import { generateCards } from "./utils/Card.js";
+import { trackToggleInputs } from "./utils/TrackCoin.js";
 // import { Coins } from './utils/Coins.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -20,7 +21,12 @@ function init() {
         catch (error) {
             console.error(error);
         }
-        ///...
+        try {
+            yield trackToggleInputs();
+        }
+        catch (error) {
+            console.error(error);
+        }
     });
 }
 init();

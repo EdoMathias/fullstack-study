@@ -1,4 +1,4 @@
-import { Coin } from '../types/Coin-type';
+import { Coin } from "../types/Coin-type";
 let coinsData: Coin[] = [];
 
 export async function getAllCoins() {

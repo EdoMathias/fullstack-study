@@ -35,9 +35,9 @@ export function generateCards(data: Coin[]) {
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="${coinData.id}"
               />
-              <label class="form-check-label" for="flexSwitchCheckDefault"
+              <label class="form-check-label" for="${coinData.id}"
                 >Track Coin</label
               >
             </div>
