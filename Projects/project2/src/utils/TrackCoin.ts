@@ -6,8 +6,9 @@ export async function trackToggleInputs() {
   coinData = await getAllCoins();
 
   const cardIds = coinData.map((coin) => coin.id);
-  console.log(cardIds);
+  console.log(cardIds); // remove later
 
+  const trackedCoins: string[] = [];
   const cardStates: Record<string, boolean> = {};
 
   cardIds.forEach((cardId) => {
@@ -24,30 +25,60 @@ export async function trackToggleInputs() {
 
         // Check how many cards are checked
         let checkedCount = 0;
+        trackedCoins.length = 0;
         for (const id in cardStates) {
           if (cardStates[id]) {
+            trackedCoins.push(id);
             checkedCount++;
           }
         }
+        console.log(trackedCoins, trackedCoins.length);
 
-        if (checkedCount >= 5) {
-          // Disable further selections if 5 cards are already checked
-          cardIds.forEach((id) => {
-            const input = document.getElementById(id) as HTMLInputElement;
-            if (input && !cardStates[id]) {
-              input.disabled = true;
-            }
-          });
-        } else {
-          // Enable all inputs if less than 5 cards are checked
-          cardIds.forEach((id) => {
-            const input = document.getElementById(id) as HTMLInputElement;
-            if (input) {
-              input.disabled = false;
-            }
-          });
+        if (checkedCount >= 6) {
+          updateModalContents(trackedCoins);
         }
       });
     }
   });
+}
+
+function updateModalContents(trackedCoins: string[]) {
+  const modalHeader = document.querySelector(".modal-title");
+  const modalBody = document.querySelector(".modal-body");
+  let modalBodyData = "";
+  for (let i = 0; i < 5; i++) {
+    modalBodyData += `<div class="row">
+              <div class="col-sm-6">
+                <h4>${trackedCoins[i]}</h4>
+              </div>
+              <div class="col-sm-6">
+                <div
+                  class="form-check form-switch d-flex justify-content-sm-evenly"
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="${trackedCoins[i]}"
+                  />
+                  <label class="form-check-label" for="${trackedCoins[i]}"
+                    >Track Coin</label
+                  >
+                </div>
+              </div>
+            </div>
+      `;
+  }
+  if (modalHeader && modalBody) {
+    modalBody.innerHTML = modalBodyData;
+    modalHeader.textContent = `You're trying to add: ${
+      trackedCoins[trackedCoins.length - 1]
+    }`;
+    console.log("modalBody updated");
+    showModal();
+  }
+}
+
+function showModal() {
+  $("#myModal").modal("show");
 }
