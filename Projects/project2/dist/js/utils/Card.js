@@ -7,23 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { fetchMoreInfo } from "./MoreInfo.js";
-// import { CoinMarketData } from '../types/Coin-type';
+import { Info } from './Info.js';
 export function generateCards(data) {
-    const cardContainer = document.getElementById("coin-cards-div");
+    const cardContainer = document.getElementById('coin-cards-div');
     const cardsToLoad = 20;
     let cardsData = ``;
-    function callFetchMoreInfo(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const result = yield fetchMoreInfo(id);
-                console.log(result);
-            }
-            catch (error) {
-                console.error(error);
-            }
-        });
-    }
     function batchLoad(startIndex) {
         for (let i = 0; i < Math.min(startIndex + cardsToLoad, data.length); i++) {
             const coinData = data[i];
@@ -59,13 +47,13 @@ export function generateCards(data) {
         <div class="row">
           <div class="col-md-6">
             <button
-              class="btn btn-primary"
+              class="btn btn-primary more-info-buttons"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#cardNum${i}"
               aria-expanded="false"
               aria-controls="cardNum${i}"
-              id="more-info-button${i}"
+              id="${coinData.id}" 
             >
               More info
             </button>
@@ -82,6 +70,16 @@ export function generateCards(data) {
         }
         if (cardContainer) {
             cardContainer.innerHTML = cardsData;
+            const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
+            moreinfoButtons.forEach((button) => {
+                console.log(button.id);
+                button.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+                    const result = yield Info.get(`https://api.coingecko.com/api/v3/coins/${button.id}`);
+                    console.log(result);
+                    console.log(`Clicked ${button.id}`);
+                }));
+            });
+            console.log(moreinfoButtons);
         }
         if (startIndex + cardsToLoad < 100) {
             // if (startIndex + cardsToLoad < data.length) {

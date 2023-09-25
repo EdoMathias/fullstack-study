@@ -1,5 +1,5 @@
-import { Coin } from "../types/Coin-type";
-import { getAllCoins } from "./Coins.js";
+import { Coin } from '../types/Coin-type';
+import { getAllCoins } from './Coins.js';
 
 export async function trackToggleInputs() {
   let coinData: Coin[] = [];
@@ -15,11 +15,11 @@ export async function trackToggleInputs() {
     const toggleInput = document.getElementById(cardId) as HTMLInputElement;
 
     if (toggleInput) {
-      toggleInput.addEventListener("change", () => {
+      toggleInput.addEventListener('change', () => {
         cardStates[cardId] = toggleInput.checked;
         console.log(
           `Toggle for card ${cardId} is ${
-            toggleInput.checked ? "checked" : "unchecked"
+            toggleInput.checked ? 'checked' : 'unchecked'
           }.`
         );
 
@@ -43,9 +43,9 @@ export async function trackToggleInputs() {
 }
 
 function updateModalContents(trackedCoins: string[]) {
-  const modalHeader = document.querySelector(".modal-title");
-  const modalBody = document.querySelector(".modal-body");
-  let modalBodyData = "";
+  const modalHeader = document.querySelector('.modal-title');
+  const modalBody = document.querySelector('.modal-body');
+  let modalBodyData = '';
   for (let i = 0; i < 5; i++) {
     modalBodyData += `<div class="row">
               <div class="col-sm-6">
@@ -74,11 +74,11 @@ function updateModalContents(trackedCoins: string[]) {
     modalHeader.textContent = `You're trying to add: ${
       trackedCoins[trackedCoins.length - 1]
     }`;
-    console.log("modalBody updated");
+    console.log('modalBody updated');
     showModal();
   }
 }
 
 function showModal() {
-  $("#myModal").modal("show");
+  $('#myModal').modal('show');
 }

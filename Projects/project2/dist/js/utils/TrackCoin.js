@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { getAllCoins } from "./Coins.js";
+import { getAllCoins } from './Coins.js';
 export function trackToggleInputs() {
     return __awaiter(this, void 0, void 0, function* () {
         let coinData = [];
@@ -19,9 +19,9 @@ export function trackToggleInputs() {
         cardIds.forEach((cardId) => {
             const toggleInput = document.getElementById(cardId);
             if (toggleInput) {
-                toggleInput.addEventListener("change", () => {
+                toggleInput.addEventListener('change', () => {
                     cardStates[cardId] = toggleInput.checked;
-                    console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? "checked" : "unchecked"}.`);
+                    console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? 'checked' : 'unchecked'}.`);
                     // Check how many cards are checked
                     let checkedCount = 0;
                     trackedCoins.length = 0;
@@ -41,9 +41,9 @@ export function trackToggleInputs() {
     });
 }
 function updateModalContents(trackedCoins) {
-    const modalHeader = document.querySelector(".modal-title");
-    const modalBody = document.querySelector(".modal-body");
-    let modalBodyData = "";
+    const modalHeader = document.querySelector('.modal-title');
+    const modalBody = document.querySelector('.modal-body');
+    let modalBodyData = '';
     for (let i = 0; i < 5; i++) {
         modalBodyData += `<div class="row">
               <div class="col-sm-6">
@@ -70,10 +70,10 @@ function updateModalContents(trackedCoins) {
     if (modalHeader && modalBody) {
         modalBody.innerHTML = modalBodyData;
         modalHeader.textContent = `You're trying to add: ${trackedCoins[trackedCoins.length - 1]}`;
-        console.log("modalBody updated");
+        console.log('modalBody updated');
         showModal();
     }
 }
 function showModal() {
-    $("#myModal").modal("show");
+    $('#myModal').modal('show');
 }

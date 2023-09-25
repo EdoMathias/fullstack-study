@@ -1,21 +1,10 @@
-// import { Coins } from './Coins';
-import { Coin } from "../types/Coin-type.js";
-import { fetchMoreInfo } from "./MoreInfo.js";
-// import { CoinMarketData } from '../types/Coin-type';
+import { Coin } from '../types/Coin-type.js';
+import { Info } from './Info.js';
 
 export function generateCards(data: Coin[]) {
-  const cardContainer = document.getElementById("coin-cards-div");
+  const cardContainer = document.getElementById('coin-cards-div');
   const cardsToLoad = 20;
   let cardsData = ``;
-
-  async function callFetchMoreInfo(id: string) {
-    try {
-      const result = await fetchMoreInfo(id);
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   function batchLoad(startIndex: number) {
     for (let i = 0; i < Math.min(startIndex + cardsToLoad, data.length); i++) {
@@ -52,13 +41,13 @@ export function generateCards(data: Coin[]) {
         <div class="row">
           <div class="col-md-6">
             <button
-              class="btn btn-primary"
+              class="btn btn-primary more-info-buttons"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#cardNum${i}"
               aria-expanded="false"
               aria-controls="cardNum${i}"
-              id="more-info-button${i}"
+              id="${coinData.id}" 
             >
               More info
             </button>
@@ -75,6 +64,19 @@ export function generateCards(data: Coin[]) {
     }
     if (cardContainer) {
       cardContainer.innerHTML = cardsData;
+      const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
+      moreinfoButtons.forEach((button) => {
+        console.log(button.id);
+
+        button.addEventListener('click', async () => {
+          const result = await Info.get(
+            `https://api.coingecko.com/api/v3/coins/${button.id}`
+          );
+          console.log(result);
+          console.log(`Clicked ${button.id}`);
+        });
+      });
+      console.log(moreinfoButtons);
     }
     if (startIndex + cardsToLoad < 100) {
       // if (startIndex + cardsToLoad < data.length) {

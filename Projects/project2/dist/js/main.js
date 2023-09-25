@@ -7,10 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { getAllCoins } from "./utils/Coins.js";
-import { generateCards } from "./utils/Card.js";
-import { trackToggleInputs } from "./utils/TrackCoin.js";
-// import { Coins } from './utils/Coins.js';
+import { getAllCoins } from './utils/Coins.js';
+import { generateCards } from './utils/Card.js';
+import { trackToggleInputs } from './utils/TrackCoin.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

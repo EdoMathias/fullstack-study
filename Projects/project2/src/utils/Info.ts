@@ -1,18 +1,20 @@
-export class Fetch {
+export class Info {
   private static _cache: Record<
     string,
     {
       data: { usd: number; eur: number; ils: number; picture: string };
       timestamp: number;
     }
-  >;
+  > = {};
   static async get(url: string) {
     const now = Date.now();
-    if (
-      Fetch._cache[url] &&
-      now - Fetch._cache[url].timestamp <= 2 * 60 * 1000
-    ) {
-      return Fetch._cache[url].data;
+    if (Info._cache != null && Info._cache[url] != null) {
+      if (
+        Info._cache[url] &&
+        now - Info._cache[url].timestamp <= 2 * 60 * 1000
+      ) {
+        return Info._cache[url].data;
+      }
     }
     try {
       const result = await fetch(url);
@@ -23,7 +25,7 @@ export class Fetch {
         image: { small: string };
       } = await result.json();
       const currentPrice = data.market_data.current_price;
-      Fetch._cache[url] = {
+      Info._cache[url] = {
         data: {
           usd: currentPrice.usd,
           eur: currentPrice.eur,
