@@ -3,11 +3,15 @@ import { Info } from './Info.js';
 
 export function generateCards(data: Coin[]) {
   const cardContainer = document.getElementById('coin-cards-div');
-  const cardsToLoad = 20;
-  let cardsData = ``;
+  const cardsToLoad = 100;
 
   function batchLoad(startIndex: number) {
-    for (let i = 0; i < Math.min(startIndex + cardsToLoad, data.length); i++) {
+    let cardsData = ``;
+    for (
+      let i = startIndex;
+      i < Math.min(startIndex + cardsToLoad, data.length);
+      i++
+    ) {
       const coinData = data[i];
       cardsData += `
       <div class="card">
@@ -63,10 +67,12 @@ export function generateCards(data: Coin[]) {
     </div>`;
     }
     if (cardContainer) {
-      cardContainer.innerHTML = cardsData;
+      let batchedDiv = document.createElement('div');
+      batchedDiv.innerHTML = cardsData;
+      cardContainer.appendChild(batchedDiv);
       const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
       moreinfoButtons.forEach((button) => {
-        console.log(button.id);
+        // console.log(button.id);
 
         button.addEventListener('click', async () => {
           const result = await Info.get(
@@ -78,10 +84,17 @@ export function generateCards(data: Coin[]) {
       });
       console.log(moreinfoButtons);
     }
-    if (startIndex + cardsToLoad < 100) {
-      // if (startIndex + cardsToLoad < data.length) {
-      setTimeout(() => batchLoad(startIndex + cardsToLoad), 0);
-    }
   }
-  batchLoad(0);
+  for (
+    let startIndex = 0;
+    startIndex < data.length;
+    startIndex += cardsToLoad
+  ) {
+    // for (let startIndex = 0; startIndex < 200; startIndex += cardsToLoad) {
+    // if (startIndex + cardsToLoad < data.length) {
+    console.log('in cards loop');
+
+    setTimeout(() => batchLoad(startIndex), 1000);
+  }
+  // batchLoad(0);
 }
