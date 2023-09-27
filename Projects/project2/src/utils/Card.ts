@@ -67,6 +67,15 @@ export async function generateCards(data: Coin[]) {
     .join('');
   if (cardContainer) {
     cardContainer.innerHTML = cardData;
+    const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
+    moreinfoButtons.forEach((button) => {
+      button.addEventListener('click', async () => {
+        const result = await Info.get(
+          `https://api.coingecko.com/api/v3/coins/${button.id}`
+        );
+        console.log(`Clicked ${button.id}`);
+      });
+    });
   }
 }
 

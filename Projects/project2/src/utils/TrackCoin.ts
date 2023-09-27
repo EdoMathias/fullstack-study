@@ -1,11 +1,11 @@
-import { Coin } from '../types/Coin-type';
-import { getAllCoins } from './Coins.js';
+import { Coin } from "../types/Coin-type";
+import { getAllCoins } from "./Coins.js";
 
+const trackedCoins: string[] = [];
 export async function trackToggleInputs(coinData: Coin[]) {
   const cardIds = coinData.map((coin) => coin.id);
   console.log(cardIds); // remove later
 
-  const trackedCoins: string[] = [];
   const cardStates: Record<string, boolean> = {};
 
   cardIds.forEach((cardId) => {
@@ -14,11 +14,11 @@ export async function trackToggleInputs(coinData: Coin[]) {
     ) as HTMLInputElement;
 
     if (toggleInput) {
-      toggleInput.addEventListener('click', () => {
+      toggleInput.addEventListener("click", () => {
         cardStates[cardId] = toggleInput.checked;
         console.log(
           `Toggle for card ${cardId} is ${
-            toggleInput.checked ? 'checked' : 'unchecked'
+            toggleInput.checked ? "checked" : "unchecked"
           }.`
         );
 
@@ -42,9 +42,9 @@ export async function trackToggleInputs(coinData: Coin[]) {
 }
 
 function updateModalContents(trackedCoins: string[]) {
-  const modalHeader = document.querySelector('.modal-title');
-  const modalBody = document.querySelector('.modal-body');
-  let modalBodyData = '';
+  const modalHeader = document.querySelector(".modal-title");
+  const modalBody = document.querySelector(".modal-body");
+  let modalBodyData = "";
   for (let i = 0; i < 5; i++) {
     modalBodyData += `<div class="row">
               <div class="col-sm-6">
@@ -58,9 +58,10 @@ function updateModalContents(trackedCoins: string[]) {
                     class="form-check-input"
                     type="checkbox"
                     role="switch"
-                    id="${trackedCoins[i]}-toggle"
+                    id="${trackedCoins[i]}-modal-toggle"
+                    checked
                   />
-                  <label class="form-check-label" for="${trackedCoins[i]}-toggle"
+                  <label class="form-check-label" for="${trackedCoins[i]}-modal-toggle"
                     >Track Coin</label
                   >
                 </div>
@@ -71,11 +72,11 @@ function updateModalContents(trackedCoins: string[]) {
   if (modalHeader && modalBody) {
     modalBody.innerHTML = modalBodyData;
     modalHeader.textContent = `Select coin to remove:`;
-    console.log('modalBody updated');
+    console.log("modalBody updated"); // remove later
     showModal();
   }
 }
 
 function showModal() {
-  $('#myModal').modal('show');
+  $("#myModal").modal("show");
 }
