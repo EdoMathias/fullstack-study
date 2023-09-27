@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { Info } from './Info.js';
 export function generateCards(data) {
     return __awaiter(this, void 0, void 0, function* () {
         const cardContainer = document.getElementById('coin-cards-div');
@@ -69,6 +70,13 @@ export function generateCards(data) {
             .join('');
         if (cardContainer) {
             cardContainer.innerHTML = cardData;
+            const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
+            moreinfoButtons.forEach((button) => {
+                button.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+                    const result = yield Info.get(`https://api.coingecko.com/api/v3/coins/${button.id}`);
+                    console.log(`Clicked ${button.id}`);
+                }));
+            });
         }
     });
 }
