@@ -12,8 +12,9 @@ import { generateCards } from './utils/Card.js';
 import { trackToggleInputs } from './utils/TrackCoin.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
+        let coins = [];
         try {
-            const coins = yield getAllCoins();
+            coins = yield getAllCoins();
             console.log(coins);
             generateCards(coins);
         }
@@ -21,7 +22,7 @@ function init() {
             console.error(error);
         }
         try {
-            yield trackToggleInputs();
+            yield trackToggleInputs(coins);
         }
         catch (error) {
             console.error(error);

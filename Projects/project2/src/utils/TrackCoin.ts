@@ -1,10 +1,7 @@
 import { Coin } from '../types/Coin-type';
 import { getAllCoins } from './Coins.js';
 
-export async function trackToggleInputs() {
-  let coinData: Coin[] = [];
-  coinData = await getAllCoins();
-
+export async function trackToggleInputs(coinData: Coin[]) {
   const cardIds = coinData.map((coin) => coin.id);
   console.log(cardIds); // remove later
 
@@ -12,10 +9,12 @@ export async function trackToggleInputs() {
   const cardStates: Record<string, boolean> = {};
 
   cardIds.forEach((cardId) => {
-    const toggleInput = document.getElementById(cardId) as HTMLInputElement;
+    const toggleInput = document.getElementById(
+      `${cardId}-toggle`
+    ) as HTMLInputElement;
 
     if (toggleInput) {
-      toggleInput.addEventListener('change', () => {
+      toggleInput.addEventListener('click', () => {
         cardStates[cardId] = toggleInput.checked;
         console.log(
           `Toggle for card ${cardId} is ${
@@ -59,9 +58,9 @@ function updateModalContents(trackedCoins: string[]) {
                     class="form-check-input"
                     type="checkbox"
                     role="switch"
-                    id="${trackedCoins[i]}"
+                    id="${trackedCoins[i]}-toggle"
                   />
-                  <label class="form-check-label" for="${trackedCoins[i]}"
+                  <label class="form-check-label" for="${trackedCoins[i]}-toggle"
                     >Track Coin</label
                   >
                 </div>
@@ -71,9 +70,7 @@ function updateModalContents(trackedCoins: string[]) {
   }
   if (modalHeader && modalBody) {
     modalBody.innerHTML = modalBodyData;
-    modalHeader.textContent = `You're trying to add: ${
-      trackedCoins[trackedCoins.length - 1]
-    }`;
+    modalHeader.textContent = `Select coin to remove:`;
     console.log('modalBody updated');
     showModal();
   }

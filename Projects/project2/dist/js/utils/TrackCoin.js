@@ -7,19 +7,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { getAllCoins } from './Coins.js';
-export function trackToggleInputs() {
+export function trackToggleInputs(coinData) {
     return __awaiter(this, void 0, void 0, function* () {
-        let coinData = [];
-        coinData = yield getAllCoins();
         const cardIds = coinData.map((coin) => coin.id);
         console.log(cardIds); // remove later
         const trackedCoins = [];
         const cardStates = {};
         cardIds.forEach((cardId) => {
-            const toggleInput = document.getElementById(cardId);
+            const toggleInput = document.getElementById(`${cardId}-toggle`);
             if (toggleInput) {
-                toggleInput.addEventListener('change', () => {
+                toggleInput.addEventListener('click', () => {
                     cardStates[cardId] = toggleInput.checked;
                     console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? 'checked' : 'unchecked'}.`);
                     // Check how many cards are checked
@@ -57,9 +54,9 @@ function updateModalContents(trackedCoins) {
                     class="form-check-input"
                     type="checkbox"
                     role="switch"
-                    id="${trackedCoins[i]}"
+                    id="${trackedCoins[i]}-toggle"
                   />
-                  <label class="form-check-label" for="${trackedCoins[i]}"
+                  <label class="form-check-label" for="${trackedCoins[i]}-toggle"
                     >Track Coin</label
                   >
                 </div>
@@ -69,7 +66,7 @@ function updateModalContents(trackedCoins) {
     }
     if (modalHeader && modalBody) {
         modalBody.innerHTML = modalBodyData;
-        modalHeader.textContent = `You're trying to add: ${trackedCoins[trackedCoins.length - 1]}`;
+        modalHeader.textContent = `Select coin to remove:`;
         console.log('modalBody updated');
         showModal();
     }

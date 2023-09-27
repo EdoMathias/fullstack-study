@@ -9,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { Info } from './Info.js';
 export function generateCards(data) {
-    const cardContainer = document.getElementById('coin-cards-div');
-    const cardsToLoad = 100;
-    function batchLoad(startIndex) {
-        let cardsData = ``;
-        for (let i = startIndex; i < Math.min(startIndex + cardsToLoad, data.length); i++) {
-            const coinData = data[i];
-            cardsData += `
+    return __awaiter(this, void 0, void 0, function* () {
+        const cardContainer = document.getElementById('coin-cards-div');
+        const cardsToLoad = 100;
+        function batchLoad(startIndex) {
+            let cardsData = ``;
+            for (let i = startIndex; i < Math.min(startIndex + cardsToLoad, data.length); i++) {
+                const coinData = data[i];
+                cardsData += `
       <div class="card">
       <div class="card-body">
         <div class="row">
@@ -30,7 +31,7 @@ export function generateCards(data) {
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="${coinData.id}"
+                id="${coinData.id}-toggle"
               />
               <label class="form-check-label" for="${coinData.id}"
                 >Track Coin</label
@@ -67,11 +68,12 @@ export function generateCards(data) {
         </div>
       </div>
     </div>`;
-        }
-        if (cardContainer) {
-            let batchedDiv = document.createElement('div');
-            batchedDiv.innerHTML = cardsData;
-            cardContainer.appendChild(batchedDiv);
+            }
+            if (cardContainer) {
+                let batchedDiv = document.createElement('div');
+                batchedDiv.innerHTML = cardsData;
+                cardContainer.appendChild(batchedDiv);
+            }
             const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
             moreinfoButtons.forEach((button) => {
                 // console.log(button.id);
@@ -83,12 +85,15 @@ export function generateCards(data) {
             });
             console.log(moreinfoButtons);
         }
-    }
-    for (let startIndex = 0; startIndex < data.length; startIndex += cardsToLoad) {
-        // for (let startIndex = 0; startIndex < 200; startIndex += cardsToLoad) {
-        // if (startIndex + cardsToLoad < data.length) {
-        console.log('in cards loop');
-        setTimeout(() => batchLoad(startIndex), 1000);
-    }
-    // batchLoad(0);
+        // for (
+        //   let startIndex = 0;
+        //   startIndex < data.length;
+        //   startIndex += cardsToLoad
+        // ) {
+        for (let startIndex = 0; startIndex < 200; startIndex += cardsToLoad) {
+            // if (startIndex + cardsToLoad < data.length) {
+            console.log('in cards loop');
+            setTimeout(() => batchLoad(startIndex), 1000);
+        }
+    });
 }

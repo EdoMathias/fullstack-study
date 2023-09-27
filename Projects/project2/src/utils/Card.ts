@@ -1,7 +1,8 @@
 import { Coin } from '../types/Coin-type.js';
 import { Info } from './Info.js';
+import { trackToggleInputs } from './TrackCoin.js';
 
-export function generateCards(data: Coin[]) {
+export async function generateCards(data: Coin[]) {
   const cardContainer = document.getElementById('coin-cards-div');
   const cardsToLoad = 100;
 
@@ -28,7 +29,7 @@ export function generateCards(data: Coin[]) {
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="${coinData.id}"
+                id="${coinData.id}-toggle"
               />
               <label class="form-check-label" for="${coinData.id}"
                 >Track Coin</label
@@ -70,31 +71,30 @@ export function generateCards(data: Coin[]) {
       let batchedDiv = document.createElement('div');
       batchedDiv.innerHTML = cardsData;
       cardContainer.appendChild(batchedDiv);
-      const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
-      moreinfoButtons.forEach((button) => {
-        // console.log(button.id);
-
-        button.addEventListener('click', async () => {
-          const result = await Info.get(
-            `https://api.coingecko.com/api/v3/coins/${button.id}`
-          );
-          console.log(result);
-          console.log(`Clicked ${button.id}`);
-        });
-      });
-      console.log(moreinfoButtons);
     }
+    const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
+    moreinfoButtons.forEach((button) => {
+      // console.log(button.id);
+
+      button.addEventListener('click', async () => {
+        const result = await Info.get(
+          `https://api.coingecko.com/api/v3/coins/${button.id}`
+        );
+        console.log(result);
+        console.log(`Clicked ${button.id}`);
+      });
+    });
+    console.log(moreinfoButtons);
   }
-  for (
-    let startIndex = 0;
-    startIndex < data.length;
-    startIndex += cardsToLoad
-  ) {
-    // for (let startIndex = 0; startIndex < 200; startIndex += cardsToLoad) {
+  // for (
+  //   let startIndex = 0;
+  //   startIndex < data.length;
+  //   startIndex += cardsToLoad
+  // ) {
+  for (let startIndex = 0; startIndex < 200; startIndex += cardsToLoad) {
     // if (startIndex + cardsToLoad < data.length) {
     console.log('in cards loop');
 
     setTimeout(() => batchLoad(startIndex), 1000);
   }
-  // batchLoad(0);
 }
