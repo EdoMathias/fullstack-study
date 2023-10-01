@@ -1,8 +1,11 @@
+import { CoinMarketData } from '../types/Coin-type';
+
 export class Info {
   private static _cache: Record<
     string,
     {
-      data: { usd: number; eur: number; ils: number; picture: string };
+      // data: { usd: number; eur: number; ils: number; picture: string };
+      data: CoinMarketData;
       timestamp: number;
     }
   > = {};
@@ -26,12 +29,13 @@ export class Info {
       } = await result.json();
       const currentPrice = data.market_data.current_price;
       Info._cache[url] = {
-        data: {
-          usd: currentPrice.usd,
-          eur: currentPrice.eur,
-          ils: currentPrice.ils,
-          picture: data.image.small,
-        },
+        data: data,
+        // data: {
+        //   usd: currentPrice.usd,
+        //   eur: currentPrice.eur,
+        //   ils: currentPrice.ils,
+        //   picture: data.image.small,
+        // },
         timestamp: Date.now(),
       };
       return data;
