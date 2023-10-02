@@ -10,6 +10,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { Info } from './Info.js';
 export function generateCards(data) {
     return __awaiter(this, void 0, void 0, function* () {
+        const pageMain = document.querySelector('#page-main');
+        if (pageMain) {
+            pageMain.innerHTML = `
+    <section id="cards-section">
+    <div id="coin-cards-div"
+    class="mt-3 container justify-content-evenly row-cols-lg-3 row-cols-md-2 row-cols-sm-12 d-flex flex-row flex-wrap"
+    ></div>
+    </section>`;
+        }
         const cardContainer = document.getElementById('coin-cards-div');
         const cardData = data
             .map((coinData) => `

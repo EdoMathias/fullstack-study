@@ -18,6 +18,7 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script defer type="module" src="./js/main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
@@ -42,13 +43,23 @@
             style="--bs-scroll-height: 100px"
           >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a
+                id="home-button"
+                class="home-button-class nav-link active"
+                aria-current="page"
+                href="#"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Real-Time Charts</a>
+              <a
+                id="real-time-charts-button"
+                class="real-time-charts-button-class nav-link"
+                >Real-Time Charts</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a id="about-button" class="nav-link about-button-class">About</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -65,13 +76,7 @@
         </div>
       </div>
     </nav>
-    <main>
-      <section id="cards-section">
-        <div
-          id="coin-cards-div"
-          class="mt-3 container justify-content-evenly row-cols-lg-3 row-cols-md-2 row-cols-sm-12 d-flex flex-row flex-wrap"
-        ></div>
-      </section>
+    <main id="page-main">
       <section>
         <div
           class="modal fade show"

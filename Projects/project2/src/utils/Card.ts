@@ -3,6 +3,15 @@ import { Info } from './Info.js';
 import { trackToggleInputs } from './TrackCoin.js';
 
 export async function generateCards(data: Coin[]) {
+  const pageMain = document.querySelector('#page-main');
+  if (pageMain) {
+    pageMain.innerHTML = `
+    <section id="cards-section">
+    <div id="coin-cards-div"
+    class="mt-3 container justify-content-evenly row-cols-lg-3 row-cols-md-2 row-cols-sm-12 d-flex flex-row flex-wrap"
+    ></div>
+    </section>`;
+  }
   const cardContainer = document.getElementById('coin-cards-div');
 
   const cardData = data

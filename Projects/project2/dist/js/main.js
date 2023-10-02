@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { getAllCoins } from './utils/Coins.js';
 import { generateCards } from './utils/Card.js';
 import { trackToggleInputs } from './utils/TrackCoin.js';
+import { navigationHandlers, } from './utils/Navigation-handler.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         let coins = [];
@@ -27,6 +28,7 @@ function init() {
         catch (error) {
             console.error(error);
         }
+        navigationHandlers(coins);
     });
 }
 init();
