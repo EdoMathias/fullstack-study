@@ -3,7 +3,7 @@ import { Info } from './Info.js';
 import { trackToggleInputs } from './TrackCoin.js';
 
 export async function generateCards(data: Coin[]) {
-  const pageMain = document.querySelector('#page-main');
+  const pageMain = document.querySelector('#page-contents-section');
   if (pageMain) {
     pageMain.innerHTML = `
     <section id="cards-section">
@@ -66,7 +66,7 @@ export async function generateCards(data: Coin[]) {
                 class="collapse card-footer bg-transparent"
                 id="collapse-${coinData.id}"
               >
-                  <p id="${coinData.id}-info" class="spinner-border sr-only">Loading...</p>
+                  <p id="${coinData.id}-info" class="spinner-border sr-only"></p>
               </div>
             </div>
           </div>

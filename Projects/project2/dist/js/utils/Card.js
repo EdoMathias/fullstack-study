@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { Info } from './Info.js';
 export function generateCards(data) {
     return __awaiter(this, void 0, void 0, function* () {
-        const pageMain = document.querySelector('#page-main');
+        const pageMain = document.querySelector('#page-contents-section');
         if (pageMain) {
             pageMain.innerHTML = `
     <section id="cards-section">
@@ -70,7 +70,7 @@ export function generateCards(data) {
                 class="collapse card-footer bg-transparent"
                 id="collapse-${coinData.id}"
               >
-                  <p id="${coinData.id}-info" class="spinner-border sr-only">Loading...</p>
+                  <p id="${coinData.id}-info" class="spinner-border sr-only"></p>
               </div>
             </div>
           </div>

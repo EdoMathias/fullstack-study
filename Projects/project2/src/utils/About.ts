@@ -1,5 +1,5 @@
 export function getAboutPage() {
-  const pageMain = document.querySelector('#page-main');
+  const pageMainSection = document.querySelector('#page-contents-section');
   const aboutPageData = `
   <section class="inner cover d-flex justify-content-center align-items-center mt-5">
     <div class="card about-card-class">
@@ -13,7 +13,7 @@ export function getAboutPage() {
     </div>
 </section>
 `;
-  if (pageMain) {
-    pageMain.innerHTML = aboutPageData;
+  if (pageMainSection) {
+    pageMainSection.innerHTML = aboutPageData;
   }
 }
