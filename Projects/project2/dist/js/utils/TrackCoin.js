@@ -7,12 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// const trackedCoins: string[] = [];
 export function trackToggleInputs(cMngr) {
     return __awaiter(this, void 0, void 0, function* () {
         const cardIds = cMngr.coins.map((coin) => coin.id);
-        console.log(cardIds); // remove later
-        // const cardStates: Record<string, boolean> = {};
+        console.log(cardIds);
         cardIds.forEach((cardId) => {
             const toggleInput = document.getElementById(`${cardId}-toggle`);
             if (toggleInput) {

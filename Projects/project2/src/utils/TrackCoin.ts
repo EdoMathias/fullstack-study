@@ -1,12 +1,9 @@
 import { Coin, CoinsMngr } from '../types/Coin-type';
 import { getAllCoins } from './Coins.js';
 
-// const trackedCoins: string[] = [];
 export async function trackToggleInputs(cMngr: CoinsMngr) {
   const cardIds = cMngr.coins.map((coin) => coin.id);
-  console.log(cardIds); // remove later
-
-  // const cardStates: Record<string, boolean> = {};
+  console.log(cardIds);
 
   cardIds.forEach((cardId) => {
     const toggleInput = document.getElementById(
