@@ -7,30 +7,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const trackedCoins = [];
-export function trackToggleInputs(coinData) {
+// const trackedCoins: string[] = [];
+export function trackToggleInputs(cMngr) {
     return __awaiter(this, void 0, void 0, function* () {
-        const cardIds = coinData.map((coin) => coin.id);
+        const cardIds = cMngr.coins.map((coin) => coin.id);
         console.log(cardIds); // remove later
-        const cardStates = {};
+        // const cardStates: Record<string, boolean> = {};
         cardIds.forEach((cardId) => {
             const toggleInput = document.getElementById(`${cardId}-toggle`);
             if (toggleInput) {
-                toggleInput.addEventListener("click", () => {
-                    cardStates[cardId] = toggleInput.checked;
-                    console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? "checked" : "unchecked"}.`);
-                    // Check how many cards are checked
-                    let checkedCount = 0;
-                    trackedCoins.length = 0;
-                    for (const id in cardStates) {
-                        if (cardStates[id]) {
-                            trackedCoins.push(id);
-                            checkedCount++;
+                toggleInput.addEventListener('click', () => {
+                    console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? 'checked' : 'unchecked'}.`);
+                    if (toggleInput.checked) {
+                        cMngr.selected.push(cardId);
+                    }
+                    else {
+                        const index = cMngr.selected.indexOf(cardId);
+                        if (index !== -1) {
+                            cMngr.selected.splice(index, 1);
                         }
                     }
-                    console.log(trackedCoins, trackedCoins.length);
-                    if (checkedCount >= 6) {
-                        updateModalContents(trackedCoins);
+                    console.log(cMngr.selected);
+                    if (cMngr.selected.length >= 6) {
+                        updateModalContents(cMngr.selected);
+                        showModal();
+                        removeTracking(cMngr.selected);
                     }
                 });
             }
@@ -38,9 +39,9 @@ export function trackToggleInputs(coinData) {
     });
 }
 function updateModalContents(trackedCoins) {
-    const modalHeader = document.querySelector(".modal-title");
-    const modalBody = document.querySelector(".modal-body");
-    let modalBodyData = "";
+    const modalHeader = document.querySelector('.modal-title');
+    const modalBody = document.querySelector('.modal-body');
+    let modalBodyData = '';
     for (let i = 0; i < 5; i++) {
         modalBodyData += `<div class="row">
               <div class="col-sm-6">
@@ -68,10 +69,24 @@ function updateModalContents(trackedCoins) {
     if (modalHeader && modalBody) {
         modalBody.innerHTML = modalBodyData;
         modalHeader.textContent = `Select coin to remove:`;
-        console.log("modalBody updated"); // remove later
-        showModal();
     }
 }
 function showModal() {
-    $("#myModal").modal("show");
+    $('#myModal').modal('show');
+}
+function removeTracking(trackedCoins) {
+    trackedCoins.forEach((trackedCoin) => {
+        const modalToggleInput = document.getElementById(`${trackedCoin}-modal-toggle`);
+        const toggleInput = document.getElementById(`${trackedCoin}-toggle`);
+        if (modalToggleInput && toggleInput) {
+            modalToggleInput.addEventListener('click', () => {
+                console.log(`Toggle for card ${trackedCoin} is ${modalToggleInput.checked ? 'checked' : 'unchecked'}.`);
+                // Update the main checkbox based on the modal checkbox
+                toggleInput.checked = modalToggleInput.checked;
+                let coinToRemove = trackedCoins.indexOf(trackedCoin);
+                trackedCoins.splice(coinToRemove, 1);
+                $('#myModal').modal('hide');
+            });
+        }
+    });
 }

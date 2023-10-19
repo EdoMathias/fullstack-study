@@ -7,28 +7,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { CoinsMngr } from './types/Coin-type.js';
 import { getAllCoins } from './utils/Coins.js';
 import { generateCards } from './utils/Card.js';
 import { trackToggleInputs } from './utils/TrackCoin.js';
 import { navigationHandlers, } from './utils/Navigation-handler.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
-        let coins = [];
+        const cMngr = new CoinsMngr();
+        // let coins: Coin[] = [];
         try {
-            coins = yield getAllCoins();
-            console.log(coins);
-            generateCards(coins);
+            cMngr.coins = yield getAllCoins();
+            console.log(cMngr.coins);
+            generateCards(cMngr.coins);
         }
         catch (error) {
             console.error(error);
         }
         try {
-            yield trackToggleInputs(coins);
+            yield trackToggleInputs(cMngr);
         }
         catch (error) {
             console.error(error);
         }
-        navigationHandlers(coins);
+        navigationHandlers(cMngr.coins);
     });
 }
 init();

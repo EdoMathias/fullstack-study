@@ -1,12 +1,12 @@
-import { Coin } from "../types/Coin-type";
-import { getAllCoins } from "./Coins.js";
+import { Coin, CoinsMngr } from '../types/Coin-type';
+import { getAllCoins } from './Coins.js';
 
-const trackedCoins: string[] = [];
-export async function trackToggleInputs(coinData: Coin[]) {
-  const cardIds = coinData.map((coin) => coin.id);
+// const trackedCoins: string[] = [];
+export async function trackToggleInputs(cMngr: CoinsMngr) {
+  const cardIds = cMngr.coins.map((coin) => coin.id);
   console.log(cardIds); // remove later
 
-  const cardStates: Record<string, boolean> = {};
+  // const cardStates: Record<string, boolean> = {};
 
   cardIds.forEach((cardId) => {
     const toggleInput = document.getElementById(
@@ -14,27 +14,25 @@ export async function trackToggleInputs(coinData: Coin[]) {
     ) as HTMLInputElement;
 
     if (toggleInput) {
-      toggleInput.addEventListener("click", () => {
-        cardStates[cardId] = toggleInput.checked;
+      toggleInput.addEventListener('click', () => {
         console.log(
           `Toggle for card ${cardId} is ${
-            toggleInput.checked ? "checked" : "unchecked"
+            toggleInput.checked ? 'checked' : 'unchecked'
           }.`
         );
-
-        // Check how many cards are checked
-        let checkedCount = 0;
-        trackedCoins.length = 0;
-        for (const id in cardStates) {
-          if (cardStates[id]) {
-            trackedCoins.push(id);
-            checkedCount++;
+        if (toggleInput.checked) {
+          cMngr.selected.push(cardId);
+        } else {
+          const index = cMngr.selected.indexOf(cardId);
+          if (index !== -1) {
+            cMngr.selected.splice(index, 1);
           }
         }
-        console.log(trackedCoins, trackedCoins.length);
-
-        if (checkedCount >= 6) {
-          updateModalContents(trackedCoins);
+        console.log(cMngr.selected);
+        if (cMngr.selected.length >= 6) {
+          updateModalContents(cMngr.selected);
+          showModal();
+          removeTracking(cMngr.selected);
         }
       });
     }
@@ -42,9 +40,9 @@ export async function trackToggleInputs(coinData: Coin[]) {
 }
 
 function updateModalContents(trackedCoins: string[]) {
-  const modalHeader = document.querySelector(".modal-title");
-  const modalBody = document.querySelector(".modal-body");
-  let modalBodyData = "";
+  const modalHeader = document.querySelector('.modal-title');
+  const modalBody = document.querySelector('.modal-body');
+  let modalBodyData = '';
   for (let i = 0; i < 5; i++) {
     modalBodyData += `<div class="row">
               <div class="col-sm-6">
@@ -72,11 +70,37 @@ function updateModalContents(trackedCoins: string[]) {
   if (modalHeader && modalBody) {
     modalBody.innerHTML = modalBodyData;
     modalHeader.textContent = `Select coin to remove:`;
-    console.log("modalBody updated"); // remove later
-    showModal();
   }
 }
 
 function showModal() {
-  $("#myModal").modal("show");
+  $('#myModal').modal('show');
+}
+
+function removeTracking(trackedCoins: string[]) {
+  trackedCoins.forEach((trackedCoin) => {
+    const modalToggleInput = document.getElementById(
+      `${trackedCoin}-modal-toggle`
+    ) as HTMLInputElement;
+    const toggleInput = document.getElementById(
+      `${trackedCoin}-toggle`
+    ) as HTMLInputElement;
+
+    if (modalToggleInput && toggleInput) {
+      modalToggleInput.addEventListener('click', () => {
+        console.log(
+          `Toggle for card ${trackedCoin} is ${
+            modalToggleInput.checked ? 'checked' : 'unchecked'
+          }.`
+        );
+
+        // Update the main checkbox based on the modal checkbox
+        toggleInput.checked = modalToggleInput.checked;
+
+        let coinToRemove = trackedCoins.indexOf(trackedCoin);
+        trackedCoins.splice(coinToRemove, 1);
+        $('#myModal').modal('hide');
+      });
+    }
+  });
 }
