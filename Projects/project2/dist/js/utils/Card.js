@@ -8,7 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Info } from './Info.js';
-export function generateCards(data) {
+import { trackToggleInputs } from './TrackCoin.js';
+export function generateCards(cMngr) {
     return __awaiter(this, void 0, void 0, function* () {
         const pageMain = document.querySelector('#page-contents-section');
         if (pageMain) {
@@ -20,14 +21,14 @@ export function generateCards(data) {
     </section>`;
         }
         const cardContainer = document.getElementById('coin-cards-div');
-        const cardData = data
+        const cardData = cMngr.coins
             .map((coinData) => `
         <div>
             <div class="card">
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <h4>${coinData.id}</h4>
+                  <h4>${coinData.symbol}</h4>
                 </div>
                 <div class="col-sm-6">
                   <div
@@ -78,6 +79,37 @@ export function generateCards(data) {
             .join('');
         if (cardContainer) {
             cardContainer.innerHTML = cardData;
+            try {
+                yield trackToggleInputs(cMngr);
+            }
+            catch (error) {
+                console.error(error);
+            }
+            cMngr.selected.forEach((selectedId) => {
+                const toggle = document.getElementById(`${selectedId}-toggle`);
+                if (toggle) {
+                    toggle.checked = true;
+                }
+            });
+            // if (cMngr.coins.length > 1) {
+            //   // Not searched coin
+            //   cMngr.selected.forEach((selectedId) => {
+            //     const toggle = document.getElementById(
+            //       `${selectedId}-toggle`
+            //     ) as HTMLInputElement;
+            //     toggle.checked = true;
+            //   });
+            // } else if (cMngr.coins.length === 1) {
+            //   cMngr.selected.forEach((selectedId) => {
+            //     const toggle = document.getElementById(
+            //       `${selectedId}-toggle`
+            //     ) as HTMLInputElement;
+            //     toggle.checked = true;
+            //     if (toggle) {
+            //       toggle.checked = true;
+            //     }
+            //   });
+            // }
             const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
             moreinfoButtons.forEach((button) => {
                 button.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {

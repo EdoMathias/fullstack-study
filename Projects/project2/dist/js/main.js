@@ -10,27 +10,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { CoinsMngr } from './types/Coin-type.js';
 import { getAllCoins } from './utils/Coins.js';
 import { generateCards } from './utils/Card.js';
-import { trackToggleInputs } from './utils/TrackCoin.js';
-import { navigationHandlers, } from './utils/Navigation-handler.js';
+import { navigationHandlers } from './utils/Navigation-handler.js';
+import { searchCoinHandler } from './utils/Search.js';
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         const cMngr = new CoinsMngr();
-        // let coins: Coin[] = [];
         try {
             cMngr.coins = yield getAllCoins();
             console.log(cMngr.coins);
-            generateCards(cMngr.coins);
+            generateCards(cMngr);
         }
         catch (error) {
             console.error(error);
         }
-        try {
-            yield trackToggleInputs(cMngr);
-        }
-        catch (error) {
-            console.error(error);
-        }
-        navigationHandlers(cMngr.coins);
+        // try {
+        //   await trackToggleInputs(cMngr);
+        // } catch (error) {
+        //   console.error(error);
+        // }
+        navigationHandlers(cMngr);
+        searchCoinHandler(cMngr);
     });
 }
 init();

@@ -83,7 +83,7 @@ function removeTracking(trackedCoins: string[]) {
       `${trackedCoin}-toggle`
     ) as HTMLInputElement;
 
-    if (modalToggleInput && toggleInput) {
+    if (modalToggleInput) {
       modalToggleInput.addEventListener('click', () => {
         console.log(
           `Toggle for card ${trackedCoin} is ${
@@ -92,8 +92,9 @@ function removeTracking(trackedCoins: string[]) {
         );
 
         // Update the main checkbox based on the modal checkbox
-        toggleInput.checked = modalToggleInput.checked;
-
+        if (modalToggleInput && toggleInput) {
+          toggleInput.checked = modalToggleInput.checked;
+        }
         let coinToRemove = trackedCoins.indexOf(trackedCoin);
         trackedCoins.splice(coinToRemove, 1);
         $('#myModal').modal('hide');

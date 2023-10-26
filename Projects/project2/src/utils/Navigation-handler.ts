@@ -1,4 +1,4 @@
-import { Coin } from '../types/Coin-type.js';
+import { Coin, CoinsMngr } from '../types/Coin-type.js';
 import { getAboutPage } from './About.js';
 import { generateCards } from './Card.js';
 
@@ -14,7 +14,7 @@ export function removeActiveClassFromLinks() {
   }
 }
 
-export function navigationHandlers(coinData: Coin[]) {
+export function navigationHandlers(cMngr: CoinsMngr) {
   const homeButton = document.querySelector('#home-button');
   const realTimeChartsButton = document.querySelector(
     '#real-time-charts-button'
@@ -25,7 +25,7 @@ export function navigationHandlers(coinData: Coin[]) {
     homeButton.addEventListener('click', () => {
       if (!homeButton.classList.contains('active')) {
         removeActiveClassFromLinks();
-        generateCards(coinData);
+        generateCards(cMngr);
         homeButton.classList.add('active');
       }
     });

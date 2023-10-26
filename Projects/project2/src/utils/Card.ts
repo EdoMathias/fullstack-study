@@ -1,8 +1,8 @@
-import { Coin } from '../types/Coin-type.js';
+import { CoinsMngr } from '../types/Coin-type.js';
 import { Info } from './Info.js';
 import { trackToggleInputs } from './TrackCoin.js';
 
-export async function generateCards(data: Coin[]) {
+export async function generateCards(cMngr: CoinsMngr) {
   const pageMain = document.querySelector('#page-contents-section');
   if (pageMain) {
     pageMain.innerHTML = `
@@ -14,7 +14,7 @@ export async function generateCards(data: Coin[]) {
   }
   const cardContainer = document.getElementById('coin-cards-div');
 
-  const cardData = data
+  const cardData = cMngr.coins
     .map(
       (coinData) =>
         `
@@ -23,7 +23,7 @@ export async function generateCards(data: Coin[]) {
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <h4>${coinData.id}</h4>
+                  <h4>${coinData.symbol}</h4>
                 </div>
                 <div class="col-sm-6">
                   <div
@@ -75,6 +75,21 @@ export async function generateCards(data: Coin[]) {
     .join('');
   if (cardContainer) {
     cardContainer.innerHTML = cardData;
+    try {
+      await trackToggleInputs(cMngr);
+    } catch (error) {
+      console.error(error);
+    }
+
+    cMngr.selected.forEach((selectedId) => {
+      const toggle = document.getElementById(
+        `${selectedId}-toggle`
+      ) as HTMLInputElement;
+      if (toggle) {
+        toggle.checked = true;
+      }
+    });
+
     const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
     moreinfoButtons.forEach((button) => {
       button.addEventListener('click', async () => {
