@@ -8,9 +8,17 @@ export type CoinId = {
   id: string;
 };
 
+export interface DataPoint {
+  x: number;
+  // x: string;
+  // x: Date;
+  y: number;
+}
+
 export class CoinsMngr {
   coins: Coin[] = [];
   selected: string[] = [];
+  symbols: string[] = [];
 }
 
 export type CoinMarketData = {

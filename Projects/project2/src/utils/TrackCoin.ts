@@ -3,6 +3,7 @@ import { getAllCoins } from './Coins.js';
 
 export async function trackToggleInputs(cMngr: CoinsMngr) {
   const cardIds = cMngr.coins.map((coin) => coin.id);
+  const cardSymbols = cMngr.coins.map((coin) => coin.symbol);
   console.log(cardIds);
 
   cardIds.forEach((cardId) => {
@@ -10,22 +11,30 @@ export async function trackToggleInputs(cMngr: CoinsMngr) {
       `${cardId}-toggle`
     ) as HTMLInputElement;
 
-    if (toggleInput) {
+    const header = document.getElementById(
+      `${cardId}-header`
+    ) as HTMLHeadingElement;
+
+    if (toggleInput && header) {
+      const coinSymbol = header.textContent;
       toggleInput.addEventListener('click', () => {
         console.log(
           `Toggle for card ${cardId} is ${
             toggleInput.checked ? 'checked' : 'unchecked'
           }.`
         );
-        if (toggleInput.checked) {
+        if (toggleInput.checked && coinSymbol) {
           cMngr.selected.push(cardId);
+          cMngr.symbols.push(coinSymbol);
         } else {
           const index = cMngr.selected.indexOf(cardId);
           if (index !== -1) {
             cMngr.selected.splice(index, 1);
+            cMngr.symbols.splice(index, 1);
           }
         }
         console.log(cMngr.selected);
+        console.log(cMngr.symbols);
         if (cMngr.selected.length >= 6) {
           updateModalContents(cMngr.selected);
           showModal();

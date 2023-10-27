@@ -28,7 +28,7 @@ export function generateCards(cMngr) {
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <h4>${coinData.symbol}</h4>
+                  <h4 id=${coinData.id}-header>${coinData.symbol}</h4>
                 </div>
                 <div class="col-sm-6">
                   <div
@@ -91,25 +91,6 @@ export function generateCards(cMngr) {
                     toggle.checked = true;
                 }
             });
-            // if (cMngr.coins.length > 1) {
-            //   // Not searched coin
-            //   cMngr.selected.forEach((selectedId) => {
-            //     const toggle = document.getElementById(
-            //       `${selectedId}-toggle`
-            //     ) as HTMLInputElement;
-            //     toggle.checked = true;
-            //   });
-            // } else if (cMngr.coins.length === 1) {
-            //   cMngr.selected.forEach((selectedId) => {
-            //     const toggle = document.getElementById(
-            //       `${selectedId}-toggle`
-            //     ) as HTMLInputElement;
-            //     toggle.checked = true;
-            //     if (toggle) {
-            //       toggle.checked = true;
-            //     }
-            //   });
-            // }
             const moreinfoButtons = document.querySelectorAll('.more-info-buttons');
             moreinfoButtons.forEach((button) => {
                 button.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {

@@ -1,6 +1,7 @@
 import { Coin, CoinsMngr } from '../types/Coin-type.js';
 import { getAboutPage } from './About.js';
 import { generateCards } from './Card.js';
+import { getChartsPage } from './Charts.js';
 
 const homeButton = document.getElementById('home-button');
 const realTimeChartsButton = document.getElementById('real-time-charts-button');
@@ -27,6 +28,15 @@ export function navigationHandlers(cMngr: CoinsMngr) {
         removeActiveClassFromLinks();
         generateCards(cMngr);
         homeButton.classList.add('active');
+      }
+    });
+  }
+  if (realTimeChartsButton) {
+    realTimeChartsButton.addEventListener('click', () => {
+      if (!realTimeChartsButton.classList.contains('active')) {
+        removeActiveClassFromLinks();
+        realTimeChartsButton.classList.add('active');
+        getChartsPage(cMngr);
       }
     });
   }

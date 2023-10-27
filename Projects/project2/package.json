@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@canvasjs/charts": "^3.7.25",
     "@types/bootstrap": "^5.2.7",
-    "@types/jquery": "^3.5.19"
+    "@types/jquery": "^3.5.19",
+    "canvasjs": "^1.8.3",
+    "jquery": "^3.7.1"
   }
 }

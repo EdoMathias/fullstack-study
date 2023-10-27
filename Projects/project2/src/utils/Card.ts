@@ -23,7 +23,7 @@ export async function generateCards(cMngr: CoinsMngr) {
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <h4>${coinData.symbol}</h4>
+                  <h4 id=${coinData.id}-header>${coinData.symbol}</h4>
                 </div>
                 <div class="col-sm-6">
                   <div
