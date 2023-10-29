@@ -11,6 +11,7 @@ import { Info } from './Info.js';
 import { trackToggleInputs } from './TrackCoin.js';
 export function generateCards(cMngr) {
     return __awaiter(this, void 0, void 0, function* () {
+        clearInterval(window.intervalId);
         const pageMain = document.querySelector('#page-contents-section');
         if (pageMain) {
             pageMain.innerHTML = `

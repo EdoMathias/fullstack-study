@@ -1,4 +1,6 @@
 export function getAboutPage() {
+  clearInterval((window as any).intervalId);
+
   const pageMainSection = document.querySelector('#page-contents-section');
   const aboutPageData = `
   <section class="inner cover d-flex justify-content-center align-items-center mt-5">

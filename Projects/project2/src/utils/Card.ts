@@ -3,6 +3,7 @@ import { Info } from './Info.js';
 import { trackToggleInputs } from './TrackCoin.js';
 
 export async function generateCards(cMngr: CoinsMngr) {
+  clearInterval((window as any).intervalId);
   const pageMain = document.querySelector('#page-contents-section');
   if (pageMain) {
     pageMain.innerHTML = `

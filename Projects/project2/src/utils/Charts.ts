@@ -1,6 +1,6 @@
 import { CoinsMngr, DataPoint, ChartData } from '../types/Coin-type.js';
 
-let singleInterval = 0;
+clearInterval((window as any).intervalId);
 
 export function getChartsPage(cMngr: CoinsMngr) {
   const pageMainSection = document.querySelector('#page-contents-section');
@@ -82,45 +82,40 @@ export function getChartsPage(cMngr: CoinsMngr) {
       '#real-time-charts-button'
     );
     let selectedCoins = cMngr.selectedSymbols.join(',');
-    if (singleInterval === 0) {
-      // Create interval only when needed and only one if needed
-      setInterval(async () => {
-        if (realTimeChartsButton?.classList.contains('active')) {
-          const result = await fetch(
-            `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${selectedCoins.toUpperCase()}&tsyms=USD`
-          );
-          let data = await result.json();
 
-          // Loop through the data object and push the USD values into the 'Profit' dataPoints array
-          let dataIdx = 0;
-          for (let symbol of cMngr.selectedSymbols) {
-            let symbolUpper = symbol.toUpperCase();
-            if (data.hasOwnProperty(symbolUpper)) {
-              let usdValue = data[symbolUpper]['USD'];
+    // Create interval only when needed and only one if needed
+    (window as any).intervalId = setInterval(async () => {
+      const result = await fetch(
+        `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${selectedCoins.toUpperCase()}&tsyms=USD`
+      );
+      let data = await result.json();
 
-              if (usdValue !== undefined) {
-                let time = new Date();
-                let point = {
-                  x: time.getTime(),
-                  y: usdValue,
-                };
-                (
-                  (options.data as ChartData[])[dataIdx]
-                    .dataPoints as DataPoint[]
-                ).push(point);
-                // (options.data[dataIdx].dataPoints as DataPoint[]).push(point);
-              }
+      // Loop through the data object and push the USD values into the 'Profit' dataPoints array
+      let dataIdx = 0;
+      for (let symbol of cMngr.selectedSymbols) {
+        let symbolUpper = symbol.toUpperCase();
+        if (data.hasOwnProperty(symbolUpper)) {
+          let usdValue = data[symbolUpper]['USD'];
 
-              // Push the point to the dataPoints array of the 'Profit' series
-              dataIdx++;
-            }
-
-            // Render the chart to reflect the updated data
-            ($('#chartContainer') as any).CanvasJSChart().render();
+          if (usdValue !== undefined) {
+            let time = new Date();
+            let point = {
+              x: time.getTime(),
+              y: usdValue,
+            };
+            (
+              (options.data as ChartData[])[dataIdx].dataPoints as DataPoint[]
+            ).push(point);
+            // (options.data[dataIdx].dataPoints as DataPoint[]).push(point);
           }
+
+          // Push the point to the dataPoints array of the 'Profit' series
+          dataIdx++;
         }
-      }, 2000);
-      singleInterval = 1;
-    }
+
+        // Render the chart to reflect the updated data
+        ($('#chartContainer') as any).CanvasJSChart().render();
+      }
+    }, 2000);
   }
 }

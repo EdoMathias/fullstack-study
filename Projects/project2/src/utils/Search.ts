@@ -1,5 +1,6 @@
 import { Coin, CoinsMngr } from '../types/Coin-type.js';
 import { generateCards } from './Card.js';
+import { removeActiveClassFromLinks } from './Navigation-handler.js';
 import { trackToggleInputs } from './TrackCoin.js';
 
 export function searchCoinHandler(cMnger: CoinsMngr) {
@@ -28,5 +29,6 @@ async function searchCoin(cMnger: CoinsMngr, coinToSearch: string) {
     searchCoinMngr.selected = cMnger.selected;
     searchCoinMngr.selectedSymbols = cMnger.selectedSymbols;
     await generateCards(searchCoinMngr);
+    removeActiveClassFromLinks();
   }
 }
