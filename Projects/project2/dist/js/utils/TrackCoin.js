@@ -11,14 +11,12 @@ export function trackToggleInputs(cMngr) {
     return __awaiter(this, void 0, void 0, function* () {
         const cardIds = cMngr.coins.map((coin) => coin.id);
         const cardSymbols = cMngr.coins.map((coin) => coin.symbol);
-        console.log(cardIds);
         cardIds.forEach((cardId) => {
             const toggleInput = document.getElementById(`${cardId}-toggle`);
             const header = document.getElementById(`${cardId}-header`);
             if (toggleInput && header) {
                 const coinSymbol = header.textContent;
                 toggleInput.addEventListener('click', () => {
-                    console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? 'checked' : 'unchecked'}.`);
                     if (toggleInput.checked && coinSymbol) {
                         cMngr.selected.push(cardId);
                         cMngr.selectedSymbols.push(coinSymbol);
@@ -30,8 +28,6 @@ export function trackToggleInputs(cMngr) {
                             cMngr.selectedSymbols.splice(index, 1);
                         }
                     }
-                    console.log(cMngr.selected);
-                    console.log(cMngr.selectedSymbols);
                     if (cMngr.selected.length >= 6) {
                         updateModalContents(cMngr.selected);
                         showModal();
@@ -84,7 +80,6 @@ function removeTracking(trackedCoins) {
         const toggleInput = document.getElementById(`${trackedCoin}-toggle`);
         if (modalToggleInput) {
             modalToggleInput.addEventListener('click', () => {
-                console.log(`Toggle for card ${trackedCoin} is ${modalToggleInput.checked ? 'checked' : 'unchecked'}.`);
                 // Update the main checkbox based on the modal checkbox
                 if (modalToggleInput && toggleInput) {
                     toggleInput.checked = modalToggleInput.checked;

@@ -17,17 +17,11 @@ function init() {
         const cMngr = new CoinsMngr();
         try {
             cMngr.coins = yield getAllCoins();
-            console.log(cMngr.coins);
             generateCards(cMngr);
         }
         catch (error) {
             console.error(error);
         }
-        // try {
-        //   await trackToggleInputs(cMngr);
-        // } catch (error) {
-        //   console.error(error);
-        // }
         navigationHandlers(cMngr);
         searchCoinHandler(cMngr);
     });

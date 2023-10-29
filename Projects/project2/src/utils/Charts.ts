@@ -1,4 +1,4 @@
-import { CoinsMngr, DataPoint } from '../types/Coin-type.js';
+import { CoinsMngr, DataPoint, ChartData } from '../types/Coin-type.js';
 
 let singleInterval = 0;
 
@@ -46,26 +46,24 @@ export function getChartsPage(cMngr: CoinsMngr) {
         cursor: 'pointer',
         // itemclick: toggleDataSeries,
       },
-      data: [
-        {
-          type: 'spline',
-          color: 'green',
-          name: 'Units Sold',
-          showInLegend: true,
-          xValueType: 'dateTime',
-          dataPoints: [],
-        },
-        {
-          type: 'spline',
-          name: 'Profit',
-          axisYType: 'secondary',
-          showInLegend: true,
-          xValueType: 'dateTime',
-          dataPoints: [],
-        },
-      ],
+      data: [],
+      options: {
+        maintainAspectRatio: false,
+      },
     };
     (async function () {
+      for (const symbol of cMngr.selectedSymbols) {
+        let chartData: ChartData = {
+          type: 'spline',
+          name: symbol,
+          showInLegend: true,
+          xValueType: 'dateTime',
+          dataPoints: [],
+        };
+
+        (options.data as ChartData[]).push(chartData);
+      }
+
       ($('#chartContainer') as any).CanvasJSChart(options);
 
       function toggleDataSeries(e) {
@@ -98,9 +96,7 @@ export function getChartsPage(cMngr: CoinsMngr) {
           for (let symbol of cMngr.selectedSymbols) {
             let symbolUpper = symbol.toUpperCase();
             if (data.hasOwnProperty(symbolUpper)) {
-              console.log(data[symbolUpper]);
               let usdValue = data[symbolUpper]['USD'];
-              console.log(usdValue);
 
               if (usdValue !== undefined) {
                 let time = new Date();
@@ -108,8 +104,11 @@ export function getChartsPage(cMngr: CoinsMngr) {
                   x: time.getTime(),
                   y: usdValue,
                 };
-                console.log(point);
-                (options.data[dataIdx].dataPoints as DataPoint[]).push(point);
+                (
+                  (options.data as ChartData[])[dataIdx]
+                    .dataPoints as DataPoint[]
+                ).push(point);
+                // (options.data[dataIdx].dataPoints as DataPoint[]).push(point);
               }
 
               // Push the point to the dataPoints array of the 'Profit' series

@@ -117,7 +117,6 @@ export async function generateCards(cMngr: CoinsMngr) {
             }
           }
         }
-        console.log(`Clicked ${button.id}`);
       });
     });
   }

@@ -10,9 +10,15 @@ export type CoinId = {
 
 export interface DataPoint {
   x: number;
-  // x: string;
-  // x: Date;
   y: number;
+}
+
+export interface ChartData {
+  type: string;
+  name: string;
+  showInLegend: boolean;
+  xValueType: string;
+  dataPoints: DataPoint[];
 }
 
 export class CoinsMngr {

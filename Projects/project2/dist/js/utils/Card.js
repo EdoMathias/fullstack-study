@@ -114,7 +114,6 @@ export function generateCards(cMngr) {
                             }
                         }
                     }
-                    console.log(`Clicked ${button.id}`);
                 }));
             });
         }

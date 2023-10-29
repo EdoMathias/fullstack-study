@@ -12,7 +12,6 @@ export function searchCoinHandler(cMnger: CoinsMngr) {
     if (searchInput) {
       coinToSearch = searchInput.value;
     }
-    console.log(coinToSearch);
     searchCoin(cMnger, coinToSearch);
   });
 }
@@ -24,10 +23,10 @@ async function searchCoin(cMnger: CoinsMngr, coinToSearch: string) {
     const filteredCoin = cMnger.coins.filter(
       (coin) => coin.symbol === coinToSearch
     );
-    console.log(filteredCoin);
     const searchCoinMngr = new CoinsMngr();
     searchCoinMngr.coins = filteredCoin;
     searchCoinMngr.selected = cMnger.selected;
+    searchCoinMngr.selectedSymbols = cMnger.selectedSymbols;
     await generateCards(searchCoinMngr);
   }
 }
