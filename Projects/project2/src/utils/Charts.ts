@@ -83,7 +83,7 @@ export function getChartsPage(cMngr: CoinsMngr) {
     const realTimeChartsButton = document.querySelector(
       '#real-time-charts-button'
     );
-    let selectedCoins = cMngr.symbols.join(',');
+    let selectedCoins = cMngr.selectedSymbols.join(',');
     if (singleInterval === 0) {
       // Create interval only when needed and only one if needed
       setInterval(async () => {
@@ -92,40 +92,32 @@ export function getChartsPage(cMngr: CoinsMngr) {
             `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${selectedCoins.toUpperCase()}&tsyms=USD`
           );
           let data = await result.json();
+
           // Loop through the data object and push the USD values into the 'Profit' dataPoints array
-          for (const coin in data) {
-            if (data.hasOwnProperty(coin)) {
-              let usdValue = data[coin]['USD'];
+          let dataIdx = 0;
+          for (let symbol of cMngr.selectedSymbols) {
+            let symbolUpper = symbol.toUpperCase();
+            if (data.hasOwnProperty(symbolUpper)) {
+              console.log(data[symbolUpper]);
+              let usdValue = data[symbolUpper]['USD'];
               console.log(usdValue);
 
               if (usdValue !== undefined) {
-                let date = new Date();
-                // let time = `${date.getHours()}:${
-                //   date.getMinutes() > 10
-                //     ? `0${date.getMinutes()}`
-                //     : date.getMinutes()
-                // }`;
                 let time = new Date();
-                // let point: DataPoint = {
-                //   x: time,
-                //   y: usdValue,
-                // };
                 let point = {
                   x: time.getTime(),
                   y: usdValue,
                 };
                 console.log(point);
-
-                // Push the point to the dataPoints array of the 'Profit' series
-                (options.data[0].dataPoints as DataPoint[]).push(point);
-                // options.data[0].dataPoints.push(point);
-
-                console.log(options.data[0].dataPoints);
-
-                // Render the chart to reflect the updated data
-                ($('#chartContainer') as any).CanvasJSChart().render();
+                (options.data[dataIdx].dataPoints as DataPoint[]).push(point);
               }
+
+              // Push the point to the dataPoints array of the 'Profit' series
+              dataIdx++;
             }
+
+            // Render the chart to reflect the updated data
+            ($('#chartContainer') as any).CanvasJSChart().render();
           }
         }
       }, 2000);

@@ -18,7 +18,7 @@ export interface DataPoint {
 export class CoinsMngr {
   coins: Coin[] = [];
   selected: string[] = [];
-  symbols: string[] = [];
+  selectedSymbols: string[] = [];
 }
 
 export type CoinMarketData = {

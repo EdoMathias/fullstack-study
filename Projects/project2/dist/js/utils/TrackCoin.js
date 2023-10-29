@@ -21,17 +21,17 @@ export function trackToggleInputs(cMngr) {
                     console.log(`Toggle for card ${cardId} is ${toggleInput.checked ? 'checked' : 'unchecked'}.`);
                     if (toggleInput.checked && coinSymbol) {
                         cMngr.selected.push(cardId);
-                        cMngr.symbols.push(coinSymbol);
+                        cMngr.selectedSymbols.push(coinSymbol);
                     }
                     else {
                         const index = cMngr.selected.indexOf(cardId);
                         if (index !== -1) {
                             cMngr.selected.splice(index, 1);
-                            cMngr.symbols.splice(index, 1);
+                            cMngr.selectedSymbols.splice(index, 1);
                         }
                     }
                     console.log(cMngr.selected);
-                    console.log(cMngr.symbols);
+                    console.log(cMngr.selectedSymbols);
                     if (cMngr.selected.length >= 6) {
                         updateModalContents(cMngr.selected);
                         showModal();
