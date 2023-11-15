@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <main>
+      <section id="form-section">
+        <form>
+          <h1>Country statistics:</h1>
+          <label for="country-name">Enter country name:</label><br />
+          <input type="text" id="country-name" name="country-name" /><br />
+          <button id="search-countrty-button" type="button">Search</button>
+          <button id="search-all-button" type="button">All countries</button>
+        </form>
+      </section>
+      <hr />
+      <section id="statistics-results">
+        <div id="stats-div"></div>
+        <div id="countries-table" hidden>
+          <table>
+            <thead>
+              <tr>
+                <th>Country Name</th>
+                <th>Number of citizens</th>
+                <th>Currencies</th>
+              </tr>
+            </thead>
+            <tbody id="countries-table-body"></tbody>
+          </table>
+        </div>
+        <div id="region-table" hidden>
+          <table>
+            <thead>
+              <tr>
+                <th>Region Name</th>
+                <th>Number of countries</th>
+              </tr>
+            </thead>
+            <tbody id="region-table-body"></tbody>
+          </table>
+        </div>
+        <div id="currencies-table" hidden>
+          <table>
+            <thead>
+              <tr>
+                <th>Currency</th>
+                <th>Number of countries</th>
+              </tr>
+            </thead>
+            <tbody id="currencies-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
