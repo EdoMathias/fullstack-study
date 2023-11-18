@@ -15,15 +15,10 @@ export function getChartsPage(cMngr: CoinsMngr) {
       exportEnabled: true,
       animationEnabled: true,
       title: {
-        text: 'Units Sold VS Profit',
+        text: 'Real-time chart',
       },
-      subtitles: [
-        {
-          text: 'Click Legend to Hide or Unhide Data Series',
-        },
-      ],
       axisX: {
-        title: 'States',
+        title: 'Time',
       },
       axisY: {
         title: 'USD',
@@ -32,19 +27,11 @@ export function getChartsPage(cMngr: CoinsMngr) {
         labelFontColor: '#4F81BC',
         tickColor: '#4F81BC',
       },
-      axisY2: {
-        title: 'EUR',
-        titleFontColor: '#C0504E',
-        lineColor: '#C0504E',
-        labelFontColor: '#C0504E',
-        tickColor: '#C0504E',
-      },
       toolTip: {
         shared: true,
       },
       legend: {
         cursor: 'pointer',
-        // itemclick: toggleDataSeries,
       },
       data: [],
       options: {
@@ -78,9 +65,7 @@ export function getChartsPage(cMngr: CoinsMngr) {
         e.chart.render();
       }
     })();
-    const realTimeChartsButton = document.querySelector(
-      '#real-time-charts-button'
-    );
+
     let selectedCoins = cMngr.selectedSymbols.join(',');
 
     // Create interval only when needed and only one if needed
@@ -106,7 +91,6 @@ export function getChartsPage(cMngr: CoinsMngr) {
             (
               (options.data as ChartData[])[dataIdx].dataPoints as DataPoint[]
             ).push(point);
-            // (options.data[dataIdx].dataPoints as DataPoint[]).push(point);
           }
 
           // Push the point to the dataPoints array of the 'Profit' series
