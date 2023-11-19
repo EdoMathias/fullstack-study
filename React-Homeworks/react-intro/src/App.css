@@ -1,0 +1,30 @@
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  color: red;
+}
+
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+} 
+
+.footer-p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
