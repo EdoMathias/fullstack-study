@@ -1,0 +1,12 @@
+.card {
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.header {
+    color: red;
+}
+
+.footer {
+    color: green;
+}
