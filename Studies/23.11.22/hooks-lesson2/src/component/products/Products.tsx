@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 type Product = {
@@ -10,9 +11,19 @@ export const Products = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const result = await fetch('https://fakestoreapi.com/products');
-      const data = await result.json();
-      const productsData = data.map((p: Product) => ({
+      //   const result = await fetch('https://fakestoreapi.com/products');
+      //   const data = await result.json();
+      //   const productsData = data.map((p: Product) => ({
+      //     title: p.title,
+      //     id: p.id,
+      //   }));
+      //   setProducts(productsData);
+
+      const data = await axios.get<Product[]>(
+        'https://fakestoreapi.com/products'
+      );
+      console.log(data);
+      const productsData = data.data.map((p: Product) => ({
         title: p.title,
         id: p.id,
       }));
