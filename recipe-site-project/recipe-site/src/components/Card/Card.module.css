@@ -1,0 +1,15 @@
+.card {
+    border: 1px solid grey;
+    border-radius: 5px;
+    max-width: 150px;
+    text-align: center;
+}
+
+.image {
+    max-width: 150px;
+}
+
+.header {
+    color: red;
+}
+
