@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Category } from '../../types/types';
 import { getCategories } from '../../services/products-service';
+import style from './sidebar.module.css';
 
 export const SideNavigation = () => {
   const [categories, setcategories] = useState<Category[] | null>(null);
@@ -17,8 +18,8 @@ export const SideNavigation = () => {
   return categories === null ? (
     <div>LOADING...</div>
   ) : (
-    <nav className="side-navigation">
-      <ul>
+    <nav className={style.sidebar}>
+      <ul className={style.menu}>
         {categories?.map((category) => (
           <li key={category.id}>{category.title}</li>
         ))}
