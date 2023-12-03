@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Category } from '../../types/types';
 import { getCategories } from '../../services/products-service';
 import style from './sidebar.module.css';
+import { Link } from 'react-router-dom';
 
 export const SideNavigation = () => {
   const [categories, setcategories] = useState<Category[] | null>(null);
@@ -21,7 +22,9 @@ export const SideNavigation = () => {
     <nav className={style.sidebar}>
       <ul className={style.menu}>
         {categories?.map((category) => (
-          <li key={category.id}>{category.title}</li>
+          <li key={category.id}>
+            <Link to={`category/${category.id}`}>{category.title}</Link>
+          </li>
         ))}
       </ul>
     </nav>
