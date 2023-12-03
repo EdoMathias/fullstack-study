@@ -1,18 +1,18 @@
 import axios from 'axios';
-import { Category } from '../types/types';
+import { Product } from '../types/types';
 
-const getCategoriesUrl = 'http://localhost:3000/categories';
+const getProductsUrl = 'http://localhost:3000/products';
 
-export const getCategories = async () => {
+export const getProductsByCategoryId = async (categoryId: string) => {
   try {
-    const result = await axios.get<Category[]>(getCategoriesUrl);
-    const categories = result.data;
-    return categories;
+    const result = await axios.get<Product[]>(
+      `${getProductsUrl}?categoryId=${categoryId}`
+    );
+    const products = result.data;
+    return products;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw new Error(
-        'Failed fetching categories' + error.response?.statusText
-      );
+      throw new Error('Failed fetching products' + error.response?.statusText);
     }
   }
 };
