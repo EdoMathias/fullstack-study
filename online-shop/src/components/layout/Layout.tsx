@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react';
 import { SideNavigation } from '../side-navigation/SideNavigation';
 import style from './layout.module.css';
-import axios from 'axios';
-import { Category } from '../../types/types';
 
 export const Layout = () => {
   return (

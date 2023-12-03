@@ -15,7 +15,7 @@ export const SideNavigation = () => {
   }, []);
 
   return categories === null ? (
-    <nav>Sidenavigation</nav>
+    <div>LOADING...</div>
   ) : (
     <nav className="side-navigation">
       <ul>
