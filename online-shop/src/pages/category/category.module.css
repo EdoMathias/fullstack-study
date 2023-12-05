@@ -1,0 +1,16 @@
+/* CategoryPage.module.css */
+
+.categoryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Adjust this based on your design preferences */
+  }
+  
+  /* You can keep the styles for the Card component here as well, or import the styles from the existing Card.module.css file */
+  
+  .card {
+    /* Your existing Card styles go here */
+    margin-bottom: 16px;
+    width: 250px; /* Adjust the width as needed */
+  }
+  
