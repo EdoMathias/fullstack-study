@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Product } from '../../types/types';
 import { getProductsByCategoryId } from '../../services/products-service';
-import { Card } from '../../components/card/Card';
+import { ProductCard } from '../../components/card/Card';
 import style from './category.module.css';
 
 export const Category = () => {
@@ -25,7 +25,7 @@ export const Category = () => {
     <div className={style.categoryContainer}>
       Category: {categoryId}:
       {products?.map((product) => (
-        <Card product={product} />
+        <ProductCard product={product} />
       ))}
     </div>
   );

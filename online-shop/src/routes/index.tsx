@@ -29,12 +29,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-// export const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <Route path="/" element={<Layout />}>
-//       <Route path="home" element={<Home />}></Route>
-//       <Route path="about" element={<About />}></Route>
-//       <Route path="category/:categoryId" element={<Category />}></Route>
-//     </Route>
-//   )
-// );
