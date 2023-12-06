@@ -18,9 +18,10 @@ type ProductCardProps = {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, boxShadow: 5 }}>
       <CardMedia
-        sx={{ height: 140, backgroundSize: 'contain' }}
+        component="img"
+        sx={{ height: 140, objectFit: 'contain' }}
         image={product.image}
         title={product.title}
       />
@@ -28,7 +29,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <Typography gutterBottom variant="h5" component="div">
           {product.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography gutterBottom variant="body2" color="text.secondary">
           {product.description}
         </Typography>
         <Divider />
