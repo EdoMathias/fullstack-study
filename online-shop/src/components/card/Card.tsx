@@ -29,7 +29,18 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <Typography gutterBottom variant="h5" component="div">
           {product.title}
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary">
+        <Typography
+          gutterBottom
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: '4',
+          }}
+        >
           {product.description}
         </Typography>
         <Divider />
