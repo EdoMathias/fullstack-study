@@ -1,8 +1,4 @@
-import {
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../components/layout/Layout.tsx';
 import { Home } from '../pages/home/Home.tsx';
 import { About } from '../pages/about/About.tsx';

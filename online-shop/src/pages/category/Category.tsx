@@ -4,6 +4,7 @@ import { Product } from '../../types/types';
 import { getProductsByCategoryId } from '../../services/products-service';
 import { ProductCard } from '../../components/card/Card';
 import style from './category.module.css';
+import Box from '@mui/material/Box';
 
 export const Category = () => {
   const { categoryId } = useParams();
@@ -20,13 +21,21 @@ export const Category = () => {
   }, [categoryId]);
 
   return products === null ? (
-    <div>LOADING...</div>
+    <Box>LOADING...</Box>
   ) : (
-    <div className={style.categoryContainer}>
-      Category: {categoryId}:
-      {products?.map((product) => (
-        <ProductCard product={product} />
-      ))}
-    </div>
+    <Box>
+      <Box>Category: {categoryId}:</Box>
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: 2,
+        }}
+      >
+        {products?.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </Box>
+    </Box>
   );
 };
