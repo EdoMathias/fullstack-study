@@ -3,17 +3,22 @@ import { SideNavigation } from '../side-navigation/SideNavigation';
 import style from './layout.module.css';
 import { Header } from '../header/Header';
 
+//
+
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Toolbar from '@mui/material/Toolbar';
+
 export const Layout = () => {
   return (
-    <div className={style.layout}>
-      <div className={style.header}>
-        <Header />
-      </div>
-      <div className={style.sidebar}>
-        <SideNavigation />
-      </div>
-      <div className={style.main}>{<Outlet />}</div>
-      <div className={style.footer}>Footer</div>
-    </div>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <Header />
+      <SideNavigation />
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        {<Outlet />}
+      </Box>
+    </Box>
   );
 };
