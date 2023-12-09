@@ -3,6 +3,7 @@ import { Layout } from '../components/layout/Layout.tsx';
 import { Home } from '../pages/home/Home.tsx';
 import { About } from '../pages/about/About.tsx';
 import { Category } from '../pages/category/Category.tsx';
+import { ProductPage } from '../pages/product/ProductPage.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: 'category/:categoryId',
         element: <Category />,
+      },
+      {
+        path: 'product/:productId',
+        element: <ProductPage />,
       },
     ],
   },
