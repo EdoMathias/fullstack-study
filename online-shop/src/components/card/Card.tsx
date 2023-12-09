@@ -11,6 +11,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 type ProductCardProps = {
   product: Product;
@@ -47,7 +48,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <Typography variant="h6">${product.price}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Link to={`/product/${product.id}`}>
+          <Button size="small">Learn More</Button>
+        </Link>
       </CardActions>
     </Card>
   );
