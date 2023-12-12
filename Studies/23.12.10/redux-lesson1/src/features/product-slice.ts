@@ -19,7 +19,7 @@ const productsSlice = createSlice({
       state.products[action.payload.productId] =
         state.products[action.payload.productId] === undefined
           ? action.payload.amount
-          : action.payload.amount++;
+          : state.products[action.payload.productId] + action.payload.amount;
     },
   },
 });
