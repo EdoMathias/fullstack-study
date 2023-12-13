@@ -12,12 +12,19 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../app/hooks';
+import { addProduct } from '../../features/card-slice';
 
 type ProductCardProps = {
   product: Product;
 };
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+  const dispatch = useAppDispatch();
+  const handleAddToCart = (product: Product) => {
+    dispatch(addProduct(product));
+  };
+
   return (
     <Card sx={{ maxWidth: 345, boxShadow: 5 }}>
       <CardMedia
@@ -51,6 +58,16 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <Link to={`/product/${product.id}`}>
           <Button size="small">Learn More</Button>
         </Link>
+        <Button
+          size="small"
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            handleAddToCart(product);
+          }}
+        >
+          Add to cart
+        </Button>
       </CardActions>
     </Card>
   );
