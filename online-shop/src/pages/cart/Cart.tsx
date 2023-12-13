@@ -30,7 +30,7 @@ export const Cart = () => {
                 width: '50px',
                 height: '50px',
                 marginRight: '10px',
-                objectFit: 'cover',
+                objectFit: 'contain',
               }}
             />
             <Box>
@@ -40,15 +40,19 @@ export const Cart = () => {
               <Typography variant="body2" color="textSecondary">
                 Amount: {productData.amount}
               </Typography>
+              <Typography variant="body2" color="textSecondary">
+                Price: ${productData.product.price.toFixed(2)}
+              </Typography>
             </Box>
           </AccordionSummary>
           <AccordionDetails>
             <Box>
               <Typography variant="body2" color="textSecondary">
-                Price: ${productData.product.price.toFixed(2)}
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
                 Category: {productData.product.category}
+              </Typography>
+              <br />
+              <Typography variant="body2" color="textSecondary">
+                {productData.product.description}
               </Typography>
             </Box>
           </AccordionDetails>
