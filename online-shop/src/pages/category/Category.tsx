@@ -24,7 +24,6 @@ export const Category = () => {
     <Box>LOADING...</Box>
   ) : (
     <Box>
-      <Box>Category: {categoryId}:</Box>
       <Box
         sx={{
           display: 'grid',
@@ -33,7 +32,7 @@ export const Category = () => {
         }}
       >
         {products?.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </Box>
     </Box>
