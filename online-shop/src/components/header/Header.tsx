@@ -1,4 +1,5 @@
 import AppBar from '@mui/material/AppBar';
+import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
@@ -10,11 +11,21 @@ export const Header = () => {
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          Edo's Online Store
-        </Typography>
-        <Link to={'/'}>Home</Link>
-        <Link to={'about'}>About</Link>
+        <Grid container justifyContent="space-between" alignItems="center">
+          <Grid item>
+            <Typography variant="h6" noWrap component="div">
+              Edo's Online Store
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Link to={'/'} style={{ margin: '0 10px' }}>
+              Home
+            </Link>
+            <Link to={'/about'} style={{ margin: '0 10px' }}>
+              About
+            </Link>
+          </Grid>
+        </Grid>
       </Toolbar>
     </AppBar>
   );
