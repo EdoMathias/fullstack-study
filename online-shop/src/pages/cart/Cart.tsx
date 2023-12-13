@@ -3,22 +3,56 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import { useAppSelecetor } from '../../app/hooks';
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Box,
+  Avatar,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const Cart = () => {
   const products = useAppSelecetor((state) => state.card.products);
   return (
     <List>
-      {Object.entries(products).map((product, index) => (
-        <ListItem key={index}>
-          <ListItemText
-            primary={product[1].product.title}
-            secondary={
-              <Typography variant="body2" color="textSecondary">
-                Amount: {product[1].amount}
+      {Object.entries(products).map(([productId, productData]) => (
+        <Accordion key={productId}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={`panel-${productId}-content`}
+            id={`panel-${productId}-header`}
+          >
+            <Avatar
+              src={productData.product.image}
+              alt={productData.product.title}
+              sx={{
+                width: '50px',
+                height: '50px',
+                marginRight: '10px',
+                objectFit: 'cover',
+              }}
+            />
+            <Box>
+              <Typography variant="body1">
+                {productData.product.title}
               </Typography>
-            }
-          />
-        </ListItem>
+              <Typography variant="body2" color="textSecondary">
+                Amount: {productData.amount}
+              </Typography>
+            </Box>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Box>
+              <Typography variant="body2" color="textSecondary">
+                Price: ${productData.product.price.toFixed(2)}
+              </Typography>
+              <Typography variant="body2" color="textSecondary">
+                Category: {productData.product.category}
+              </Typography>
+            </Box>
+          </AccordionDetails>
+        </Accordion>
       ))}
     </List>
   );
