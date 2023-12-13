@@ -43,11 +43,11 @@ export const SideNavigation = () => {
       <Box sx={{ overflow: 'auto' }}>
         <List>
           {categories === null ? (
-            <Box>Loading...</Box>
+            <Box key={'loading'}>Loading...</Box>
           ) : (
             categories.map((category) => (
-              <Link to={`category/${category.id}`}>
-                <ListItem key={category.id} disablePadding>
+              <Link key={category.id} to={`category/${category.id}`}>
+                <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
                       <InboxIcon />
