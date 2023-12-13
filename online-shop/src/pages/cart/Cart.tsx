@@ -9,10 +9,16 @@ import {
   Avatar,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export const Cart = () => {
   const products = useAppSelecetor((state) => state.card.products);
-  return (
+  return Object.keys(products).length === 0 ? (
+    <Box textAlign="center" mt={3}>
+      <ShoppingCartIcon style={{ fontSize: 48, marginBottom: 10 }} />
+      <Typography variant="h6">Your cart is empty</Typography>
+    </Box>
+  ) : (
     <List>
       {Object.entries(products).map(([productId, productData]) => (
         <Accordion key={productId}>
