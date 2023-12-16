@@ -277,42 +277,6 @@
         "rate": 3.6,
         "count": 145
       }
-    },
-    {
-      "id": "mc5",
-      "title": "basic t-shirt",
-      "price": "5",
-      "description": "basic t-shirt with logo design",
-      "category": "men's clothing",
-      "categoryId": "3",
-      "image": "https://www.fly3.it/2716-large_default/basic-t-shirt.jpg"
-    },
-    {
-      "id": "mc6",
-      "title": "basic t-shirt",
-      "price": "5",
-      "description": "basic t-shirt with logo design",
-      "category": "men's clothing",
-      "categoryId": "3",
-      "image": "https://www.fly3.it/2716-large_default/basic-t-shirt.jpg"
-    },
-    {
-      "id": "mc55",
-      "title": ";alksdjf;lksjd;af",
-      "price": "45",
-      "description": "fasdfkjnasdna;smvn;asndv;laksnd;lk",
-      "category": "men's clothing",
-      "categoryId": "3",
-      "image": "https://www.fly3.it/2716-large_default/basic-t-shirt.jpg"
-    },
-    {
-      "id": "asdfsadf",
-      "title": "klldkfjsl;kjadk;aj;jfaljfk;sf;kj",
-      "price": "55.55",
-      "description": ";aksldj;fka;sdkfa",
-      "category": "men's clothing",
-      "categoryId": "3",
-      "image": "https://www.fly3.it/2716-large_default/basic-t-shirt.jpg"
     }
   ]
 }
