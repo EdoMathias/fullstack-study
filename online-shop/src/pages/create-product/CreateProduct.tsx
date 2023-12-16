@@ -16,9 +16,11 @@ import { useForm } from 'react-hook-form';
 
 export const CreateProduct = () => {
   const [categoryId, setCategoryId] = useState('');
+  const [category, setCategory] = useState('');
 
-  const handleCategoryOptions = (event: string) => {
-    switch (event) {
+  const handleCategoryOptions = (event: SelectChangeEvent<string>) => {
+    const selectedCategory = event.target.value as string;
+    switch (selectedCategory) {
       case "men's clothing":
         setCategoryId('3');
         break;
@@ -35,6 +37,7 @@ export const CreateProduct = () => {
       default:
         break;
     }
+    setCategory(selectedCategory);
   };
 
   type FormState = {
@@ -117,18 +120,25 @@ export const CreateProduct = () => {
             error={!!errors.description}
             helperText={errors.description?.message}
           />
-          <TextField
-            {...register('category', {
-              required: 'Category is required',
-            })}
-            id="category"
-            name="category"
-            label="Category"
-            variant="standard"
-            onChange={(e) => handleCategoryOptions(e.target.value)}
-            error={!!errors.category}
-            helperText={errors.category?.message}
-          />
+          <FormControl fullWidth variant="standard" error={!!errors.category}>
+            <InputLabel id="category-label">Category</InputLabel>
+            <Select
+              {...register('category', {
+                required: 'Category is required',
+              })}
+              labelId="category-label"
+              id="category"
+              name="category"
+              value={category}
+              onChange={handleCategoryOptions}
+            >
+              <MenuItem value="men's clothing">Men's Clothing</MenuItem>
+              <MenuItem value="electronics">Electronics</MenuItem>
+              <MenuItem value="jewelery">Jewelery</MenuItem>
+              <MenuItem value="women's clothing">Women's Clothing</MenuItem>
+            </Select>
+          </FormControl>
+
           <TextField
             {...register('categoryId', {
               required: 'CategoryId is required',
