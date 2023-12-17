@@ -15,7 +15,7 @@ import { Category } from '../../types/types';
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  const categories = useFetch<Category[]>(getCategories);
+  const {result:categories, isLoading} = useFetch<Category[]>(getCategories);
 
   return (
     <Drawer
