@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-export const useFetch = (fnQuery: () => Promise<any>) => {
-  const [result, setResult] = useState<any[] | null>(null);
+export const useFetch = <T>(fnQuery: () => Promise<T>) => {
+  const [result, setResult] = useState<T | null>(null);
 
   useEffect(() => {
     const getData = async () => {
