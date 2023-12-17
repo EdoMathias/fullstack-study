@@ -16,15 +16,18 @@ import { useQuery } from '@tanstack/react-query';
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  
   // const {result:categories, isLoading} = useFetch<Category[]>(getCategories);
-  const {data: categories, isLoading, isError} = useQuery({queryKey: ['categories'], queryFn: getCategories});
-  
+  const {
+    data: categories,
+    isLoading,
+    isError,
+  } = useQuery({ queryKey: ['categories'], queryFn: getCategories });
+
   if (isLoading) {
-    return
+    return;
   }
-  if (isError) { 
-    return 
+  if (isError) {
+    return;
   }
 
   return (

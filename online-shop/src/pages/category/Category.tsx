@@ -20,8 +20,12 @@ export const Category = () => {
   //   }
   // }, [categoryId]);
 
-  const {data: products} = useQuery({queryKey:['products', categoryId], 
-  queryFn: ()=> getProductsByCategoryId(categoryId!), enabled:!!categoryId, staleTime: 1000*10});
+  const { data: products } = useQuery({
+    queryKey: ['products', categoryId],
+    queryFn: () => getProductsByCategoryId(categoryId!),
+    enabled: !!categoryId,
+    staleTime: 1000 * 10,
+  });
 
   return products === undefined ? (
     <Box>LOADING...</Box>
