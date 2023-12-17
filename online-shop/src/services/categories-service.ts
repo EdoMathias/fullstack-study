@@ -3,7 +3,7 @@ import { Category } from '../types/types';
 
 const getCategoriesUrl = 'http://localhost:3000/categories';
 
-export const getCategories = async () => {
+export const getCategories = async (): Promise<Category[]> => {
   try {
     const result = await axios.get<Category[]>(getCategoriesUrl);
     const categories = result.data;
@@ -11,8 +11,9 @@ export const getCategories = async () => {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(
-        'Failed fetching categories' + error.response?.statusText
+        'Failed fetching categories' + error.response?.statusText,
       );
     }
+    throw error;
   }
 };

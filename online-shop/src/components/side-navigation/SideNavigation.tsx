@@ -10,11 +10,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useFetch } from '../../hooks/useFetch';
+import { Category } from '../../types/types';
 
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  const categories = useFetch(getCategories);
+  const categories = useFetch<Category[]>(getCategories);
 
   return (
     <Drawer
@@ -34,7 +35,7 @@ export const SideNavigation = () => {
           {categories === null ? (
             <Box key={'loading'}>Loading...</Box>
           ) : (
-            categories.map((category) => (
+            categories?.map((category) => (
               <Link key={category.id} to={`category/${category.id}`}>
                 <ListItem disablePadding>
                   <ListItemButton>
