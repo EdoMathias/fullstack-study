@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { Category } from '../../types/types';
 import { getCategories } from '../../services/categories-service';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
@@ -16,16 +14,7 @@ import { useFetch } from '../../hooks/useFetch';
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  // const [categories, setcategories] = useState<Category[] | null>(null);
-
-  // useEffect(() => {
-  //   const callGetAllCategories = async () => {
-  //     const categories = await getCategories();
-  //     setcategories(categories!);
-  //   };
-  //   callGetAllCategories();
-  // }, []);
-  const categories = useFetch(getCategories)
+  const categories = useFetch(getCategories);
 
   return (
     <Drawer
