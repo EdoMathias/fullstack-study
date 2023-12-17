@@ -11,11 +11,21 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useFetch } from '../../hooks/useFetch';
 import { Category } from '../../types/types';
+import { useQuery } from '@tanstack/react-query';
 
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  const {result:categories, isLoading} = useFetch<Category[]>(getCategories);
+  
+  // const {result:categories, isLoading} = useFetch<Category[]>(getCategories);
+  const {data: categories, isLoading, isError} = useQuery({queryKey: ['categories'], queryFn: getCategories});
+  
+  if (isLoading) {
+    return
+  }
+  if (isError) { 
+    return 
+  }
 
   return (
     <Drawer
@@ -32,10 +42,10 @@ export const SideNavigation = () => {
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
         <List>
-          {categories === null ? (
+          {categories === undefined ? (
             <Box key={'loading'}>Loading...</Box>
           ) : (
-            categories?.map((category) => (
+            categories.map((category) => (
               <Link key={category.id} to={`category/${category.id}`}>
                 <ListItem disablePadding>
                   <ListItemButton>
