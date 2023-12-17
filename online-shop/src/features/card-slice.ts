@@ -16,9 +16,6 @@ const cardSlice = createSlice({
     addProduct(state, action: PayloadAction<Product>) {
       const productId = action.payload.id;
 
-      //   state.products[productId].amount === undefined
-      //     ? (state.products[productId].amount = 1)
-      //     : (state.products[productId].amount += 1);
       state.products[productId] = {
         product: action.payload,
         amount:
