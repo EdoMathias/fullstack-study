@@ -11,19 +11,21 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import { useFetch } from '../../hooks/useFetch';
 
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  const [categories, setcategories] = useState<Category[] | null>(null);
+  // const [categories, setcategories] = useState<Category[] | null>(null);
 
-  useEffect(() => {
-    const callGetAllCategories = async () => {
-      const categories = await getCategories();
-      setcategories(categories!);
-    };
-    callGetAllCategories();
-  }, []);
+  // useEffect(() => {
+  //   const callGetAllCategories = async () => {
+  //     const categories = await getCategories();
+  //     setcategories(categories!);
+  //   };
+  //   callGetAllCategories();
+  // }, []);
+  const categories = useFetch(getCategories)
 
   return (
     <Drawer
