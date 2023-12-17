@@ -1,8 +1,6 @@
-// import { Link } from 'react-router-dom'; // If you're using React Router
 import { useEffect, useState } from 'react';
 import { Category } from '../../types/types';
 import { getCategories } from '../../services/categories-service';
-import style from './sidebar.module.css';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -43,11 +41,11 @@ export const SideNavigation = () => {
       <Box sx={{ overflow: 'auto' }}>
         <List>
           {categories === null ? (
-            <Box>Loading...</Box>
+            <Box key={'loading'}>Loading...</Box>
           ) : (
             categories.map((category) => (
-              <Link to={`category/${category.id}`}>
-                <ListItem key={category.id} disablePadding>
+              <Link key={category.id} to={`category/${category.id}`}>
+                <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
                       <InboxIcon />

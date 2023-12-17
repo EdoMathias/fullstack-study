@@ -46,7 +46,7 @@ export const ProductPage = () => {
         {product.description}
       </Typography>
       <Typography variant="h5" style={{ marginTop: '20px' }}>
-        Price: ${product.price.toFixed(2)}
+        Price: ${product.price}
       </Typography>
       <Button variant="contained" color="primary" style={{ marginTop: '20px' }}>
         Add to Cart

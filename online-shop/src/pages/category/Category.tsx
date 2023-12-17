@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Product } from '../../types/types';
 import { getProductsByCategoryId } from '../../services/products-service';
 import { ProductCard } from '../../components/card/Card';
-import style from './category.module.css';
 import Box from '@mui/material/Box';
 
 export const Category = () => {
@@ -24,7 +23,6 @@ export const Category = () => {
     <Box>LOADING...</Box>
   ) : (
     <Box>
-      <Box>Category: {categoryId}:</Box>
       <Box
         sx={{
           display: 'grid',
@@ -33,7 +31,7 @@ export const Category = () => {
         }}
       >
         {products?.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </Box>
     </Box>
