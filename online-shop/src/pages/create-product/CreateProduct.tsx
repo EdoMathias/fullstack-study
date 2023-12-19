@@ -64,7 +64,6 @@ export const CreateProduct = () => {
     },
   });
   const submitProduct = (data: FormState) => {
-    console.log(data);
     const product: Product = {
       id: uuid(),
       title: data.title,
@@ -140,19 +139,6 @@ export const CreateProduct = () => {
                 ))}
             </Select>
           </FormControl>
-
-          <TextField
-            {...register('categoryId', {
-              required: 'CategoryId is required',
-            })}
-            id="categoryId"
-            name="categoryId"
-            label="CategoryId"
-            variant="standard"
-            // value={categoryId}
-            error={!!errors.categoryId}
-            helperText={errors.categoryId?.message}
-          />
           <TextField
             {...register('image', {
               required: 'Image is required',
