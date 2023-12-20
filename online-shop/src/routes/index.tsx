@@ -6,6 +6,8 @@ import { Category } from '../pages/category/Category.tsx';
 import { ProductPage } from '../pages/product/ProductPage.tsx';
 import { Cart } from '../pages/cart/Cart.tsx';
 import { CreateProduct } from '../pages/create-product/CreateProduct.tsx';
+import { SignUp } from '../pages/signup/SignUp.tsx';
+import { SignIn } from '../pages/signin/SignIn.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -38,5 +40,13 @@ export const router = createBrowserRouter([
         element: <CreateProduct />,
       },
     ],
+  },
+  {
+    path: '/signup',
+    element: <SignUp />,
+  },
+  {
+    path: '/signin',
+    element: <SignIn />,
   },
 ]);
