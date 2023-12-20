@@ -4,3 +4,8 @@ export type User = {
   email: string;
   password: string;
 };
+
+export type SignedUser = {
+  email: string;
+  password: string;
+};
