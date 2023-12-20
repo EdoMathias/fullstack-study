@@ -12,15 +12,25 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { User } from '../../types/user';
+import { signUp } from '../../services/auth-service';
+import { useMutation } from '@tanstack/react-query';
 
 export const SignUp = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const mutation = useMutation({
+    mutationFn: signUp,
+  });
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const user: User = {
+      firstName: data.get('firstName') as string,
+      lastName: data.get('lastName') as string,
+      email: data.get('email') as string,
+      password: data.get('password') as string,
+    };
+    console.log(user);
+    mutation.mutate(user);
   };
 
   return (
@@ -59,7 +69,6 @@ export const SignUp = () => {
             label="Last Name"
             name="lastName"
             autoComplete="lastName"
-            autoFocus
           />
           <TextField
             margin="normal"
@@ -69,7 +78,6 @@ export const SignUp = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
           />
           <TextField
             margin="normal"
