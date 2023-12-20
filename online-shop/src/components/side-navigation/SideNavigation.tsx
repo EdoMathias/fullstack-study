@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { Category } from '../../types/types';
 import { getCategories } from '../../services/categories-service';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
@@ -11,19 +9,26 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import { useFetch } from '../../hooks/useFetch';
+import { Category } from '../../types/types';
+import { useQuery } from '@tanstack/react-query';
 
 const drawerWidth = 240;
 
 export const SideNavigation = () => {
-  const [categories, setcategories] = useState<Category[] | null>(null);
+  // const {result:categories, isLoading} = useFetch<Category[]>(getCategories);
+  const {
+    data: categories,
+    isLoading,
+    isError,
+  } = useQuery({ queryKey: ['categories'], queryFn: getCategories });
 
-  useEffect(() => {
-    const callGetAllCategories = async () => {
-      const categories = await getCategories();
-      setcategories(categories!);
-    };
-    callGetAllCategories();
-  }, []);
+  if (isLoading) {
+    return;
+  }
+  if (isError) {
+    return;
+  }
 
   return (
     <Drawer
@@ -40,7 +45,7 @@ export const SideNavigation = () => {
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
         <List>
-          {categories === null ? (
+          {categories === undefined ? (
             <Box key={'loading'}>Loading...</Box>
           ) : (
             categories.map((category) => (

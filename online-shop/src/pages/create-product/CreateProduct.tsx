@@ -4,41 +4,40 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
-  NativeSelect,
   Select,
   SelectChangeEvent,
   Stack,
   TextField,
 } from '@mui/material';
+import {
+  useMutation,
+  useMutationState,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query';
 import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { getCategories } from '../../services/categories-service';
+import { createProduct } from '../../services/singleProduct-service';
+import { Product } from '../../types/types';
+import { v4 as uuid } from 'uuid';
 
 export const CreateProduct = () => {
-  const [categoryId, setCategoryId] = useState('');
-  const [category, setCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const { data: categories } = useQuery({
+    queryKey: ['categories'],
+    queryFn: getCategories,
+  });
 
-  const handleCategoryOptions = (event: SelectChangeEvent<string>) => {
-    const selectedCategory = event.target.value as string;
-    switch (selectedCategory) {
-      case "men's clothing":
-        setCategoryId('3');
-        break;
-      case 'jewelery':
-        setCategoryId('2');
-        break;
-      case 'electronics':
-        setCategoryId('1');
-        break;
-      case "women's clothing":
-        setCategoryId('4');
-        break;
+  const queryClient = useQueryClient();
 
-      default:
-        break;
-    }
-    setCategory(selectedCategory);
-  };
+  const mutation = useMutation({
+    mutationFn: createProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+    },
+  });
 
   type FormState = {
     id: string;
@@ -48,6 +47,10 @@ export const CreateProduct = () => {
     category: string;
     categoryId: string;
     image: string;
+    rating: {
+      rate: number;
+      count: number;
+    };
   };
 
   const {
@@ -56,38 +59,32 @@ export const CreateProduct = () => {
     formState: { errors },
   } = useForm<FormState>({
     defaultValues: {
-      id: '',
       title: '',
-      price: undefined,
       description: '',
-      category: '',
-      categoryId: '',
-      image: '',
     },
   });
-  const submitProduct = async (product: FormState) => {
-    console.log(product);
-    try {
-      await axios.post('http://localhost:3000/products', product);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        throw new Error(error.response?.statusText);
-      }
-    }
+  const submitProduct = (data: FormState) => {
+    const product: Product = {
+      id: uuid(),
+      title: data.title,
+      description: data.description,
+      categoryId: data.category,
+      category: categories?.find((category) => category.id === data.category)
+        ?.title!,
+      image: data.image,
+      price: data.price,
+      rating: {
+        rate: 0,
+        count: 0,
+      },
+    };
+    mutation.mutate(product);
   };
+
   return (
     <Box>
       <form onSubmit={handleSubmit(submitProduct)}>
         <Stack spacing={2}>
-          <TextField
-            {...register('id', { required: 'Id is required' })}
-            id="id"
-            name="id"
-            label="Id"
-            variant="standard"
-            error={!!errors.id}
-            helperText={errors.id?.message}
-          />
           <TextField
             {...register('title', { required: 'Title is required' })}
             id="title"
@@ -99,6 +96,7 @@ export const CreateProduct = () => {
           />
           <TextField
             {...register('price', {
+              valueAsNumber: true,
               required: 'Price is required',
               min: { value: 1, message: 'Minimum price is 1' },
             })}
@@ -106,6 +104,7 @@ export const CreateProduct = () => {
             name="price"
             label="Price"
             variant="standard"
+            type="number"
             error={!!errors.price}
             helperText={errors.price?.message}
           />
@@ -129,28 +128,17 @@ export const CreateProduct = () => {
               labelId="category-label"
               id="category"
               name="category"
-              value={category}
-              onChange={handleCategoryOptions}
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              <MenuItem value="men's clothing">Men's Clothing</MenuItem>
-              <MenuItem value="electronics">Electronics</MenuItem>
-              <MenuItem value="jewelery">Jewelery</MenuItem>
-              <MenuItem value="women's clothing">Women's Clothing</MenuItem>
+              {categories &&
+                categories.map((category) => (
+                  <MenuItem key={category.id} value={category.id}>
+                    {category.title}
+                  </MenuItem>
+                ))}
             </Select>
           </FormControl>
-
-          <TextField
-            {...register('categoryId', {
-              required: 'CategoryId is required',
-            })}
-            id="categoryId"
-            name="categoryId"
-            label="CategoryId"
-            variant="standard"
-            value={categoryId}
-            error={!!errors.categoryId}
-            helperText={errors.categoryId?.message}
-          />
           <TextField
             {...register('image', {
               required: 'Image is required',

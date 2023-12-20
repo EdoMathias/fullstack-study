@@ -4,22 +4,30 @@ import { Product } from '../../types/types';
 import { getProductsByCategoryId } from '../../services/products-service';
 import { ProductCard } from '../../components/card/Card';
 import Box from '@mui/material/Box';
+import { useQuery } from '@tanstack/react-query';
 
 export const Category = () => {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState<Product[] | null>(null);
+  // const [products, setProducts] = useState<Product[] | null>(null);
 
-  useEffect(() => {
-    if (categoryId) {
-      const callGetProductsByCategoryId = async () => {
-        const result = await getProductsByCategoryId(categoryId);
-        setProducts(result!);
-      };
-      callGetProductsByCategoryId();
-    }
-  }, [categoryId]);
+  // useEffect(() => {
+  //   if (categoryId) {
+  //     const callGetProductsByCategoryId = async () => {
+  //       const result = await getProductsByCategoryId(categoryId);
+  //       setProducts(result!);
+  //     };
+  //     callGetProductsByCategoryId();
+  //   }
+  // }, [categoryId]);
 
-  return products === null ? (
+  const { data: products } = useQuery({
+    queryKey: ['products', categoryId],
+    queryFn: () => getProductsByCategoryId(categoryId!),
+    enabled: !!categoryId,
+    staleTime: 1000 * 10,
+  });
+
+  return products === undefined ? (
     <Box>LOADING...</Box>
   ) : (
     <Box>
