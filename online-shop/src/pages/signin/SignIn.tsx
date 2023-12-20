@@ -12,15 +12,22 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { useMutation } from '@tanstack/react-query';
+import { signIn } from '../../services/auth-service';
+import { SignedUser } from '../../types/user';
 
 export const SignIn = () => {
+  const mutation = useMutation({
+    mutationFn: signIn,
+  });
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const user: SignedUser = {
+      email: data.get('email') as string,
+      password: data.get('password') as string,
+    };
+    mutation.mutate(user);
   };
 
   return (
