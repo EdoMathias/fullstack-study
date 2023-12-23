@@ -10,16 +10,31 @@ import {
   Button,
   Grid,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useMutation } from '@tanstack/react-query';
 import { signIn } from '../../services/auth-service';
 import { SignedUser } from '../../types/user';
+import { router } from '../../routes';
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/auth-slice';
 
 export const SignIn = () => {
-  const mutation = useMutation({
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { mutate, error, data } = useMutation({
     mutationFn: signIn,
   });
+
+  if (error) {
+    console.log(error);
+  }
+
+  if (data) {
+    dispatch(login(data.user));
+    navigate('/');
+  }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,7 +42,7 @@ export const SignIn = () => {
       email: data.get('email') as string,
       password: data.get('password') as string,
     };
-    mutation.mutate(user);
+    mutate(user);
   };
 
   return (
@@ -82,7 +97,7 @@ export const SignIn = () => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link to={'/forgotPassword'}>Forgot password?</Link>
+              <Link to={'/'}>return home</Link>
             </Grid>
             <Grid item>
               <Link to={'/signup'}>{"Don't have an account? Sign In"}</Link>
