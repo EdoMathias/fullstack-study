@@ -10,7 +10,7 @@ export const signUp = async (user: User) => {
     return result.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw new Error(error.response?.statusText);
+      throw new Error(error.response?.data);
     }
     throw error;
   }
@@ -20,10 +20,13 @@ export const signIn = async (user: SignedUser) => {
   try {
     const result = await axios.post(`${baseUrl}/signin`, user);
     console.log(result.data);
+    if (result.data.accessToken) {
+      localStorage.setItem('token', result.data.accessToken);
+    }
     return result.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw new Error(error.response?.statusText);
+      throw new Error(error.response?.data);
     }
     throw error;
   }
