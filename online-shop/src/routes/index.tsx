@@ -8,36 +8,42 @@ import { Cart } from '../pages/cart/Cart.tsx';
 import { CreateProduct } from '../pages/create-product/CreateProduct.tsx';
 import { SignUp } from '../pages/signup/SignUp.tsx';
 import { SignIn } from '../pages/signin/SignIn.tsx';
+import { Auth } from '../components/auth/Auth.tsx';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Layout />,
+    element: <Auth />,
     children: [
       {
-        // path: 'home',
-        element: <Home />,
-        index: true,
-      },
-      {
-        path: 'about',
-        element: <About />,
-      },
-      {
-        path: 'category/:categoryId',
-        element: <Category />,
-      },
-      {
-        path: 'product/:productId',
-        element: <ProductPage />,
-      },
-      {
-        path: 'cart',
-        element: <Cart />,
-      },
-      {
-        path: 'product/create',
-        element: <CreateProduct />,
+        path: '/',
+        element: <Layout />,
+        children: [
+          {
+            // path: 'home',
+            element: <Home />,
+            index: true,
+          },
+          {
+            path: 'about',
+            element: <About />,
+          },
+          {
+            path: 'category/:categoryId',
+            element: <Category />,
+          },
+          {
+            path: 'product/:productId',
+            element: <ProductPage />,
+          },
+          {
+            path: 'cart',
+            element: <Cart />,
+          },
+          {
+            path: 'product/create',
+            element: <CreateProduct />,
+          },
+        ],
       },
     ],
   },
