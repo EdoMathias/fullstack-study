@@ -50,6 +50,11 @@ export const Header = () => {
                 Create Product
               </Button>
             </Link>
+            <Link to={'/signin'} style={{ margin: '0 10px' }}>
+              <Button variant="contained" color="success">
+                Login
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Toolbar>
