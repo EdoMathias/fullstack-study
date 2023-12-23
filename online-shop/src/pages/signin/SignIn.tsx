@@ -18,6 +18,7 @@ import { SignedUser } from '../../types/user';
 import { router } from '../../routes';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/auth-slice';
+import { useForm } from 'react-hook-form';
 
 export const SignIn = () => {
   const navigate = useNavigate();
@@ -35,12 +36,26 @@ export const SignIn = () => {
     navigate('/');
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  type FormState = {
+    email: string;
+    password: string;
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormState>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+
+  const handleSignIn = (data: FormState) => {
     const user: SignedUser = {
-      email: data.get('email') as string,
-      password: data.get('password') as string,
+      email: data.email,
+      password: data.password,
     };
     mutate(user);
   };
@@ -62,47 +77,53 @@ export const SignIn = () => {
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to={'/'}>return home</Link>
+        <Box sx={{ mt: 1 }}>
+          <form onSubmit={handleSubmit(handleSignIn)}>
+            <TextField
+              {...register('email', { required: 'Email is required' })}
+              margin="normal"
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              error={!!errors.email}
+              helperText={errors.email?.message}
+            />
+            <TextField
+              {...register('password', { required: 'Password is required' })}
+              margin="normal"
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link to={'/'}>return home</Link>
+              </Grid>
+              <Grid item>
+                <Link to={'/signup'}>{"Don't have an account? Sign In"}</Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link to={'/signup'}>{"Don't have an account? Sign In"}</Link>
-            </Grid>
-          </Grid>
+          </form>
         </Box>
       </Box>
     </Container>
