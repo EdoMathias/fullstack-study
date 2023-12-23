@@ -10,27 +10,59 @@ import {
   Button,
   Grid,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { User } from '../../types/user';
 import { signUp } from '../../services/auth-service';
 import { useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/auth-slice';
 
 export const SignUp = () => {
-  const mutation = useMutation({
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { mutate, error, data } = useMutation({
     mutationFn: signUp,
   });
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+
+  if (error) {
+    console.log(error);
+  }
+
+  if (data) {
+    dispatch(login(data.user));
+    navigate('/');
+  }
+
+  type FormState = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormState>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    },
+  });
+
+  const handleSignUp = (data: FormState) => {
     const user: User = {
-      firstName: data.get('firstName') as string,
-      lastName: data.get('lastName') as string,
-      email: data.get('email') as string,
-      password: data.get('password') as string,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
     };
-    console.log(user);
-    mutation.mutate(user);
+    mutate(user);
   };
 
   return (
@@ -50,65 +82,75 @@ export const SignUp = () => {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="firstName"
-            label="First Name"
-            name="firstName"
-            autoComplete="firstName"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="lastName"
-            label="Last Name"
-            name="lastName"
-            autoComplete="lastName"
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign Up
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to={'/forgotPassword'}>Forgot password?</Link>
+        <Box sx={{ mt: 1 }}>
+          <form onSubmit={handleSubmit(handleSignUp)}>
+            <TextField
+              {...register('firstName', { required: 'First Name is required' })}
+              margin="normal"
+              fullWidth
+              id="firstName"
+              label="First Name"
+              name="firstName"
+              autoComplete="firstName"
+              autoFocus
+              error={!!errors.firstName}
+              helperText={errors.firstName?.message}
+            />
+            <TextField
+              {...register('lastName', { required: 'Last Name is required' })}
+              margin="normal"
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lastName"
+              error={!!errors.lastName}
+              helperText={errors.lastName?.message}
+            />
+            <TextField
+              {...register('email', { required: 'Email is required' })}
+              margin="normal"
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              error={!!errors.email}
+              helperText={errors.email?.message}
+            />
+            <TextField
+              {...register('password', { required: 'Password is required' })}
+              margin="normal"
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link to={'/forgotPassword'}>Forgot password?</Link>
+              </Grid>
+              <Grid item>
+                <Link to={'/signin'}>{'Already have an account? Sign In'}</Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link to={'/signin'}>{'Already have an account? Sign In'}</Link>
-            </Grid>
-          </Grid>
+          </form>
         </Box>
       </Box>
     </Container>
