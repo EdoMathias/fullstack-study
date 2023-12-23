@@ -1,12 +1,17 @@
 import axios from 'axios';
 import { Product } from '../types/types';
+import { api } from '../utils/api';
 
-const getProductsUrl = 'http://localhost:3000/products';
+// const getProductsUrl = 'http://localhost:3000/products';
+const productsParameter = '/products';
 
 export const getProductsByCategoryId = async (categoryId: string) => {
   try {
-    const result = await axios.get<Product[]>(
-      `${getProductsUrl}?categoryId=${categoryId}`
+    // const result = await axios.get<Product[]>(
+    //   `${getProductsUrl}?categoryId=${categoryId}`
+    // );
+    const result = await api.get<Product[]>(
+      `${productsParameter}?categoryId=${categoryId}`
     );
     const products = result.data;
     return products;
