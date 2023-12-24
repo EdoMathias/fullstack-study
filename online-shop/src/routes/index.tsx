@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../components/layout/Layout.tsx';
 import { Home } from '../pages/home/Home.tsx';
-import { About } from '../pages/about/About.tsx';
 import { Category } from '../pages/category/Category.tsx';
 import { ProductPage } from '../pages/product/ProductPage.tsx';
 import { Cart } from '../pages/cart/Cart.tsx';
@@ -9,6 +8,7 @@ import { CreateProduct } from '../pages/create-product/CreateProduct.tsx';
 import { SignUp } from '../pages/signup/SignUp.tsx';
 import { SignIn } from '../pages/signin/SignIn.tsx';
 import { Auth } from '../components/auth/Auth.tsx';
+import { Account } from '../pages/account/Account.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
             index: true,
           },
           {
-            path: 'about',
-            element: <About />,
+            path: 'account',
+            element: <Account />,
           },
           {
             path: 'category/:categoryId',
