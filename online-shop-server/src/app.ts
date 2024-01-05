@@ -1,6 +1,8 @@
 import express from 'express';
 import { userRouter } from './controllers/user-controller';
 import userLocaldbService from './services/user-service/user-localdb-service';
+import { productRouter } from './controllers/product-controller';
+import productLocaldbService from './services/product-service/product-localdb-service';
 
 const port = 3000;
 const app = express();
@@ -12,6 +14,7 @@ app.get('/', (req, res) => {
 
 //---New way---//
 app.use('/api/users', userRouter(userLocaldbService));
+app.use('/api/products', productRouter(productLocaldbService));
 
 //---Old way---//
 // app.get('/users', (req, res) => {
