@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import db from '../db/db.json';
-import userService from '../services/user-localdb-service';
-import { IUserService } from '../services/IUserService';
+import { IUserService } from '../services/user-service/IUserService';
 
 export const userRouter = (userService: IUserService) => {
   const router = Router();

@@ -1,6 +1,6 @@
 import express from 'express';
 import { userRouter } from './controllers/user-controller';
-import userLocaldbService from './services/user-localdb-service';
+import userLocaldbService from './services/user-service/user-localdb-service';
 
 const port = 3000;
 const app = express();

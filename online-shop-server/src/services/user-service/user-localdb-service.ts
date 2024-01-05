@@ -1,5 +1,5 @@
-import { User } from '../models/user-model';
-import db from '../db/db.json';
+import { User } from '../../models/user-model';
+import db from '../../db/db.json';
 import { IUserService } from './IUserService';
 
 class userLocaldbService implements IUserService {
