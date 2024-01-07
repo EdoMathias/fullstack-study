@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import db from './db.json';
 import { error } from 'console';
 
@@ -6,12 +6,44 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
+const logger = (req: Request, res: Response, next: NextFunction) => {
+  console.log(
+    `${new Date().toLocaleTimeString()}: ${req.method} -> ${req.url}`
+  );
+  next();
+};
+
+// app.use(logger);
+
 app.get('/', (req, res) => {
   res.send('Hello world!');
 });
 
-app.get('/users', (req, res) => {
+app.get('/products', (req, res) => {
+  const params = req.query; // get all params
+  const { edo } = req.query; // get value of specific param
+  console.log(edo);
+  res.send(`Params: ${JSON.stringify(params)}`);
+});
+
+/*
+app.all('/users', (req, res, next) => {
+  console.log(`${new Date().toLocaleTimeString()}: ${req.url}`);
+  next();
+});
+*/
+
+app.get('/users', logger, (req, res) => {
   res.status(200).json(db.users);
+});
+
+app.get('/users/last', (req, res) => {
+  const user = db.users.slice(-1);
+  if (user) {
+    res.status(200).json(user[0]);
+  } else {
+    res.status(404).json({ error: 'user not found' });
+  }
 });
 
 app.get('/users/:id', (req, res) => {
@@ -71,6 +103,7 @@ app.listen(port, () => {
 });
 
 //--- Homework ---///
+/*
 // get all products
 app.get('/products', (req, res) => {
   res.send(db.products);
@@ -128,3 +161,4 @@ app.delete('/products/:id', (req, res) => {
     res.status(404).json({ msg: `Product not found` });
   }
 });
+*/
