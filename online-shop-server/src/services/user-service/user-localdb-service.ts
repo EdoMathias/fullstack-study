@@ -25,7 +25,10 @@ class userLocaldbService implements IUserService {
   }
 
   async editUser(user: User): Promise<User> {
+    console.log(user);
+
     const currentUser = db.users.find((u) => u.id === user.id);
+
     if (currentUser) {
       currentUser.firstName = user.firstName;
       currentUser.lastName = user.lastName;
@@ -33,6 +36,7 @@ class userLocaldbService implements IUserService {
     } else {
       throw Error('User not found');
     }
+    console.log(currentUser);
     return currentUser;
   }
 
