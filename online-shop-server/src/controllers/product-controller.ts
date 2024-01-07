@@ -42,15 +42,12 @@ export const productRouter = (productService: IProductService) => {
 
   router.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    const productIndex = db.products.findIndex(
-      (product) => product.id === Number(id)
-    );
-
-    if (productIndex >= 0) {
-      await productService.deleteProduct(productIndex);
+    const idNum = Number(id);
+    try {
+      await productService.deleteProduct(idNum);
       res.status(200).json({ msg: `Successfully deleted product ${id}` });
-    } else {
-      res.status(400).json({ msg: `Could not find prodcut ${id}` });
+    } catch (error) {
+      res.status(500).json({ message: `Internal server error: ${error}` });
     }
   });
 

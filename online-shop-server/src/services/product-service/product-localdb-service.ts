@@ -38,10 +38,20 @@ class productLocaldbService implements IProductService {
     return currentProduct;
   }
 
-  async deleteProduct(id: number): Promise<Prodcut[]> {
+  async deleteProduct(id: number): Promise<void> {
+    console.log(id);
+
     const productIndex = db.products.findIndex((product) => product.id === id);
-    db.products.splice(productIndex, 1);
-    return db.products;
+    console.log(productIndex);
+
+    if (productIndex >= 0) {
+      db.products.splice(productIndex, 1);
+      console.log(db.products);
+    } else {
+      throw new Error(`Product ${id} not found`);
+    }
+
+    return;
   }
 }
 
