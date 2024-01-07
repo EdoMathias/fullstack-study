@@ -38,7 +38,12 @@ class userLocaldbService implements IUserService {
 
   async deleteUser(id: string): Promise<void> {
     const userIndex = db.users.findIndex((index) => index.id === id);
-    db.users.splice(userIndex, 1);
+
+    if (userIndex >= 0) {
+      db.users.splice(userIndex, 1);
+    } else {
+      throw new Error(`User ${id} not found`);
+    }
     return;
   }
 }

@@ -25,14 +25,13 @@ export const userRouter = (userService: IUserService) => {
     }
   });
 
-  router.delete('/:id', (req, res) => {
+  router.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    const userIndex = db.users.findIndex((user) => user.id === id);
 
-    if (userIndex >= 0) {
-      db.users.splice(userIndex, 1);
+    try {
+      await userService.deleteUser(id);
       res.status(200).json({ msg: `Successfully deleted user ${id}` });
-    } else {
+    } catch (error) {
       res.status(404).json({ msg: `Could not find user ${id}` });
     }
   });
