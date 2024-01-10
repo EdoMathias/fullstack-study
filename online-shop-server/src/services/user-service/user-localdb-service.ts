@@ -25,7 +25,10 @@ class userLocaldbService implements IUserService {
   }
 
   async editUser(user: User): Promise<User> {
+    console.log(user);
+
     const currentUser = db.users.find((u) => u.id === user.id);
+
     if (currentUser) {
       currentUser.firstName = user.firstName;
       currentUser.lastName = user.lastName;
@@ -33,12 +36,18 @@ class userLocaldbService implements IUserService {
     } else {
       throw Error('User not found');
     }
+    console.log(currentUser);
     return currentUser;
   }
 
   async deleteUser(id: string): Promise<void> {
     const userIndex = db.users.findIndex((index) => index.id === id);
-    db.users.splice(userIndex, 1);
+
+    if (userIndex >= 0) {
+      db.users.splice(userIndex, 1);
+    } else {
+      throw new Error(`User ${id} not found`);
+    }
     return;
   }
 }
