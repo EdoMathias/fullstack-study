@@ -1,0 +1,6 @@
+services:
+  web2:
+    # image: nginx:1.25.3-alpine
+    build: web1
+    ports:
+      - 3001:80

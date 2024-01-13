@@ -1,0 +1,13 @@
+services:
+  server:
+    container_name: app-server
+    build: ./server
+    volumes:
+      - ./server/src:/app/src
+    ports:
+      - 3000:3000
+  client:
+    container_name: app-client
+    build: ./client
+    ports:
+      - 4000:80
