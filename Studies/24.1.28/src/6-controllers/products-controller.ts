@@ -13,6 +13,7 @@ class ProductsController {
   private registerRoutes(): void {
     this.router.get('/api/products', this.getAllProducts);
     this.router.get('/api/products/:id', this.getProductById);
+    this.router.post('/api/products', this.addProduct);
   }
 
   // GET all products
@@ -41,6 +42,8 @@ class ProductsController {
   ): Promise<void> {
     const product = request.body;
     // We must tell express to create this "body" from the given json.
+    const addedProduct = await productsService.addProduct(product);
+    response.json(addedProduct);
   }
 }
 
