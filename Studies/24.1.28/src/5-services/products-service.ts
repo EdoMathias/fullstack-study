@@ -32,6 +32,19 @@ class ProductsService {
 
     return product;
   }
+
+  // Update product:
+  public async updateProduct(product: ProductModel): Promise<ProductModel> {
+    const sql = `UPDATE products SET
+      name = '${product.name}',
+      price = ${product.price},
+      stock = ${product.stock}
+      WHERE id = ${product.id}`;
+
+    const info: OkPacketParams = await dal.exceute(sql);
+
+    return product;
+  }
 }
 
 export const productsService = new ProductsService();

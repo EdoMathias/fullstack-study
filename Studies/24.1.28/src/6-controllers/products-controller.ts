@@ -14,6 +14,7 @@ class ProductsController {
     this.router.get('/api/products', this.getAllProducts);
     this.router.get('/api/products/:id', this.getProductById);
     this.router.post('/api/products', this.addProduct);
+    this.router.put('/api/products/:id', this.updateProduct);
   }
 
   // GET all products
@@ -44,6 +45,18 @@ class ProductsController {
     // We must tell express to create this "body" from the given json.
     const addedProduct = await productsService.addProduct(product);
     response.json(addedProduct);
+  }
+
+  // Update existing product
+  private async updateProduct(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    request.body.id = Number(request.params.id);
+    const product = request.body;
+    // We must tell express to create this "body" from the given json.
+    const updatedProduct = await productsService.updateProduct(product);
+    response.json(updatedProduct);
   }
 }
 
