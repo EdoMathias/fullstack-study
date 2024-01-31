@@ -4,6 +4,7 @@ import express, { Express } from 'express';
 import { supplierRouter } from './6-controllers/supplier-controller';
 import { loggingMiddleware } from './4-middleware/logging-middleware';
 import { securityMiddleware } from './4-middleware/security-middleware';
+import { errorsMiddleware } from './4-middleware/errors-middleware';
 
 class App {
   // Express server:
@@ -22,6 +23,9 @@ class App {
 
     // Register routes
     this.server.use('/', productsRouter, supplierRouter);
+
+    // Register error middleware
+    this.server.use(errorsMiddleware.catchAll);
 
     // Listen on:
     this.server.listen(appConfig.port, () => {
