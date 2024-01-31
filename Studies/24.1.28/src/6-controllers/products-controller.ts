@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { productsService } from '../5-services/products-service';
+import { StatusCode } from '../3-models/status-codes';
 
 class ProductsController {
   // The router listens to different routes and methods
@@ -15,6 +16,7 @@ class ProductsController {
     this.router.get('/api/products/:id', this.getProductById);
     this.router.post('/api/products', this.addProduct);
     this.router.put('/api/products/:id', this.updateProduct);
+    this.router.delete('/api/products/:id', this.deleteProduct);
   }
 
   // GET all products
@@ -44,7 +46,7 @@ class ProductsController {
     const product = request.body;
     // We must tell express to create this "body" from the given json.
     const addedProduct = await productsService.addProduct(product);
-    response.json(addedProduct);
+    response.status(StatusCode.Created).json(addedProduct);
   }
 
   // Update existing product
@@ -57,6 +59,16 @@ class ProductsController {
     // We must tell express to create this "body" from the given json.
     const updatedProduct = await productsService.updateProduct(product);
     response.json(updatedProduct);
+  }
+
+  // Delete existing product
+  private async deleteProduct(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    const id = +request.params.id;
+    await productsService.deleteProduct(id);
+    response.sendStatus(StatusCode.NoContent); // same as response.statue(StatusCode.NoContent).json();
   }
 }
 

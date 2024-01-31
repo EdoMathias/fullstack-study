@@ -45,6 +45,13 @@ class ProductsService {
 
     return product;
   }
+
+  // Delete product:
+  public async deleteProduct(id: number): Promise<void> {
+    const sql = 'DELETE FROM products WHERE id = ' + id;
+    await dal.exceute(sql);
+    return;
+  }
 }
 
 export const productsService = new ProductsService();
