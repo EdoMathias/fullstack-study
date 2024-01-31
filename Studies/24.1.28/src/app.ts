@@ -11,6 +11,9 @@ class App {
     // Create server
     this.server = express();
 
+    // Tell express to create request.body from the given json:
+    this.server.use(express.json());
+
     // Register routes
     this.server.use('/', productsRouter, supplierRouter);
 
