@@ -5,6 +5,7 @@ import { supplierRouter } from './6-controllers/supplier-controller';
 import { loggingMiddleware } from './4-middleware/logging-middleware';
 import { securityMiddleware } from './4-middleware/security-middleware';
 import { errorsMiddleware } from './4-middleware/errors-middleware';
+import { sabbathForbiddenMiddleware } from './4-middleware/sabbathForbidden-middleware';
 
 class App {
   // Express server:
@@ -19,6 +20,7 @@ class App {
 
     // Register middleware
     this.server.use(loggingMiddleware.logToConsole);
+    this.server.use(sabbathForbiddenMiddleware.blockOnSabbath);
     this.server.use(securityMiddleware.blacklist);
 
     // Register routes

@@ -17,6 +17,10 @@ class ProductsController {
     this.router.post('/api/products', this.addProduct);
     this.router.put('/api/products/:id', this.updateProduct);
     this.router.delete('/api/products/:id', this.deleteProduct);
+    this.router.get(
+      '/api/products-by-price-range/:min/:max',
+      this.getProductsByPriceRange
+    );
   }
 
   // GET all products
@@ -69,6 +73,22 @@ class ProductsController {
     const id = +request.params.id;
     await productsService.deleteProduct(id);
     response.sendStatus(StatusCode.NoContent); // same as response.statue(StatusCode.NoContent).json();
+  }
+
+  // GET products by price range
+  private async getProductsByPriceRange(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    const priceRange = {
+      min: +request.params.min,
+      max: +request.params.max,
+    };
+    const products = await productsService.getProductsByPriceRange(
+      priceRange.min,
+      priceRange.max
+    );
+    response.json(products);
   }
 }
 

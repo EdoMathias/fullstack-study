@@ -52,6 +52,16 @@ class ProductsService {
     await dal.exceute(sql);
     return;
   }
+
+  // getProductsByPriceRange
+  public async getProductsByPriceRange(
+    min: number,
+    max: number
+  ): Promise<ProductModel[]> {
+    const sql = `SELECT * FROM products WHERE price BETWEEN ${min} AND ${max}`;
+    const products = await dal.exceute(sql);
+    return products;
+  }
 }
 
 export const productsService = new ProductsService();
