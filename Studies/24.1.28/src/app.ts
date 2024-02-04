@@ -6,6 +6,7 @@ import { loggingMiddleware } from './4-middleware/logging-middleware';
 import { securityMiddleware } from './4-middleware/security-middleware';
 import { errorsMiddleware } from './4-middleware/errors-middleware';
 import { sabbathForbiddenMiddleware } from './4-middleware/sabbathForbidden-middleware';
+import { authRouter } from './6-controllers/auth-controller';
 
 class App {
   // Express server:
@@ -25,7 +26,7 @@ class App {
     this.server.use(securityMiddleware.blacklist);
 
     // Register routes
-    this.server.use('/', productsRouter, supplierRouter);
+    this.server.use('/', productsRouter, supplierRouter, authRouter);
 
     this.server.use(errorsMiddleware.routeNotFound);
 
