@@ -1,6 +1,8 @@
 import { OkPacketParams } from 'mysql2';
 import { dal } from '../2-utils/dal';
 import { ProductModel } from '../3-models/product-model';
+import { NextFunction } from 'express';
+import { ResourceNotFoundError } from '../3-models/client-errors';
 
 class ProductsService {
   public async getAllProducts(): Promise<ProductModel[]> {
@@ -17,6 +19,12 @@ class ProductsService {
 
     // Extract the single product
     const product = products[0];
+
+    // if product does not exist
+    if (!product) {
+      throw new ResourceNotFoundError(id);
+      // next(error);
+    }
 
     return product;
   }
@@ -43,13 +51,22 @@ class ProductsService {
 
     const info: OkPacketParams = await dal.exceute(sql);
 
+    if (info.affectedRows === 0) {
+      throw new ResourceNotFoundError(product.id);
+    }
+
     return product;
   }
 
   // Delete product:
   public async deleteProduct(id: number): Promise<void> {
     const sql = 'DELETE FROM products WHERE id = ' + id;
-    await dal.exceute(sql);
+    const info: OkPacketParams = await dal.exceute(sql);
+
+    if (info.affectedRows === 0) {
+      throw new ResourceNotFoundError(id);
+    }
+
     return;
   }
 

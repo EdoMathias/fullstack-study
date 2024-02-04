@@ -27,6 +27,8 @@ class App {
     // Register routes
     this.server.use('/', productsRouter, supplierRouter);
 
+    this.server.use(errorsMiddleware.routeNotFound);
+
     // Register error middleware
     this.server.use(errorsMiddleware.catchAll);
 

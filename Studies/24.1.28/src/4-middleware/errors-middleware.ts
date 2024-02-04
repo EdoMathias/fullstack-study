@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCode } from '../3-models/status-codes';
+import { RouteNotFoundError } from '../3-models/client-errors';
 
 class ErrorsMiddleware {
   public catchAll(
@@ -19,6 +20,16 @@ class ErrorsMiddleware {
 
     // Response back the error
     response.status(status).send(message);
+  }
+
+  public routeNotFound(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): void {
+    // Log error
+    const error = new RouteNotFoundError(request.originalUrl);
+    next(error);
   }
 }
 
