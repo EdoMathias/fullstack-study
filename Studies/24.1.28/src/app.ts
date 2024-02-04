@@ -20,6 +20,7 @@ class App {
 
     // Register middleware
     this.server.use(loggingMiddleware.logToConsole);
+    this.server.use(loggingMiddleware.logToFile);
     this.server.use(sabbathForbiddenMiddleware.blockOnSabbath);
     this.server.use(securityMiddleware.blacklist);
 

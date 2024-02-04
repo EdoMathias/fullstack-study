@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import fs from 'fs';
 
 class LoggingMiddleware {
   public logToConsole(
@@ -21,6 +22,27 @@ class LoggingMiddleware {
     console.log(`Body: ${JSON.stringify(request.body)}`);
 
     // Continue the request forward
+    next();
+  }
+
+  public logToFile(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): void {
+    fs.appendFile(
+      '../../logger.txt',
+      `Time: ${new Date().toISOString()}\n
+        Method: ${request.method}\n
+        Route: ${request.route}\n
+        Body: ${JSON.stringify(request.body)}\n`,
+      (err) => {
+        if (err) {
+          console.error(err);
+        }
+      }
+    );
+
     next();
   }
 }
