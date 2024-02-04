@@ -31,11 +31,10 @@ class LoggingMiddleware {
     next: NextFunction
   ): void {
     fs.appendFile(
-      '../../logger.txt',
-      `Time: ${new Date().toISOString()}\n
-        Method: ${request.method}\n
-        Route: ${request.route}\n
-        Body: ${JSON.stringify(request.body)}\n`,
+      'logger.txt',
+      `//----//\n Time: ${new Date().toLocaleString()}\n Method: ${
+        request.method
+      }\n Route: ${request.route}\n Body: ${JSON.stringify(request.body)}\n`,
       (err) => {
         if (err) {
           console.error(err);
