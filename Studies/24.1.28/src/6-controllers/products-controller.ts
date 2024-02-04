@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { productsService } from '../5-services/products-service';
+import { StatusCode } from '../3-models/status-codes';
 
 class ProductsController {
   // The router listens to different routes and methods
@@ -12,6 +13,14 @@ class ProductsController {
   // Registering routes
   private registerRoutes(): void {
     this.router.get('/api/products', this.getAllProducts);
+    this.router.get('/api/products/:id', this.getProductById);
+    this.router.post('/api/products', this.addProduct);
+    this.router.put('/api/products/:id', this.updateProduct);
+    this.router.delete('/api/products/:id', this.deleteProduct);
+    this.router.get(
+      '/api/products-by-price-range/:min/:max',
+      this.getProductsByPriceRange
+    );
   }
 
   // GET all products
@@ -20,6 +29,65 @@ class ProductsController {
     response: Response
   ): Promise<void> {
     const products = await productsService.getAllProducts();
+    response.json(products);
+  }
+
+  // GET single product
+  private async getProductById(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    const id = request.params.id;
+    const product = await productsService.getProductById(Number(id));
+    response.json(product);
+  }
+
+  // Add product
+  private async addProduct(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    const product = request.body;
+    // We must tell express to create this "body" from the given json.
+    const addedProduct = await productsService.addProduct(product);
+    response.status(StatusCode.Created).json(addedProduct);
+  }
+
+  // Update existing product
+  private async updateProduct(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    request.body.id = Number(request.params.id);
+    const product = request.body;
+    // We must tell express to create this "body" from the given json.
+    const updatedProduct = await productsService.updateProduct(product);
+    response.json(updatedProduct);
+  }
+
+  // Delete existing product
+  private async deleteProduct(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    const id = +request.params.id;
+    await productsService.deleteProduct(id);
+    response.sendStatus(StatusCode.NoContent); // same as response.statue(StatusCode.NoContent).json();
+  }
+
+  // GET products by price range
+  private async getProductsByPriceRange(
+    request: Request,
+    response: Response
+  ): Promise<void> {
+    const priceRange = {
+      min: +request.params.min,
+      max: +request.params.max,
+    };
+    const products = await productsService.getProductsByPriceRange(
+      priceRange.min,
+      priceRange.max
+    );
     response.json(products);
   }
 }
