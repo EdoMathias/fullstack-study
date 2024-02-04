@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { StatusCode } from '../3-models/status-codes';
 
 class ErrorsMiddleware {
   public catchAll(
@@ -11,7 +12,7 @@ class ErrorsMiddleware {
     console.log(err);
 
     // Extract status code
-    const status = err.status;
+    const status = err.status ? err.status : StatusCode.InternalServerError;
 
     // Extract error message
     const message = err.message;
