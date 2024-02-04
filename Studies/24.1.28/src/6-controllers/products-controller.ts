@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { productsService } from '../5-services/products-service';
 import { StatusCode } from '../3-models/status-codes';
+import { ProductModel } from '../3-models/product-model';
 
 class ProductsController {
   // The router listens to different routes and methods
@@ -59,7 +60,8 @@ class ProductsController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const product = request.body;
+      // const product = request.body;
+      const product = new ProductModel(request.body);
       // We must tell express to create this "body" from the given json.
       const addedProduct = await productsService.addProduct(product);
       response.status(StatusCode.Created).json(addedProduct);

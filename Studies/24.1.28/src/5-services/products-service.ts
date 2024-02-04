@@ -1,7 +1,6 @@
 import { OkPacketParams } from 'mysql2';
 import { dal } from '../2-utils/dal';
 import { ProductModel } from '../3-models/product-model';
-import { NextFunction } from 'express';
 import { ResourceNotFoundError } from '../3-models/client-errors';
 
 class ProductsService {
@@ -31,6 +30,9 @@ class ProductsService {
 
   // Add new product:
   public async addProduct(product: ProductModel): Promise<ProductModel> {
+    // Valitade:
+    product.validateInsert();
+
     const sql = `INSERT INTO products(name, price, stock) 
       VALUES('${product.name}', ${product.price}, ${product.stock})`;
     const info: OkPacketParams = await dal.exceute(sql);
@@ -43,6 +45,8 @@ class ProductsService {
 
   // Update product:
   public async updateProduct(product: ProductModel): Promise<ProductModel> {
+    product.validateUpdate;
+
     const sql = `UPDATE products SET
       name = '${product.name}',
       price = ${product.price},
