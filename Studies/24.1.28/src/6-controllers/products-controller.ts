@@ -78,7 +78,7 @@ class ProductsController {
   ): Promise<void> {
     try {
       request.body.id = Number(request.params.id);
-      const product = request.body;
+      const product = new ProductModel(request.body);
       // We must tell express to create this "body" from the given json.
       const updatedProduct = await productsService.updateProduct(product);
       response.json(updatedProduct);

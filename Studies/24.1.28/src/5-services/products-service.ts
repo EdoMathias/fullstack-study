@@ -45,7 +45,7 @@ class ProductsService {
 
   // Update product:
   public async updateProduct(product: ProductModel): Promise<ProductModel> {
-    product.validateUpdate;
+    product.validateUpdate();
 
     const sql = `UPDATE products SET
       name = '${product.name}',
