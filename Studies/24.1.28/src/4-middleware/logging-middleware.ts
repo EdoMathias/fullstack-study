@@ -18,7 +18,7 @@ class LoggingMiddleware {
     // }
 
     console.log(`Request: ${request.method}`);
-    console.log(`Route: ${request.route}`);
+    console.log(`Route: ${request.originalUrl}`);
     console.log(`Body: ${JSON.stringify(request.body)}`);
 
     // Continue the request forward
@@ -34,7 +34,9 @@ class LoggingMiddleware {
       'logger.txt',
       `//----//\n Time: ${new Date().toLocaleString()}\n Method: ${
         request.method
-      }\n Route: ${request.route}\n Body: ${JSON.stringify(request.body)}\n`,
+      }\n Route: ${request.originalUrl}\n Body: ${JSON.stringify(
+        request.body
+      )}\n`,
       (err) => {
         if (err) {
           console.error(err);
