@@ -15,14 +15,17 @@
     "@types/mysql": "^2.15.25",
     "@types/node": "^20.11.9",
     "@types/request-ip": "^0.0.41",
+    "@types/express-fileupload": "^1.4.4",
     "nodemon": "^3.0.3",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
     "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
     "joi": "^17.12.1",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.0",
-    "request-ip": "^3.3.0"
+    "request-ip": "^3.3.0",
+    "uploaded-file-saver": "^1.0.1"
   }
 }
