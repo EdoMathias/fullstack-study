@@ -4,11 +4,20 @@ import { UserModel } from '../3-models/user-model';
 import { RoleModel } from '../3-models/role-model';
 import { cyber } from '../2-utils/cyber';
 import { CredentialsModel } from '../3-models/credentials-model';
-import { UnauthorizedError } from '../3-models/client-errors';
+import { UnauthorizedError, ValidationError } from '../3-models/client-errors';
 
 class AuthService {
   public async register(user: UserModel): Promise<string> {
     user.roleId = RoleModel.User;
+
+    user.validateRegister();
+
+    try {
+      await this.isEmailTaken(user.email);
+    } catch (error) {
+      throw error;
+    }
+
     // Create sql:
     const sql = `INSERT INTO users(firstName, lastName, email, password, roleId)
             VALUES('${user.firstName}','${user.lastName}','${user.email}','${user.password}',${user.roleId})`;
@@ -21,15 +30,14 @@ class AuthService {
 
     const token = cyber.getNewToken(user);
 
-
     // Return user
     return token;
   }
 
-
   public async login(credentials: CredentialsModel): Promise<string> {
+    credentials.validateLogin();
 
-    // Create sql: 
+    // Create sql:
     const sql = `SELECT * FROM users WHERE
      email = '${credentials.email}' AND password = '${credentials.password}'`;
 
@@ -38,14 +46,25 @@ class AuthService {
     const user = users[0];
 
     if (!user) {
-      throw new UnauthorizedError("Incorrect email or password")
+      throw new UnauthorizedError('Incorrect email or password');
     }
 
     const token = cyber.getNewToken(user);
 
-
     // Return user
     return token;
+  }
+
+  private async isEmailTaken(email: string): Promise<boolean> {
+    const sql = `SELECT * FROM users WHERE email = '${email}'`;
+    const users = await dal.exceute(sql);
+    const user = users[0];
+
+    if (user) {
+      throw new ValidationError('Email is already taken');
+    }
+
+    return false;
   }
 }
 
