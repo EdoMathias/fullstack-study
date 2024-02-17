@@ -44,8 +44,8 @@ class ProductsService {
     // execute:
     const info: OkPacketParams = await dal.exceute(sql);
 
-    // Set back the auto incremented id to the product
-    product.id = info.insertId;
+    // Take database product:
+    product = await this.getProductById(info.insertId);
 
     return product;
   }
@@ -74,6 +74,9 @@ class ProductsService {
     if (info.affectedRows === 0) {
       throw new ResourceNotFoundError(product.id);
     }
+
+    // Take database product:
+    product = await this.getProductById(product.id);
 
     return product;
   }

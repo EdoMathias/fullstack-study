@@ -3,6 +3,7 @@ import { productsService } from '../5-services/products-service';
 import { StatusCode } from '../3-models/status-codes';
 import { ProductModel } from '../3-models/product-model';
 import { securityMiddleware } from '../4-middleware/security-middleware';
+import { fileSaver } from 'uploaded-file-saver';
 
 class ProductsController {
   // The router listens to different routes and methods
@@ -32,6 +33,7 @@ class ProductsController {
       securityMiddleware.validateAdmin,
       this.deleteProduct
     );
+    this.router.get('/api/products/images/:imageName', this.getImageFile);
     this.router.get(
       '/api/products-by-price-range/:min/:max',
       this.getProductsByPriceRange
@@ -112,6 +114,20 @@ class ProductsController {
       const id = +request.params.id;
       await productsService.deleteProduct(id);
       response.sendStatus(StatusCode.NoContent); // same as response.statue(StatusCode.NoContent).json();
+    } catch (error: any) {
+      next(error);
+    }
+  }
+  // Get image file
+  private async getImageFile(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const imageName = request.params.imageName;
+      const imagePath = fileSaver.getFilePath(imageName);
+      response.sendFile(imagePath);
     } catch (error: any) {
       next(error);
     }
