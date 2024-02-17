@@ -11,6 +11,7 @@ import { employeesRouter } from './6-controllers/employees-controller';
 import expressFileUpload from 'express-fileupload';
 import { fileSaver } from 'uploaded-file-saver';
 import path from 'path';
+import cors from 'cors';
 
 class App {
   // Express server:
@@ -22,6 +23,9 @@ class App {
 
     // Create server
     this.server = express();
+
+    // Enable CORS:
+    this.server.use(cors());
 
     // Tell express to create request.body from the given json:
     this.server.use(express.json());
