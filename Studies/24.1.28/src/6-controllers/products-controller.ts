@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import { productsService } from '../5-services/products-service';
 import { StatusCode } from '../3-models/status-codes';
 import { ProductModel } from '../3-models/product-model';
+import { securityMiddleware } from '../4-middleware/security-middleware';
 
 class ProductsController {
   // The router listens to different routes and methods
@@ -15,9 +16,22 @@ class ProductsController {
   private registerRoutes(): void {
     this.router.get('/api/products', this.getAllProducts);
     this.router.get('/api/products/:id', this.getProductById);
-    this.router.post('/api/products', this.addProduct);
-    this.router.put('/api/products/:id', this.updateProduct);
-    this.router.delete('/api/products/:id', this.deleteProduct);
+    this.router.post(
+      '/api/products',
+      securityMiddleware.validateLoggedIn,
+      this.addProduct
+    );
+    this.router.put(
+      '/api/products/:id',
+      securityMiddleware.validateLoggedIn,
+      this.updateProduct
+    );
+    this.router.delete(
+      '/api/products/:id',
+      securityMiddleware.validateLoggedIn,
+      securityMiddleware.validateAdmin,
+      this.deleteProduct
+    );
     this.router.get(
       '/api/products-by-price-range/:min/:max',
       this.getProductsByPriceRange

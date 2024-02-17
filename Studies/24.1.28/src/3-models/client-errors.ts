@@ -32,3 +32,11 @@ export class ValidationError extends ClientError {
     super(message, status);
   }
 }
+
+
+export class UnauthorizedError extends ClientError {
+  public constructor(message: string) {
+    const status = StatusCode.Unauthorized;
+    super(message, status);
+  }
+}

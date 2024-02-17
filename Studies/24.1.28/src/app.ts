@@ -7,6 +7,7 @@ import { securityMiddleware } from './4-middleware/security-middleware';
 import { errorsMiddleware } from './4-middleware/errors-middleware';
 import { sabbathForbiddenMiddleware } from './4-middleware/sabbathForbidden-middleware';
 import { authRouter } from './6-controllers/auth-controller';
+import { employeesRouter } from './6-controllers/employees-controller';
 
 class App {
   // Express server:
@@ -22,11 +23,17 @@ class App {
     // Register middleware
     this.server.use(loggingMiddleware.logToConsole);
     this.server.use(loggingMiddleware.logToFile);
-    this.server.use(sabbathForbiddenMiddleware.blockOnSabbath);
+    // this.server.use(sabbathForbiddenMiddleware.blockOnSabbath);
     this.server.use(securityMiddleware.blacklist);
 
     // Register routes
-    this.server.use('/', productsRouter, supplierRouter, authRouter);
+    this.server.use(
+      '/',
+      productsRouter,
+      employeesRouter,
+      supplierRouter,
+      authRouter
+    );
 
     this.server.use(errorsMiddleware.routeNotFound);
 
