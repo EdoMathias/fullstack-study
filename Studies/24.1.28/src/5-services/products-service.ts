@@ -3,16 +3,17 @@ import { dal } from '../2-utils/dal';
 import { ProductModel } from '../3-models/product-model';
 import { ResourceNotFoundError } from '../3-models/client-errors';
 import { fileSaver } from 'uploaded-file-saver';
+import { appConfig } from '../2-utils/app-config'; // Import the appConfig object
 
 class ProductsService {
   public async getAllProducts(): Promise<ProductModel[]> {
-    const sql = 'SELECT * FROM products';
+    const sql = `SELECT *, CONCAT('${appConfig.baseImageUrl}', imageName) as imageUrl FROM products`;
     const products = await dal.exceute(sql);
     return products;
   }
 
   public async getProductById(id: number): Promise<ProductModel> {
-    const sql = 'SELECT * FROM products WHERE id = ' + id;
+    const sql = `SELECT *, CONCAT('${appConfig.baseImageUrl}', imageName) as imageUrl FROM products WHERE id = ${id}`;
 
     // dal.execute always returns an array from the DB
     const products = await dal.exceute(sql);
