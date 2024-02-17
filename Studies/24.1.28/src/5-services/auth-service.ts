@@ -11,11 +11,9 @@ class AuthService {
     user.roleId = RoleModel.User;
 
     user.validateRegister();
-
-    try {
-      await this.isEmailTaken(user.email);
-    } catch (error) {
-      throw error;
+    const isTaken = await this.isEmailTaken(user.email);
+    if (isTaken) {
+      throw new ValidationError('Email is already taken');
     }
 
     // Create sql:
@@ -61,7 +59,7 @@ class AuthService {
     const user = users[0];
 
     if (user) {
-      throw new ValidationError('Email is already taken');
+      return true;
     }
 
     return false;
