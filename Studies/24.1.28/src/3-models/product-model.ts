@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import { ValidationError } from './client-errors';
+import { UploadedFile } from 'express-fileupload';
 
 export class ProductModel {
   public id: number;
@@ -9,7 +10,7 @@ export class ProductModel {
   // public categoryId: number;
   // public supplierId: number;
   // public quantity: string;
-  // public imageName: string;
+  public image: UploadedFile;
 
   public constructor(product: ProductModel) {
     // Copy constructor
@@ -17,6 +18,7 @@ export class ProductModel {
     this.name = product.name;
     this.price = product.price;
     this.stock = product.stock;
+    this.image = product.image;
   }
 
   // Build validation insert schema:
@@ -25,6 +27,7 @@ export class ProductModel {
     name: Joi.string().required().min(2).max(50),
     price: Joi.number().required().min(0).max(1000),
     stock: Joi.number().required().min(0).max(1000).integer(),
+    image: Joi.object().required(),
   });
 
   private static updateValidationSchema = Joi.object({
@@ -32,6 +35,7 @@ export class ProductModel {
     name: Joi.string().required().min(2).max(50),
     price: Joi.number().required().min(0).max(1000),
     stock: Joi.number().required().min(0).max(1000).integer(),
+    image: Joi.object().optional(),
   });
 
   public validateInsert(): void {

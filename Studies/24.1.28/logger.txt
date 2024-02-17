@@ -308,3 +308,18 @@
  Method: POST
  Route: /api/register
  Body: {"firstName":"edo1","lastName":"mathias1","email":"edo.mathias2@gmail.com","password":"12341234","roleId":"2"}
+//----//
+ Time: 2/17/2024, 3:56:09 PM
+ Method: POST
+ Route: /api/products
+ Body: {"name":"Pizza","price":"80","stock":"100"}
+//----//
+ Time: 2/17/2024, 4:10:41 PM
+ Method: PUT
+ Route: /api/products/91
+ Body: {"name":"Better Pizza","price":"90","stock":"200"}
+//----//
+ Time: 2/17/2024, 4:14:18 PM
+ Method: DELETE
+ Route: /api/products/91
+ Body: {}

@@ -2,6 +2,7 @@ import { OkPacketParams } from 'mysql2';
 import { dal } from '../2-utils/dal';
 import { ProductModel } from '../3-models/product-model';
 import { ResourceNotFoundError } from '../3-models/client-errors';
+import { fileSaver } from 'uploaded-file-saver';
 
 class ProductsService {
   public async getAllProducts(): Promise<ProductModel[]> {
@@ -33,8 +34,13 @@ class ProductsService {
     // Valitade:
     product.validateInsert();
 
-    const sql = `INSERT INTO products(name, price, stock) 
-      VALUES('${product.name}', ${product.price}, ${product.stock})`;
+    // Save image to hard-disk
+    const imageName = await fileSaver.add(product.image);
+
+    const sql = `INSERT INTO products(name, price, stock, imageName) 
+      VALUES('${product.name}', ${product.price}, ${product.stock}, '${imageName}')`;
+
+    // execute:
     const info: OkPacketParams = await dal.exceute(sql);
 
     // Set back the auto incremented id to the product
@@ -47,10 +53,19 @@ class ProductsService {
   public async updateProduct(product: ProductModel): Promise<ProductModel> {
     product.validateUpdate();
 
+    // Get old image name from database:
+    const oldImageName = await this.getImageName(product.id);
+
+    // Save new image instead of the old one:
+    const newImageName = product.image
+      ? await fileSaver.update(oldImageName, product.image)
+      : oldImageName;
+
     const sql = `UPDATE products SET
       name = '${product.name}',
       price = ${product.price},
-      stock = ${product.stock}
+      stock = ${product.stock},
+      imageName = '${newImageName}'
       WHERE id = ${product.id}`;
 
     const info: OkPacketParams = await dal.exceute(sql);
@@ -64,6 +79,8 @@ class ProductsService {
 
   // Delete product:
   public async deleteProduct(id: number): Promise<void> {
+    const oldImageName = await this.getImageName(id);
+
     const sql = 'DELETE FROM products WHERE id = ' + id;
     const info: OkPacketParams = await dal.exceute(sql);
 
@@ -71,7 +88,8 @@ class ProductsService {
       throw new ResourceNotFoundError(id);
     }
 
-    return;
+    // Delete image from hard-disk
+    await fileSaver.delete(oldImageName);
   }
 
   // getProductsByPriceRange
@@ -82,6 +100,14 @@ class ProductsService {
     const sql = `SELECT * FROM products WHERE price BETWEEN ${min} AND ${max}`;
     const products = await dal.exceute(sql);
     return products;
+  }
+
+  private async getImageName(id: number): Promise<string> {
+    const sql = `SELECT imageName from products WHERE id = '${id}'`;
+    const products = await dal.exceute(sql);
+    const product = products[0];
+    const imageName = product.imageName;
+    return imageName;
   }
 }
 

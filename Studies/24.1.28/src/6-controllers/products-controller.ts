@@ -74,7 +74,7 @@ class ProductsController {
     next: NextFunction
   ): Promise<void> {
     try {
-      // const product = request.body;
+      request.body.image = request.files?.image;
       const product = new ProductModel(request.body);
       // We must tell express to create this "body" from the given json.
       const addedProduct = await productsService.addProduct(product);
@@ -91,6 +91,7 @@ class ProductsController {
     next: NextFunction
   ): Promise<void> {
     try {
+      request.body.image = request.files?.image;
       request.body.id = Number(request.params.id);
       const product = new ProductModel(request.body);
       // We must tell express to create this "body" from the given json.

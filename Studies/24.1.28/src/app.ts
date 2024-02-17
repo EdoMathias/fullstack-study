@@ -8,17 +8,26 @@ import { errorsMiddleware } from './4-middleware/errors-middleware';
 import { sabbathForbiddenMiddleware } from './4-middleware/sabbathForbidden-middleware';
 import { authRouter } from './6-controllers/auth-controller';
 import { employeesRouter } from './6-controllers/employees-controller';
+import expressFileUpload from 'express-fileupload';
+import { fileSaver } from 'uploaded-file-saver';
+import path from 'path';
 
 class App {
   // Express server:
   private server: Express;
 
   public async start(): Promise<void> {
+    // Configure file saver regarding which folderto save all images:
+    fileSaver.config(path.join(__dirname, '1-assets', 'images'));
+
     // Create server
     this.server = express();
 
     // Tell express to create request.body from the given json:
     this.server.use(express.json());
+
+    // Tell express to create request.files containing uploaded files:
+    this.server.use(expressFileUpload());
 
     // Register middleware
     this.server.use(loggingMiddleware.logToConsole);
