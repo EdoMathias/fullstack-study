@@ -10,9 +10,9 @@ class DAL {
   });
 
   // Executing an sql query on the database
-  public exceute(sql: string) {
+  public exceute(sql: string, values?: any[]) {
     return new Promise<any>((resolve, reject) => {
-      this.connection.query(sql, (error: QueryError, result: any) => {
+      this.connection.query(sql, values, (error: QueryError, result: any) => {
         if (error) {
           reject(error);
         } else {
