@@ -12,6 +12,7 @@ import expressFileUpload from 'express-fileupload';
 import { fileSaver } from 'uploaded-file-saver';
 import path from 'path';
 import cors from 'cors';
+import expressRateLimit from 'express-rate-limit';
 
 class App {
   // Express server:
@@ -23,6 +24,15 @@ class App {
 
     // Create server
     this.server = express();
+
+    // Enable rate limit:
+    this.server.use(
+      expressRateLimit({
+        windowMs: 1000,
+        limit: 10,
+        skip: securityMiddleware.skipRateLimit,
+      })
+    );
 
     // Enable CORS:
     this.server.use(cors());

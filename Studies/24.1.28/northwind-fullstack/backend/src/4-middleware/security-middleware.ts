@@ -63,6 +63,10 @@ class SecurityMiddleware {
       next();
     }
   }
+
+  public skipRateLimit(request: Request, response: Response): boolean {
+    return request.originalUrl.startsWith('/api/products/images');
+  }
 }
 
 export const securityMiddleware = new SecurityMiddleware();
