@@ -1,11 +1,16 @@
+import dotenv from 'dotenv';
+
+// Loads ".env" file into process.env object:
+dotenv.config();
+
 class AppConfig {
-  public readonly port = 4000;
-  public readonly mySqlHost = 'localhost';
-  public readonly mySqlUser = 'root';
-  public readonly mySqlPassword = 'G4m1ngmathias!';
-  public readonly mySqlDatabase = 'northwind';
-  public readonly jwtSecretKey = 'Make things go right!';
-  public readonly baseImageUrl = 'http://localhost:4000/api/products/images/';
+  public readonly port = process.env.PORT;
+  public readonly mySqlHost = process.env.MYSQL_HOST;
+  public readonly mySqlUser = process.env.MYSQL_USER;
+  public readonly mySqlPassword = process.env.MYSQL_PASSWORD;
+  public readonly mySqlDatabase = process.env.MYSQL_DATABASE;
+  public readonly jwtSecretKey = process.env.JWT_SECRET_KEY;
+  public readonly baseImageUrl = process.env.BASE_IMAGE_URL;
 }
 
 export const appConfig = new AppConfig();
