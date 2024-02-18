@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCode } from '../3-models/status-codes';
 import { RouteNotFoundError } from '../3-models/client-errors';
+import { appConfig } from '../2-utils/app-config';
 
 class ErrorsMiddleware {
   public catchAll(
@@ -16,7 +17,10 @@ class ErrorsMiddleware {
     const status = err.status ? err.status : StatusCode.InternalServerError;
 
     // Extract error message
-    const message = err.message;
+    const message =
+      appConfig.isProduction && status === StatusCode.InternalServerError
+        ? 'Error occured'
+        : err.message;
 
     // Response back the error
     response.status(status).send(message);
