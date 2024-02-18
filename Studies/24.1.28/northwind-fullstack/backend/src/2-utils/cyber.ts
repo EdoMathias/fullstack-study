@@ -6,18 +6,18 @@ import { RoleModel } from '../3-models/role-model';
 class Cyber {
   // Create new token
   public getNewToken(user: UserModel): string {
+    // Remove password from the user object
+    delete user.password;
+
     // Crete container for the user:
     const container = {
       user,
     };
 
-    // Secret Key:
-    const secretKey = 'Make things go right!';
-
     // Options:
     const options: SignOptions = { expiresIn: '5h' };
 
-    const token = jwt.sign(container, secretKey, options);
+    const token = jwt.sign(container, appConfig.jwtSecretKey, options);
 
     // auth
     return token;
