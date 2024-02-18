@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { StatusCode } from '../3-models/status-codes';
 import { RouteNotFoundError } from '../3-models/client-errors';
 import { appConfig } from '../2-utils/app-config';
+import { logger } from '../2-utils/logger';
 
 class ErrorsMiddleware {
   public catchAll(
@@ -12,6 +13,9 @@ class ErrorsMiddleware {
   ): void {
     // Log error
     console.log(err);
+
+    // Log to file:
+    logger.logError(err);
 
     // Extract status code
     const status = err.status ? err.status : StatusCode.InternalServerError;
