@@ -2,6 +2,7 @@ import { UserModel } from '../3-models/user-model';
 import jwt, { SignOptions } from 'jsonwebtoken';
 import { appConfig } from './app-config';
 import { RoleModel } from '../3-models/role-model';
+import crypto from 'crypto';
 
 class Cyber {
   // Create new token
@@ -51,6 +52,17 @@ class Cyber {
 
     // Return true if user is admin or false if user is not admin:
     return user?.roleId === RoleModel.Admin;
+  }
+
+  public hashPassword(plainText: string): string {
+    // SHA = Secure Hashing Algorithm
+    // HEX = Converting to string
+
+    const hashedPassword = crypto
+      .createHmac('sha512', appConfig.passwordSalt)
+      .update(plainText)
+      .digest('hex');
+    return hashedPassword;
   }
 }
 

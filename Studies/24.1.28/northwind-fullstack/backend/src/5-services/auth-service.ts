@@ -16,6 +16,9 @@ class AuthService {
       throw new ValidationError('Email is already taken');
     }
 
+    // Hash password
+    user.password = cyber.hashPassword(user.password);
+
     // Create sql:
     const sql = `INSERT INTO users(firstName, lastName, email, password, roleId)
             VALUES('${user.firstName}','${user.lastName}','${user.email}','${user.password}',${user.roleId})`;
@@ -34,6 +37,8 @@ class AuthService {
 
   public async login(credentials: CredentialsModel): Promise<string> {
     credentials.validateLogin();
+
+    credentials.password = cyber.hashPassword(credentials.password);
 
     // Create sql:
     const sql = `SELECT * FROM users WHERE
