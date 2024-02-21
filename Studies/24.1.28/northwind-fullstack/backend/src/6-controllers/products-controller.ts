@@ -47,6 +47,8 @@ class ProductsController {
     next: NextFunction
   ): Promise<void> {
     try {
+      console.log('User requesting all products...');
+
       const products = await productsService.getAllProducts();
       response.json(products);
     } catch (error: any) {

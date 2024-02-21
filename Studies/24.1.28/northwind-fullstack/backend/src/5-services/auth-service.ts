@@ -16,12 +16,23 @@ class AuthService {
       throw new ValidationError('Email is already taken');
     }
 
-    // Create sql:
-    const sql = `INSERT INTO users(firstName, lastName, email, password, roleId)
-            VALUES('${user.firstName}','${user.lastName}','${user.email}','${user.password}',${user.roleId})`;
+    // Hash password
+    user.password = cyber.hashPassword(user.password);
 
+    // Create sql:
+    // const sql = `INSERT INTO users(firstName, lastName, email, password, roleId)
+    //         VALUES('${user.firstName}','${user.lastName}','${user.email}','${user.password}',${user.roleId})`;
+    const sql =
+      'INSERT INTO users(firstName, lastName, email, password, roleId) VALUES(?, ?, ?, ?, ?)';
+    const values = [
+      user.firstName,
+      user.lastName,
+      user.email,
+      user.password,
+      user.roleId,
+    ];
     // Execute:
-    const info: OkPacketParams = await dal.exceute(sql);
+    const info: OkPacketParams = await dal.exceute(sql, values);
 
     // Set back id:
     user.id = info.insertId;
@@ -35,11 +46,18 @@ class AuthService {
   public async login(credentials: CredentialsModel): Promise<string> {
     credentials.validateLogin();
 
-    // Create sql:
-    const sql = `SELECT * FROM users WHERE
-     email = '${credentials.email}' AND password = '${credentials.password}'`;
+    credentials.password = cyber.hashPassword(credentials.password);
 
-    const users = await dal.exceute(sql);
+    // Create sql:
+    // const sql = `SELECT * FROM users WHERE
+    //  email = '${credentials.email}' AND password = '${credentials.password}'`;
+
+    // Create prepared statement:
+    const sql = 'SELECT * FROM users WHERE email = ? AND password = ?';
+
+    const values = [credentials.email, credentials.password];
+
+    const users = await dal.exceute(sql, values);
 
     const user = users[0];
 
