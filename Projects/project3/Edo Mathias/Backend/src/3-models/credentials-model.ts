@@ -11,8 +11,8 @@ export class CredentialsModel {
   }
 
   private static loginValidationSchema = Joi.object({
-    email: Joi.string().required().min(0).max(1000).email(),
-    password: Joi.string().required().min(8).max(48),
+    email: Joi.string().required().min(0).max(100).email(),
+    password: Joi.string().required().min(4).max(48),
   });
 
   public validateLogin(): void {
