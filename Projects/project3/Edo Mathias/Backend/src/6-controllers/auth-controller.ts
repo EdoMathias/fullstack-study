@@ -12,8 +12,8 @@ class AuthController {
   }
 
   private registerRoutes(): void {
-    this.router.post('/api/register', this.register);
-    this.router.post('/api/login', this.login);
+    this.router.post('/register', this.register);
+    this.router.post('/login', this.login);
   }
 
   private async register(
