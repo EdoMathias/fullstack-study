@@ -23,9 +23,9 @@ export class UserModel {
   private static registerValidationSchema = Joi.object({
     id: Joi.number().forbidden(),
     firstName: Joi.string().required().min(2).max(50),
-    lastName: Joi.string().required().min(0).max(1000),
+    lastName: Joi.string().required().min(0).max(100),
     email: Joi.string().required().min(0).max(1000).email(),
-    password: Joi.string().required().min(8).max(48),
+    password: Joi.string().required().min(4).max(48),
     roleId: Joi.number().integer(),
   });
 
