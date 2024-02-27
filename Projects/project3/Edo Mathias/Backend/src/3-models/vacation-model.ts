@@ -15,6 +15,9 @@ export class VacationModel {
     this.id = vacation.id;
     this.destination = vacation.destination;
     this.description = vacation.description;
+    this.startDate = vacation.startDate;
+    this.endDate = vacation.endDate;
+    this.price = vacation.price;
     this.image = vacation.image;
   }
 
