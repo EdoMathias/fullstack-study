@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import { VacationModel } from '../3-models/vacation-model';
 import { vacationsService } from '../5-services/vacations-service';
 import { StatusCode } from '../3-models/status-codes';
+import { fileSaver } from 'uploaded-file-saver';
 
 class VacationsController {
   public readonly router = express.Router();
@@ -13,6 +14,7 @@ class VacationsController {
   private registerRoutes(): void {
     this.router.get('/vacations-by-user/:userId', this.getAllVacations);
     this.router.get('/vacations/:id', this.getVacationById);
+    this.router.get('/vacations/images/:imageName', this.getImageFile);
     this.router.post('/vacations', this.addVacation);
   }
 
@@ -39,6 +41,20 @@ class VacationsController {
       const id = +request.params.id;
       const vacation = await vacationsService.getVacationById(id);
       response.json(vacation);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  private async getImageFile(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const imageName = request.params.imageName;
+      const imagePath = fileSaver.getFilePath(imageName);
+      response.sendFile(imagePath);
     } catch (err: any) {
       next(err);
     }
