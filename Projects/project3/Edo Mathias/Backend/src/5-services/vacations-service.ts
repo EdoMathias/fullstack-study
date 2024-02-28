@@ -88,6 +88,20 @@ class VacationsService {
     return vacation;
   }
 
+  public async deleteVacation(id: number): Promise<void> {
+    const oldImageName = await this.getImageName(id);
+
+    const sql = 'DELETE FROM vacations WHERE id = ' + id;
+    const info: OkPacketParams = await dal.execute(sql);
+
+    if (info.affectedRows === 0) {
+      throw new ResourceNotFoundError(id);
+    }
+
+    // Delete image from hard-disk
+    await fileSaver.delete(oldImageName);
+  }
+
   private async getImageName(id: number): Promise<string> {
     const sql = `SELECT imageName from vacations WHERE id = '${id}'`;
     const vacations = await dal.execute(sql);

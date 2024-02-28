@@ -15,8 +15,9 @@ class VacationsController {
     this.router.get('/vacations-by-user/:userId', this.getAllVacations);
     this.router.get('/vacations/:id', this.getVacationById);
     this.router.put('/vacations/:id', this.editVacation);
-    this.router.get('/vacations/images/:imageName', this.getImageFile);
+    this.router.delete('/vacations/:id', this.deleteProduct);
     this.router.post('/vacations', this.addVacation);
+    this.router.get('/vacations/images/:imageName', this.getImageFile);
   }
 
   private async getAllVacations(
@@ -91,6 +92,20 @@ class VacationsController {
       response.json(editedVacation);
     } catch (err: any) {
       next(err);
+    }
+  }
+
+  private async deleteProduct(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const id = +request.params.id;
+      await vacationsService.deleteVacation(id);
+      response.sendStatus(StatusCode.NoContent);
+    } catch (error: any) {
+      next(error);
     }
   }
 }
