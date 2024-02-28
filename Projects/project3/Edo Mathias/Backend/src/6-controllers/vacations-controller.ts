@@ -14,6 +14,7 @@ class VacationsController {
   private registerRoutes(): void {
     this.router.get('/vacations-by-user/:userId', this.getAllVacations);
     this.router.get('/vacations/:id', this.getVacationById);
+    this.router.put('/vacations/:id', this.editVacation);
     this.router.get('/vacations/images/:imageName', this.getImageFile);
     this.router.post('/vacations', this.addVacation);
   }
@@ -32,7 +33,7 @@ class VacationsController {
     }
   }
 
-  public async getVacationById(
+  private async getVacationById(
     request: Request,
     response: Response,
     next: NextFunction
@@ -60,7 +61,7 @@ class VacationsController {
     }
   }
 
-  public async addVacation(
+  private async addVacation(
     request: Request,
     response: Response,
     next: NextFunction
@@ -72,6 +73,21 @@ class VacationsController {
 
       const addedVacation = await vacationsService.addVacation(vacation);
       response.status(StatusCode.Created).json(addedVacation);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  private async editVacation(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      request.body.id = +request.params.id;
+      const vacation = new VacationModel(request.body);
+      const editedVacation = await vacationsService.editVacation(vacation);
+      response.json(editedVacation);
     } catch (err: any) {
       next(err);
     }

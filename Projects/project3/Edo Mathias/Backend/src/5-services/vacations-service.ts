@@ -57,6 +57,38 @@ class VacationsService {
 
     return vacation;
   }
+
+  public async editVacation(vacation: VacationModel): Promise<VacationModel> {
+    vacation.validateUpdate();
+
+    // // Get old image name from database:
+    // const oldImageName = await this.getImageName(vacation.id);
+
+    // // Save new image instead of the old one:
+    // const newImageName = vacation.image
+    //   ? await fileSaver.update(oldImageName, vacation.image)
+    //   : oldImageName;
+
+    const sql = `UPDATE vacations SET destination=?, description=?, startDate=?, endDate=?, price=? WHERE id = ?`;
+    const values = [
+      vacation.destination,
+      vacation.description,
+      vacation.startDate,
+      vacation.endDate,
+      vacation.price,
+      vacation.id,
+    ];
+    const info: OkPacketParams = await dal.execute(sql, values);
+
+    if (info.affectedRows === 0) {
+      throw new ResourceNotFoundError(vacation.id);
+    }
+
+    // Take database product:
+    vacation = await this.getVacationById(vacation.id);
+
+    return vacation;
+  }
 }
 
 export const vacationsService = new VacationsService();

@@ -34,8 +34,8 @@ export class VacationModel {
 
   private static updateValidationSchema = Joi.object({
     id: Joi.number().required().min(1).integer(),
-    destination: Joi.string().required().min(2).max(50),
-    description: Joi.string().required().min(2).max(50),
+    destination: Joi.string().required().min(2).max(45),
+    description: Joi.string().required().min(2).max(1000),
     startDate: Joi.string().optional().isoDate(),
     endDate: Joi.string().optional().isoDate(),
     price: Joi.number().required().min(0).max(1000),
