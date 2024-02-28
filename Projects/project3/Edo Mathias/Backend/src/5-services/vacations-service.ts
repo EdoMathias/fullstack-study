@@ -61,21 +61,20 @@ class VacationsService {
   public async editVacation(vacation: VacationModel): Promise<VacationModel> {
     vacation.validateUpdate();
 
-    // // Get old image name from database:
-    // const oldImageName = await this.getImageName(vacation.id);
+    const oldImageName = await this.getImageName(vacation.id);
 
-    // // Save new image instead of the old one:
-    // const newImageName = vacation.image
-    //   ? await fileSaver.update(oldImageName, vacation.image)
-    //   : oldImageName;
+    const newImageName = vacation.image
+      ? await fileSaver.update(oldImageName, vacation.image)
+      : oldImageName;
 
-    const sql = `UPDATE vacations SET destination=?, description=?, startDate=?, endDate=?, price=? WHERE id = ?`;
+    const sql = `UPDATE vacations SET destination=?, description=?, startDate=?, endDate=?, price=?, imageName=? WHERE id = ?`;
     const values = [
       vacation.destination,
       vacation.description,
       vacation.startDate,
       vacation.endDate,
       vacation.price,
+      newImageName,
       vacation.id,
     ];
     const info: OkPacketParams = await dal.execute(sql, values);
@@ -84,10 +83,17 @@ class VacationsService {
       throw new ResourceNotFoundError(vacation.id);
     }
 
-    // Take database product:
     vacation = await this.getVacationById(vacation.id);
 
     return vacation;
+  }
+
+  private async getImageName(id: number): Promise<string> {
+    const sql = `SELECT imageName from vacations WHERE id = '${id}'`;
+    const vacations = await dal.execute(sql);
+    const vacation = vacations[0];
+    const imageName = vacation.imageName;
+    return imageName;
   }
 }
 

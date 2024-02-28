@@ -84,6 +84,7 @@ class VacationsController {
     next: NextFunction
   ): Promise<void> {
     try {
+      request.body.image = request.files?.image;
       request.body.id = +request.params.id;
       const vacation = new VacationModel(request.body);
       const editedVacation = await vacationsService.editVacation(vacation);
