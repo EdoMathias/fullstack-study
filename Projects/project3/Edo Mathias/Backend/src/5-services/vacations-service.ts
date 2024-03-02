@@ -12,6 +12,7 @@ class VacationsService {
                 V.*,
                 EXISTS(SELECT * FROM likes WHERE vacationId = L.vacationId AND userId = ?) AS isLiked,
                 COUNT(L.userId) AS likesCount
+                , CONCAT('${appConfig.baseImageUrl}', imageName) as imageUrl
             FROM vacations as V LEFT JOIN likes as L
             ON V.id = L.vacationId
             GROUP BY id
