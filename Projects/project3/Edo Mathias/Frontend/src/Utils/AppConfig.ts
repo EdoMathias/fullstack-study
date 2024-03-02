@@ -1,7 +1,9 @@
 class AppConfig {
 
     // Backend urls:
-    public readonly dataUrl = "http://localhost:4000/api/____/";
+    public readonly vacationsUrl = "http://localhost:4000/api/vacations/";
+    public readonly registerUrl = "http://localhost:4000/api/register/";
+    public readonly loginUrl = "http://localhost:4000/api/login/";
 
     //Axios options:
     public readonly axiosOptions = {
