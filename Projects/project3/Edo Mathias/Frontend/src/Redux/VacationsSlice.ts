@@ -47,7 +47,7 @@ const vacationsSlice = createSlice({
 });
 
 // Expose a single object containing functions for creating Action objects:
-export const productActionCreators = vacationsSlice.actions;
+export const vacationsActionCreators = vacationsSlice.actions;
 
 // Expose a single object containing all reducers:
 export const vacationsReducersContainer = vacationsSlice.reducer;

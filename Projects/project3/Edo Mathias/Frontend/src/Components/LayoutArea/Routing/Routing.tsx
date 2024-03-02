@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Add from "../../DataArea/Add/Add";
-import List from "../../DataArea/List/List";
-import Home from "../../HomeArea/Home/Home";
+import Add from "../../VacationsArea/AddVacation/AddVacation";
+import VacationsList from "../../VacationsArea/List/VacationsList";
 import Page404 from "../page404/page404";
 import "./Routing.css";
 import Register from "../../AuthArea/Register/Register";
@@ -19,17 +18,14 @@ function Routing(): JSX.Element {
                 {/* Login: */}
                 <Route path="/login" element={<Login />} />
 
-                {/* Home: */}
-                <Route path="/home" element={<Home />} />
-
                 {/* List: */}
-                <Route path="/list" element={<List />} />
+                <Route path="/list" element={<VacationsList />} />
 
                 {/* Add: */}
                 <Route path="/new" element={<Add />} />
 
                 {/* Default Route: */}
-                <Route path="/" element={<Navigate to="/home" />} />
+                <Route path="/" element={<Navigate to="/list" />} />
 
                 {/* Page not found route: */}
                 <Route path="*" element={<Page404 />} />

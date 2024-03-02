@@ -28,7 +28,7 @@ export class VacationModel {
     description: Joi.string().required().min(2).max(1000),
     startDate: Joi.string().required().isoDate(),
     endDate: Joi.string().required().isoDate(),
-    price: Joi.number().required().min(0).max(1000),
+    price: Joi.number().required().min(0).max(10000),
     image: Joi.object().required(),
   });
 
@@ -38,7 +38,7 @@ export class VacationModel {
     description: Joi.string().required().min(2).max(1000),
     startDate: Joi.string().optional().isoDate(),
     endDate: Joi.string().optional().isoDate(),
-    price: Joi.number().required().min(0).max(1000),
+    price: Joi.number().required().min(0).max(10000),
     image: Joi.object().optional(),
   });
 

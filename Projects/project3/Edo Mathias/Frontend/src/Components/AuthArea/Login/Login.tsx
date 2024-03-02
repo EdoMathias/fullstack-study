@@ -16,7 +16,7 @@ function Login(): JSX.Element {
       await authService.login(credentials);
       const firstName = appStore.getState().user.firstName;
       notify.success(`Welcome back ${firstName}!`);
-      navigate('/home');
+      navigate('/list');
     } catch (err: any) {
       notify.error(err);
     }

@@ -19,7 +19,7 @@ function AuthMenu(): JSX.Element {
         return (
             <div className="AuthMenu">
                 <span>Hello {user.firstName} {user.lastName} | </span>
-                <NavLink to="/home" onClick={logMeOut}>Logout</NavLink>
+                <NavLink to="/list" onClick={logMeOut}>Logout</NavLink>
             </div>
         );
     }
