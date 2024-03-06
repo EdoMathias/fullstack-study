@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "65e8b0bd80f6eec340806ffa"
+  },
+  "name": "Book1 - By Edo",
+  "price": 50,
+  "authorId": {
+    "$oid": "65e8a7a3510594ea9b4697ac"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8b13780f6eec340806ffe"
+  },
+  "name": "Book2 - By Edo",
+  "price": 40,
+  "authorId": {
+    "$oid": "65e8a7a3510594ea9b4697ac"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8b14780f6eec340807000"
+  },
+  "name": "Book1 - By Ronnie",
+  "price": 40,
+  "authorId": {
+    "$oid": "65e8a7d5510594ea9b4697ae"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8bcb9e450934f5b60b4bb"
+  },
+  "name": "Book2 - By Ronnie",
+  "price": 50,
+  "authorId": {
+    "$oid": "65e8a7d5510594ea9b4697ae"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8bf072c4b73b57b8afbf0"
+  },
+  "name": "Book3 - By Ronnie",
+  "price": 30,
+  "authorId": {
+    "$oid": "65e8a7d5510594ea9b4697ae"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8bf0d2c4b73b57b8afbf2"
+  },
+  "name": "Book4 - By Ronnie",
+  "price": 80,
+  "authorId": {
+    "$oid": "65e8a7d5510594ea9b4697ae"
+  }
+}]
