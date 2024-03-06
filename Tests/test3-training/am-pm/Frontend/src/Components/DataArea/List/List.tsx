@@ -78,8 +78,12 @@ function List(): JSX.Element {
           {products.map((product) => (
             <tr key={product.id}>
               <td>{product.name}</td>
-              <td>{product.producedDateTime}</td>
-              <td>{product.expiryDateTime}</td>
+              <td>
+                {product.producedDateTime.replace('T', ' - ').split('Z')[0]}
+              </td>
+              <td>
+                {product.expiryDateTime.replace('T', ' - ').split('Z')[0]}
+              </td>
               <td>{product.price}</td>
               <td>
                 <button

@@ -21,6 +21,9 @@ function Add(): JSX.Element {
 
   async function send(product: ProductModel) {
     try {
+      if (product.expiryDateTime === '') {
+        product.expiryDateTime = null;
+      }
       await dataService.addProduct(product);
       notify.success('Product has been added');
       navigate('/list');
@@ -65,7 +68,6 @@ function Add(): JSX.Element {
           type="datetime-local"
           className="form-control"
           {...register('expiryDateTime')}
-          required
         />
 
         <label>price:</label>

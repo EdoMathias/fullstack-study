@@ -1,0 +1,30 @@
+.buttons {
+	display: flex;
+}
+
+.buttons > button {
+    align-self: center;
+    height: 40px;
+}
+
+.button-style {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration-line: none;
+    text-decoration-color: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
+  .button-style:hover {
+    background-color: #0056b3;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }

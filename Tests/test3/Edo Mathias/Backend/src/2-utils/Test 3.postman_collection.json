@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "29540a27-b8bf-4b47-8899-c3b07b93fa19",
+		"name": "Test 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32051050"
+	},
+	"item": [
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Get Teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meetings by Team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/meetings-by-team/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"meetings-by-team",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Meeting",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Milk 1%\",\r\n    \"producedDateTime\": \"2024-02-27 14:00:00\",\r\n    \"expiryDateTime\": \"2024-03-05 14:00:00\",\r\n    \"categoryId\": 1,\r\n    \"price\": 6.90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/meetings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"meetings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
