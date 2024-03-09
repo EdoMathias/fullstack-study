@@ -1,39 +1,39 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import Add from "../../VacationsArea/AddVacation/AddVacation";
-import VacationsList from "../../VacationsArea/List/VacationsList";
-import Page404 from "../page404/page404";
-import "./Routing.css";
-import Register from "../../AuthArea/Register/Register";
-import Login from "../../AuthArea/Login/Login";
+import { Navigate, Route, Routes } from 'react-router-dom';
+import VacationsList from '../../VacationsArea/List/VacationsList';
+import Page404 from '../page404/page404';
+import './Routing.css';
+import Register from '../../AuthArea/Register/Register';
+import Login from '../../AuthArea/Login/Login';
+import AddVacation from '../../VacationsArea/AddVacation/AddVacation';
+import EditVacation from '../../VacationsArea/EditVacation/EditVacation';
 
 function Routing(): JSX.Element {
-    return (
-        <div className="Routing">
+  return (
+    <div className="Routing">
+      <Routes>
+        {/* Register: */}
+        <Route path="/register" element={<Register />} />
 
-            <Routes>
+        {/* Login: */}
+        <Route path="/login" element={<Login />} />
 
-                {/* Register: */}
-                <Route path="/register" element={<Register />} />
+        {/* List: */}
+        <Route path="/list" element={<VacationsList />} />
 
-                {/* Login: */}
-                <Route path="/login" element={<Login />} />
+        {/* Add: */}
+        <Route path="/new" element={<AddVacation />} />
 
-                {/* List: */}
-                <Route path="/list" element={<VacationsList />} />
+        {/* Edit: */}
+        <Route path="/edit/:id" element={<EditVacation />} />
 
-                {/* Add: */}
-                <Route path="/new" element={<Add />} />
+        {/* Default Route: */}
+        <Route path="/" element={<Navigate to="/list" />} />
 
-                {/* Default Route: */}
-                <Route path="/" element={<Navigate to="/list" />} />
-
-                {/* Page not found route: */}
-                <Route path="*" element={<Page404 />} />
-
-            </Routes>
-
-        </div>
-    );
+        {/* Page not found route: */}
+        <Route path="*" element={<Page404 />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default Routing;
