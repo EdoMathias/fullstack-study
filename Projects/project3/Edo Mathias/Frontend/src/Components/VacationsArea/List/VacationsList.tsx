@@ -19,7 +19,7 @@ function VacationsList(): JSX.Element {
       .getAllVacations()
       .then((vacations) => setVacations([...vacations]))
       .catch((err) => notify.error(err.message));
-  }, [vacations]);
+  }, []);
 
   return (
     <div className="VacationList">
