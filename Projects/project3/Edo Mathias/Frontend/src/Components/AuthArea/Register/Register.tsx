@@ -1,51 +1,45 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import UserModel from "../../../Models/UserModel";
-import { authService } from "../../../Services/AuthService";
-import "./Register.css";
-import { notify } from "../../../Utils/Notify";
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import UserModel from '../../../Models/UserModel';
+import { authService } from '../../../Services/AuthService';
+import './Register.css';
+import { notify } from '../../../Utils/Notify';
 
 function Register(): JSX.Element {
+  const { register, handleSubmit } = useForm<UserModel>();
 
-    const { register, handleSubmit } = useForm<UserModel>();
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    
-    async function send(user: UserModel) {
-        try {
-            await authService.register(user);
-            const fullName = user.firstName + " " + user.lastName;
-            notify.success("Welcome " + fullName);
-            navigate("/home");
-        }
-        catch (err: any) {
-            notify.error(err);
-        }
+  async function send(user: UserModel) {
+    try {
+      await authService.register(user);
+      const fullName = user.firstName + ' ' + user.lastName;
+      notify.success('Welcome ' + fullName);
+      navigate('/list');
+    } catch (err: any) {
+      notify.error(err);
     }
+  }
 
-    return (
-        <div className="Register">
+  return (
+    <div className="Register">
+      <form onSubmit={handleSubmit(send)}>
+        <label>First name:</label>
+        <input type="text" {...register('firstName')} />
 
-            <form onSubmit={handleSubmit(send)}>
+        <label>Last name:</label>
+        <input type="text" {...register('lastName')} />
 
-                <label>First name:</label>
-                <input type="text" {...register("firstName")} />
+        <label>Email:</label>
+        <input type="email" {...register('email')} />
 
-                <label>Last name:</label>
-                <input type="text" {...register("lastName")} />
+        <label>Password:</label>
+        <input type="password" {...register('password')} />
 
-                <label>Email:</label>
-                <input type="email" {...register("email")} />
-
-                <label>Password:</label>
-                <input type="password" {...register("password")} />
-
-                <button>Register</button>
-
-            </form>
-
-        </div>
-    );
+        <button>Register</button>
+      </form>
+    </div>
+  );
 }
 
 export default Register;
