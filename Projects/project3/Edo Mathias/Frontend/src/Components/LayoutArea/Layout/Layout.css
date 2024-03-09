@@ -2,8 +2,8 @@
     height: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-rows: 10% 85% 5%; /* שלוש שורות */
-    grid-template-columns: 5fr; /* שתי עמודות */
+    grid-template-rows: 10% 85% 5%;
+    grid-template-columns: 5fr;
     border: 1px solid;
 }
 

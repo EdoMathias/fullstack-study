@@ -5,3 +5,7 @@
     align-items: center;
     font-size: 4vh;
 }
+
+.Header > img {
+    width: 50px;
+}
