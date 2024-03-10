@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { vacationService } from '../../../Services/VacationService';
 import './VacationsList.css';
 import VacationModel from '../../../Models/VacationModel';
