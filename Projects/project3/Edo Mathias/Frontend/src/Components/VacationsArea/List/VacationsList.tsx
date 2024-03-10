@@ -6,19 +6,25 @@ import VacationCard from '../VacationCard/VacationCard';
 import Spinner from '../../SharedArea/Spinner/Spinner';
 import { notify } from '../../../Utils/Notify';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../Redux/AppState';
 
 function VacationsList(): JSX.Element {
-  const [vacations, setVacations] = useState<VacationModel[]>([]);
   const user = useAuthRedirect();
+  const vacations = useSelector<AppState, VacationModel[]>(
+    (state) => state.vacations
+  );
 
   useEffect(() => {
-    if (!user) {
-      return;
-    }
-    vacationService
-      .getAllVacations()
-      .then((vacations) => setVacations([...vacations]))
-      .catch((err) => notify.error(err.message));
+    const fetchVacations = async () => {
+      try {
+        await vacationService.getAllVacations();
+      } catch (error) {
+        notify.error('Failed to fetch vacations');
+      }
+    };
+
+    fetchVacations();
   }, []);
 
   return (
