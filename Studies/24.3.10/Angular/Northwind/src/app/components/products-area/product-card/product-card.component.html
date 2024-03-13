@@ -1,13 +1,15 @@
-<div class="card">
-  <div>
-    {{ product.name }}
-    <hr />
-    Price: {{ product.price }}
-    <br />
-    Stock: {{ product.stock }}
-  </div>
+<a routerLink="details/{{ product.id }}">
+  <div class="card">
+    <div>
+      {{ product.name }}
+      <hr />
+      Price: {{ product.price }}
+      <br />
+      Stock: {{ product.stock }}
+    </div>
 
-  <div>
-    <img [src]="product.imageUrl" />
+    <div>
+      <img [src]="product.imageUrl" />
+    </div>
   </div>
-</div>
+</a>

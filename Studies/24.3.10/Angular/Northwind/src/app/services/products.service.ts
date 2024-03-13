@@ -11,11 +11,14 @@ export class ProductsService {
   public constructor(private http: HttpClient) {}
 
   public async getAllProducts(): Promise<ProductModel[]> {
-    // const response = await axios.get<ProductModel[]>(appConfig.productsUrl);
-    // const products = response.data;
-
     const observable = this.http.get<ProductModel[]>(appConfig.productsUrl);
     const products = await observable.toPromise();
     return products;
+  }
+
+  public async getProductById(id: number): Promise<ProductModel> {
+    const observable = this.http.get<ProductModel>(appConfig.productsUrl + id);
+    const product = await observable.toPromise();
+    return product;
   }
 }
