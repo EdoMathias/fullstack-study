@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { SaleComponent } from '../sale/sale.component';
 import { Title } from '@angular/platform-browser';
@@ -10,9 +10,15 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
-  constructor(title: Title) {
-    // Dependency injection
-    title.setTitle('Northwind - Home');
+export class HomeComponent implements OnInit, OnDestroy {
+  public constructor(private title: Title) {} // Dependency injection
+
+  public ngOnInit(): void {
+    console.log('ngOnInit');
+    this.title.setTitle('Northwind - Home');
+  }
+
+  public ngOnDestroy(): void {
+    console.log('ngOnDestroy');
   }
 }

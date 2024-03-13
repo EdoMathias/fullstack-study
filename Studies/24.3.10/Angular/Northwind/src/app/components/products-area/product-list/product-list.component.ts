@@ -1,33 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../../services/products.service';
 import { ProductModel } from '../../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProductCardComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   public products: ProductModel[];
-  // private productsService: ProductsService;
 
-  constructor(title: Title, private productsService: ProductsService) {
-    // Using the constructor for Dependency injection
-    title.setTitle('Northwind - Products');
+  constructor(private title: Title, private productsService: ProductsService) {}
 
-    // this.productsService = productsService;
-  }
-
-  public async showProducts() {
+  public async ngOnInit(): Promise<void> {
     try {
+      console.log('ngOnInit');
+      this.title.setTitle('Northwind - Products');
       this.products = await this.productsService.getAllProducts();
       console.log(this.products);
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error) {
+      alert(error);
     }
   }
 }

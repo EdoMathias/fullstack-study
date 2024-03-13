@@ -15,3 +15,7 @@ header, footer {
 div, div > * {
     border: 1px solid;
 }
+
+main {
+    overflow: auto;
+}

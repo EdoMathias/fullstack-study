@@ -1,5 +1,5 @@
 <div>
-  <button (click)="showProducts()">Show all products</button>
+  <!-- <span *ngFor="let p of products">{{ p.name }} 😒 </span> -->
 
-  <span *ngFor="let p of products">{{ p.name }} 😒 </span>
+  <app-product-card *ngFor="let p of products" [product]="p" />
 </div>

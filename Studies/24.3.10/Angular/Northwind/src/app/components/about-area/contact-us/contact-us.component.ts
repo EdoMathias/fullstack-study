@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -8,9 +8,11 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css',
 })
-export class ContactUsComponent {
-  constructor(title: Title) {
-    // Dependency injection
-    title.setTitle('Northwind - Contact us');
+export class ContactUsComponent implements OnInit {
+  constructor(private title: Title) {}
+
+  public ngOnInit(): void {
+    console.log('ngOnInit');
+    this.title.setTitle('Northwind - Contact us');
   }
 }
