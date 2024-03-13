@@ -1,1 +1,5 @@
-<p>product-list works!</p>
+<div>
+  <button (click)="showProducts()">Show all products</button>
+
+  <span *ngFor="let p of products">{{ p.name }} 😒 </span>
+</div>
