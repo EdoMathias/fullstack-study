@@ -4,8 +4,10 @@ import VacationModel from '../../../Models/VacationModel';
 import { vacationService } from '../../../Services/VacationService';
 import './AddVacation.css';
 import { notify } from '../../../Utils/Notify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { vacationsActionCreators } from '../../../Redux/VacationsSlice';
+import { AppState } from '../../../Redux/AppState';
+import { useEffect } from 'react';
 
 function AddVacation(): JSX.Element {
   const { register, handleSubmit } = useForm<VacationModel>();
@@ -27,6 +29,18 @@ function AddVacation(): JSX.Element {
       notify.error(err);
     }
   }
+
+  useEffect(() => {
+    const fetchVacations = async () => {
+      try {
+        await vacationService.getAllVacations();
+      } catch (error) {
+        notify.error('Failed to fetch vacations');
+      }
+    };
+
+    fetchVacations();
+  }, []);
 
   return (
     <div className="AddVacation">
