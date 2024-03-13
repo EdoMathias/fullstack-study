@@ -1,0 +1,16 @@
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+a {
+    color: blue;
+}
+
+.cool {
+    color: green;
+    font-weight: bold;
+    font-family: "Lucida Handwriting";
+}

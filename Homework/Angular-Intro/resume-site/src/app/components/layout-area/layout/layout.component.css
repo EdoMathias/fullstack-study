@@ -1,0 +1,17 @@
+/* No CSS leaking here */
+
+div {
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 15% 85%;
+    grid-template-columns: 1fr 1fr;
+}
+
+header{
+    grid-column: span 2;
+}
+
+div, div > * {
+    border: 1px solid;
+}

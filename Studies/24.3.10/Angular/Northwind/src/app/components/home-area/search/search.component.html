@@ -1,0 +1,12 @@
+<div>
+  <!-- Property Binding: -->
+  <label [title]="tooltip">Search:</label>
+
+  <!-- Two way Binding: -->
+  <input type="search" [(ngModel)]="textToSearch" />
+
+  <!-- Event Binding: -->
+  <Button (click)="search()">🔎</Button>
+
+  <p *ngIf="textToSearch">Searching for {{ textToSearch }}</p>
+</div>
