@@ -13,13 +13,13 @@ import { Title } from '@angular/platform-browser';
 })
 export class ProductListComponent {
   public products: ProductModel[];
-  private productsService: ProductsService;
+  // private productsService: ProductsService;
 
-  constructor(title: Title, productsService: ProductsService) {
+  constructor(title: Title, private productsService: ProductsService) {
     // Using the constructor for Dependency injection
     title.setTitle('Northwind - Products');
 
-    this.productsService = productsService;
+    // this.productsService = productsService;
   }
 
   public async showProducts() {
