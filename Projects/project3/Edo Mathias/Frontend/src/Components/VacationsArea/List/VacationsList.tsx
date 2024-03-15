@@ -38,7 +38,6 @@ function VacationsList(): JSX.Element {
     indexOfLastVacation
   );
 
-  // Function to handle page change
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -49,14 +48,16 @@ function VacationsList(): JSX.Element {
         {vacations.length === 0 && <Spinner />}
 
         {currentVacations.map((vacation) => (
-          <div className="vacation-card" key={vacation.id}>
-            <VacationCard vacation={vacation} roleId={user?.roleId} />
-          </div>
+          <VacationCard
+            vacation={vacation}
+            roleId={user?.roleId}
+            key={vacation.id}
+          />
         ))}
       </div>
       <div className="pagination">
         <PaginationComponent
-          totalPages={Math.ceil(vacations.length / vacationsPerPage)} // Calculate total pages based on number of vacations
+          totalPages={Math.ceil(vacations.length / vacationsPerPage)}
           onPageChange={handlePageChange}
         />
       </div>

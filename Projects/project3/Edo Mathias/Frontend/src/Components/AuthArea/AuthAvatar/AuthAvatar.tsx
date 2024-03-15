@@ -51,8 +51,8 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
         >
           <Avatar
             sx={{
-              width: 50,
-              height: 50,
+              width: 60,
+              height: 60,
               fontSize: 'xx-large',
               fontFamily: 'Spectral Regular',
               backgroundColor: '#F3B664',
