@@ -41,19 +41,26 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
   }
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
+      <Box>
+        <IconButton
+          onClick={handleClick}
+          size="large"
+          aria-controls={open ? 'account-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+        >
+          <Avatar
+            sx={{
+              width: 50,
+              height: 50,
+              fontSize: 'xx-large',
+              fontFamily: 'Mantinia Regular',
+              backgroundColor: '#F3B664',
+            }}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>{userLetters}</Avatar>
-          </IconButton>
-        </Tooltip>
+            {userLetters}
+          </Avatar>
+        </IconButton>
       </Box>
       <Menu
         anchorEl={anchorEl}
@@ -91,6 +98,7 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem
+          sx={{ fontFamily: 'Mantinia Regular' }}
           onClick={() => {
             handleClose();
             logMeOut();
@@ -99,7 +107,7 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          LOGOUT
         </MenuItem>
       </Menu>
     </React.Fragment>

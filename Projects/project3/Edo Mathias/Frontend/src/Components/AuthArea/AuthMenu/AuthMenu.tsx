@@ -13,13 +13,13 @@ function AuthMenu(): JSX.Element {
     return <AuthAvatar user={user} />;
   }
 
-  return (
-    <div className="AuthMenu">
-      <NavLink to="/login">
-        <LoginIcon />
-      </NavLink>
-    </div>
-  );
+  // return (
+  //   <div className="AuthMenu">
+  //     <NavLink to="/login">
+  //       <LoginIcon />
+  //     </NavLink>
+  //   </div>
+  // );
 }
 
 export default AuthMenu;

@@ -1,8 +1,16 @@
+@font-face {
+    font-family: 'Mantinia Regular';
+    src: url('./Assets/fonts/MantiniaRegular.woff') format('woff');
+}
+
+* {
+    font-family: 'Mantinia Regular';
+}
+
 html, body, #root {
     margin: 0;
     height: 100%;
     text-align: center;
-    background-image: linear-gradient(lightblue, white);
 }
 
 a {

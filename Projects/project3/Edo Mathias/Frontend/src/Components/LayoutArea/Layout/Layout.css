@@ -2,7 +2,7 @@
     height: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-rows: 10% 85% 5%;
+    grid-template-rows: 80px 1fr 50px;
     grid-template-columns: 5fr;
     border: 1px solid;
 }
@@ -17,4 +17,5 @@ header, footer {
 
 main {
     overflow: auto;
+    background-color: #C8AE7D;
 }

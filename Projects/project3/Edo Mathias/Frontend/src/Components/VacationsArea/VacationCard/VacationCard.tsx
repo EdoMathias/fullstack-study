@@ -4,6 +4,15 @@ import './VacationCard.css';
 import { vacationService } from '../../../Services/VacationService';
 import { notify } from '../../../Utils/Notify';
 import useDateFormat from '../../../Hooks/useDateFormat';
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+  CardActions,
+  Button,
+} from '@mui/material';
 
 type VacationCardProps = {
   vacation: VacationModel;
@@ -26,27 +35,57 @@ function VacationCard(props: VacationCardProps): JSX.Element {
   }
 
   return (
-    <div className="VacationCard">
-      <img src={props.vacation.imageUrl} />
-      {props.vacation.destination}
-      <br />
-      {useDateFormat(props.vacation.startDate)}
-      <br />
-      {useDateFormat(props.vacation.endDate)}
-      <br />
-      {props.vacation.description}
-      <br />
-      Price: {props.vacation.price}
-      <br />
-      {props.roleId === 1 ? (
-        <>
-          <button onClick={() => editProduct()}>Edit</button>
-          <button onClick={() => handleDelete(props.vacation.id)}>
-            Delete
-          </button>
-        </>
-      ) : null}
-    </div>
+    <Card sx={{ maxWidth: 300, maxHeight: 370, minHeight: 370 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={props.vacation.imageUrl}
+          alt={props.vacation.destination}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {props.vacation.destination}
+          </Typography>
+          <Typography variant="subtitle1" color="text.primary">
+            Price: {props.vacation.price}$
+          </Typography>
+          <Typography variant="subtitle2" color="text.secondary">
+            {useDateFormat(props.vacation.startDate)} -{' '}
+            {useDateFormat(props.vacation.endDate)}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.primary"
+            className="description"
+          >
+            {props.vacation.description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        {props.roleId === 1 ? (
+          <>
+            <Button size="small" color="primary" onClick={editProduct}>
+              Edit
+            </Button>
+            <Button
+              size="small"
+              color="error"
+              onClick={() => handleDelete(props.vacation.id)}
+            >
+              Delete
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button size="small" color="primary">
+              Follow
+            </Button>
+          </>
+        )}
+      </CardActions>
+    </Card>
   );
 }
 
