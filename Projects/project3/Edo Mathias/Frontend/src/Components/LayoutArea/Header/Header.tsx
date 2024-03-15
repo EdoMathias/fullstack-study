@@ -9,11 +9,7 @@ function Header(): JSX.Element {
         <img src={logo} />
       </div>
       <div className="title-container">
-        <h1>
-          <a>E</a>
-          <a>lden trip</a>
-          <a>S</a>
-        </h1>
+        <h1>ELDEN TRIPS</h1>
       </div>
       <div className="auth-container">
         <AuthMenu />

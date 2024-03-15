@@ -1,7 +1,13 @@
-.VacationList {
-	display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.vacation-list {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
     gap: 10px;
-    margin: 10px;
+    margin-top: 20px;
+}
+
+.pagination {
+    margin: 20px;
+    justify-content: center;
 }

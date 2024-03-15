@@ -4,11 +4,6 @@
     display: grid;
     grid-template-rows: 80px 1fr 50px;
     grid-template-columns: 5fr;
-    border: 1px solid;
-}
-
-.Layout > * {
-    border: 1px solid;
 }
 
 header, footer {
@@ -16,6 +11,6 @@ header, footer {
 }
 
 main {
-    overflow: auto;
+    overflow-y: auto;
     background-color: #C8AE7D;
 }

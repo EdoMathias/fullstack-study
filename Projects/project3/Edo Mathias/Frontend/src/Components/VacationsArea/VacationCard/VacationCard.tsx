@@ -12,6 +12,7 @@ import {
   Typography,
   CardActions,
   Button,
+  makeStyles,
 } from '@mui/material';
 
 type VacationCardProps = {
@@ -35,7 +36,14 @@ function VacationCard(props: VacationCardProps): JSX.Element {
   }
 
   return (
-    <Card sx={{ maxWidth: 300, maxHeight: 370, minHeight: 370 }}>
+    <Card
+      sx={{
+        maxWidth: 300,
+        maxHeight: 340,
+        minHeight: 340,
+        fontFamily: 'Mantinia Regular',
+      }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -43,18 +51,31 @@ function VacationCard(props: VacationCardProps): JSX.Element {
           image={props.vacation.imageUrl}
           alt={props.vacation.destination}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent sx={{ p: 1 }}>
+          <Typography
+            sx={{ fontFamily: 'Mantinia Regular' }}
+            variant="h5"
+            component="div"
+          >
             {props.vacation.destination}
           </Typography>
-          <Typography variant="subtitle1" color="text.primary">
-            Price: {props.vacation.price}$
+          <Typography
+            sx={{ fontFamily: 'Mantinia Regular' }}
+            variant="subtitle1"
+            color="text.primary"
+          >
+            PRICE: {props.vacation.price} Runes
           </Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            sx={{ fontFamily: 'Mantinia Regular' }}
+            variant="subtitle2"
+            color="text.secondary"
+          >
             {useDateFormat(props.vacation.startDate)} -{' '}
             {useDateFormat(props.vacation.endDate)}
           </Typography>
           <Typography
+            sx={{ fontFamily: 'Mantinia Regular' }}
             variant="body2"
             color="text.primary"
             className="description"
@@ -63,13 +84,19 @@ function VacationCard(props: VacationCardProps): JSX.Element {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions sx={{ p: 0 }}>
         {props.roleId === 1 ? (
           <>
-            <Button size="small" color="primary" onClick={editProduct}>
+            <Button
+              sx={{ fontFamily: 'Mantinia Regular' }}
+              size="small"
+              color="primary"
+              onClick={editProduct}
+            >
               Edit
             </Button>
             <Button
+              sx={{ fontFamily: 'Mantinia Regular' }}
               size="small"
               color="error"
               onClick={() => handleDelete(props.vacation.id)}

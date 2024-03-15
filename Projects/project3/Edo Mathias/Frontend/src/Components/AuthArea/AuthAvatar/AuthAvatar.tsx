@@ -54,7 +54,7 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
               width: 50,
               height: 50,
               fontSize: 'xx-large',
-              fontFamily: 'Mantinia Regular',
+              fontFamily: 'Spectral Regular',
               backgroundColor: '#F3B664',
             }}
           >

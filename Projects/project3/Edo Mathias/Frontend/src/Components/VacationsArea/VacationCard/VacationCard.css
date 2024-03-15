@@ -5,6 +5,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
-    min-height: 4.2em;
-    max-height: 5.5em;
+    min-height: 4em;
+    max-height: 5em;
   }
