@@ -2,6 +2,7 @@ import { ProductModel } from '../models/product.model';
 import { appConfig } from '../app.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   // Where to create an object
@@ -12,13 +13,13 @@ export class ProductsService {
 
   public async getAllProducts(): Promise<ProductModel[]> {
     const observable = this.http.get<ProductModel[]>(appConfig.productsUrl);
-    const products = await observable.toPromise();
+    const products = await firstValueFrom(observable);
     return products;
   }
 
   public async getProductById(id: number): Promise<ProductModel> {
     const observable = this.http.get<ProductModel>(appConfig.productsUrl + id);
-    const product = await observable.toPromise();
+    const product = await firstValueFrom(observable);
     return product;
   }
 
@@ -32,12 +33,12 @@ export class ProductsService {
       appConfig.productsUrl,
       formData
     );
-    await observable.toPromise();
+    await firstValueFrom(observable);
   }
 
   public async deleteProduct(id: number): Promise<void> {
     const observable = this.http.delete(appConfig.productsUrl + id);
-    await observable.toPromise();
+    await firstValueFrom(observable);
   }
 
   public async updateProduct(product: ProductModel): Promise<void> {
@@ -50,7 +51,7 @@ export class ProductsService {
       appConfig.productsUrl + product.id,
       formData
     );
-    await observable.toPromise();
+    await firstValueFrom(observable);
   }
 
   private getFormData(product: ProductModel) {

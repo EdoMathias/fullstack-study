@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorsService } from '../../../services/colors.service';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-facebook',
@@ -24,10 +25,25 @@ export class FacebookComponent implements OnInit {
   // }
 
   // Using an observable for many colors:
+  // public async ngOnInit() {
+  //   const observable = this.colorsService.generateManyColorsAfterDelay();
+  //   observable.subscribe({
+  //     next: (randomColor) => (this.color = randomColor),
+  //   });
+  // }
+
+  // Using an observable for one color:
+  // public async ngOnInit() {
+  //   const observable = this.colorsService.generateManyColorsAfterDelay();
+  //   this.color = await firstValueFrom(observable);
+  // }
+
+  // Using an observable for many colors:
   public async ngOnInit() {
     const observable = this.colorsService.generateManyColorsAfterDelay();
     observable.subscribe({
       next: (randomColor) => (this.color = randomColor),
     });
+    this.color = await lastValueFrom(observable);
   }
 }
