@@ -1,1 +1,5 @@
-<p>product-list works!</p>
+<div>
+  <!-- <span *ngFor="let p of products">{{ p.name }} 😒 </span> -->
+
+  <app-product-card *ngFor="let p of products" [product]="p" />
+</div>
