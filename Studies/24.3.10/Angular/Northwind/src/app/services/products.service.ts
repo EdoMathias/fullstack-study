@@ -21,4 +21,12 @@ export class ProductsService {
     const product = await observable.toPromise();
     return product;
   }
+
+  public async addProduct(product: ProductModel): Promise<void> {
+    const observable = this.http.post<ProductModel>(
+      appConfig.productsUrl,
+      product
+    );
+    await observable.toPromise();
+  }
 }

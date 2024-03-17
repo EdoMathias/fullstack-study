@@ -5,11 +5,13 @@ import { AboutComponent } from './components/about-area/about/about.component';
 import { Page404Component } from './components/layout-area/page404/page404.component';
 import { ContactUsComponent } from './components/about-area/contact-us/contact-us.component';
 import { ProductDetailsComponent } from './components/products-area/product-details/product-details.component';
+import { AddProductComponent } from './components/products-area/add-product/add-product.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'products/details/:id', component: ProductDetailsComponent },
+  { path: 'products/new', component: AddProductComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent },
   //   { path: '', component: HomeComponent },
