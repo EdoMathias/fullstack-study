@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { FacebookComponent } from '../facebook/facebook.component';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [FacebookComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
