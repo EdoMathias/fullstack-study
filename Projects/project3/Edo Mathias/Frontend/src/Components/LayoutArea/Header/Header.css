@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
-    background-color: #EAC696;
+    background-color: #344955;
     color: #fff;
   }
 
@@ -12,8 +12,10 @@
 }
 
 h1 {
-    color: #FFE382;
-    text-align: center;
+  background: linear-gradient(10deg, #F9F295, #E0AA3E,#E0AA3E, #B88A44);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;    */
+   text-align: center;
     font-family: 'Spectral Regular';
 }
 
