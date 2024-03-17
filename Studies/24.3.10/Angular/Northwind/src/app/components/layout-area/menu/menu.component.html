@@ -1,6 +1,11 @@
 <div>
   <a routerLink="/home" routerLinkActive="cool">Home</a>
-  <a routerLink="/products" routerLinkActive="cool">Products</a>
+  <a
+    routerLink="/products"
+    routerLinkActive="cool"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Products</a
+  >
   <a routerLink="/products/new" routerLinkActive="cool">Add product</a>
   <a routerLink="/about" routerLinkActive="cool">About</a>
   <a routerLink="/contact" routerLinkActive="cool">Contact us</a>

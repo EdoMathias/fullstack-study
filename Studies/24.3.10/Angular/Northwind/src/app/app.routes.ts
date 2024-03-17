@@ -6,12 +6,14 @@ import { Page404Component } from './components/layout-area/page404/page404.compo
 import { ContactUsComponent } from './components/about-area/contact-us/contact-us.component';
 import { ProductDetailsComponent } from './components/products-area/product-details/product-details.component';
 import { AddProductComponent } from './components/products-area/add-product/add-product.component';
+import { EditProductComponent } from './components/products-area/edit-product/edit-product.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'products/details/:id', component: ProductDetailsComponent },
   { path: 'products/new', component: AddProductComponent },
+  { path: 'products/edit/:id', component: EditProductComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent },
   //   { path: '', component: HomeComponent },

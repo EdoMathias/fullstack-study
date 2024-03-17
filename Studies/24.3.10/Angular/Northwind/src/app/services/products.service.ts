@@ -39,4 +39,26 @@ export class ProductsService {
     const observable = this.http.delete(appConfig.productsUrl + id);
     await observable.toPromise();
   }
+
+  public async updateProduct(product: ProductModel): Promise<void> {
+    const formData = new FormData();
+    formData.append('name', product.name);
+    formData.append('price', product.price.toString());
+    formData.append('stock', product.stock.toString());
+    formData.append('image', product.image);
+    const observable = this.http.put<ProductModel>(
+      appConfig.productsUrl + product.id,
+      formData
+    );
+    await observable.toPromise();
+  }
+
+  private getFormData(product: ProductModel) {
+    const formData = new FormData();
+    formData.append('name', product.name);
+    formData.append('price', product.price.toString());
+    formData.append('stock', product.stock.toString());
+    formData.append('image', product.image);
+    return formData;
+  }
 }

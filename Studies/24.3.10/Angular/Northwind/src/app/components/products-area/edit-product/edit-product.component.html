@@ -34,14 +34,13 @@
     />
 
     <label>Image:</label>
-    <input
-      type="file"
-      name="image"
-      (change)="setImage($event)"
-      required
-      class="form-control"
-    />
+    <input type="file" name="image" (change)="setImage($event)" />
+    <hr />
+    <div class="image-container">
+      <img [src]="product.imageUrl" />
+    </div>
+    <hr />
 
-    <button class="btn btn-primary">Add product</button>
+    <button class="btn btn-primary">Edit product</button>
   </form>
 </div>
