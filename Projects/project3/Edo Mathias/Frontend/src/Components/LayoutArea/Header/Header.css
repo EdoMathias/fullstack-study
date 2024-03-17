@@ -1,0 +1,23 @@
+.Header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    background-color: #EAC696;
+    color: #fff;
+  }
+
+
+.Header > .image-container {
+    min-height: fit-content;
+}
+
+h1 {
+    color: #FFE382;
+    text-align: center;
+    font-family: 'Spectral Regular';
+}
+
+.image-container > img {
+  height: 80px;
+  object-fit: contain;
+}
