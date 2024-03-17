@@ -23,7 +23,7 @@ export class FacebookComponent implements OnInit {
   //   this.color = await this.colorsService.generateAfterDelay();
   // }
 
-  // Using an asynchronous function:
+  // Using an observable for many colors:
   public async ngOnInit() {
     const observable = this.colorsService.generateManyColorsAfterDelay();
     observable.subscribe({
