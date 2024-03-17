@@ -20,14 +20,19 @@ export class AddProductComponent {
   ) {}
 
   public async send() {
+    console.log(this.product);
     try {
       await this.productsService.addProduct(this.product);
-      alert('Product has been added ');
+      console.log('Product has been added ');
       // this.router.navigate(['/products']);
       this.router.navigateByUrl('/products');
-      console.log(this.product);
     } catch (error: any) {
       console.log(error.message);
     }
+  }
+
+  public setImage(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.product.image = input.files[0];
   }
 }

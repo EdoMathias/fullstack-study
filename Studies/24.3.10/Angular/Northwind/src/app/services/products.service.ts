@@ -23,10 +23,20 @@ export class ProductsService {
   }
 
   public async addProduct(product: ProductModel): Promise<void> {
+    const formData = new FormData();
+    formData.append('name', product.name);
+    formData.append('price', product.price.toString());
+    formData.append('stock', product.stock.toString());
+    formData.append('image', product.image);
     const observable = this.http.post<ProductModel>(
       appConfig.productsUrl,
-      product
+      formData
     );
+    await observable.toPromise();
+  }
+
+  public async deleteProduct(id: number): Promise<void> {
+    const observable = this.http.delete(appConfig.productsUrl + id);
     await observable.toPromise();
   }
 }
