@@ -16,9 +16,9 @@ class LikesService {
     await dal.execute(sql, values);
   }
 
-  public async removeLike(likedVacation: LikeModel): Promise<void> {
+  public async removeLike(userId: Number, vacationId: Number): Promise<void> {
     const sql = 'DELETE FROM likes WHERE userId = ? AND vacationId = ?';
-    const values = [likedVacation.userId, likedVacation.vacationId];
+    const values = [userId, vacationId];
 
     await dal.execute(sql, values);
   }

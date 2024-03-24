@@ -12,7 +12,7 @@ class LikesController {
 
   private registerRoutes(): void {
     this.router.post('/like', this.addLike);
-    this.router.delete('/like', this.removeLike);
+    this.router.delete('/like/:userId/:vacationId', this.removeLike);
   }
 
   private async addLike(
@@ -35,8 +35,10 @@ class LikesController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const likedVacation = new LikeModel(request.body);
-      await likesService.removeLike(likedVacation);
+      const params = request.params;
+      const userId = +params.userId;
+      const vacationId = +params.vacationId;
+      await likesService.removeLike(userId, vacationId);
       response.status(StatusCode.NoContent);
     } catch (err: any) {
       next(err);
