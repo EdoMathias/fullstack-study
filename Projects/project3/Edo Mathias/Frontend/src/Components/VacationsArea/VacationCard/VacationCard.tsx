@@ -17,6 +17,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
+import { likesService } from '../../../Services/LikeService';
 
 type VacationCardProps = {
   vacation: VacationModel;
@@ -24,17 +25,21 @@ type VacationCardProps = {
 };
 
 function VacationCard(props: VacationCardProps): JSX.Element {
-  const [likes, setLikes] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
+  const [likes, setLikes] = useState(props.vacation.likesCount);
+  const [isLiked, setIsLiked] = useState(props.vacation.isLiked);
   const navigate = useNavigate();
 
   async function handleLike() {
     if (isLiked) {
-      setLikes(likes - 1);
-      setIsLiked(false);
+      await likesService.removeLike(props.vacation);
+      // setLikes(likes - 1);
+      // await vacationService.removeLike(props.vacation.id);
+      // setIsLiked(false);
     } else {
-      setLikes(likes + 1);
-      setIsLiked(true);
+      await likesService.addLike(props.vacation);
+      // setLikes(likes + 1);
+      // await vacationService.addLike(props.vacation.id);
+      // setIsLiked(true);
     }
   }
 
@@ -146,7 +151,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                     }}
                   />
                 )}
-                <span>{likes}</span>
+                <span>{props.vacation.likesCount}</span>
               </Button>
             </>
           )}
