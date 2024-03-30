@@ -5,3 +5,10 @@
     text-align: left;
     resize: none
 }
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

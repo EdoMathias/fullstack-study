@@ -59,14 +59,14 @@ function VacationsCharts() {
     fetchVacations();
   }, []);
 
-  function navigateToHome() {
-    navigate('/');
+  function navigateToVacationsList() {
+    navigate('/list');
   }
 
   return (
     <ThemeProvider theme={chartsPageTheme}>
       <div className="charts-page-container">
-        <Button size="large" onClick={navigateToHome}>
+        <Button size="large" onClick={navigateToVacationsList}>
           Home
         </Button>
 

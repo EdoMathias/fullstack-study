@@ -22,7 +22,7 @@ function Routing(): JSX.Element {
         <Route path="/list" element={<VacationsList />} />
 
         {/* Add: */}
-        <Route path="/new" element={<AddVacation />} />
+        <Route path="/add" element={<AddVacation />} />
 
         {/* Edit: */}
         <Route path="/edit/:id" element={<EditVacation />} />

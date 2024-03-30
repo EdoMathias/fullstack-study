@@ -30,6 +30,10 @@ function AddVacation(): JSX.Element {
     }
   }
 
+  function navigateToVacationsList() {
+    navigate('/list');
+  }
+
   useEffect(() => {
     const fetchVacations = async () => {
       try {
@@ -82,7 +86,10 @@ function AddVacation(): JSX.Element {
         <label>Image: </label>
         <input type="file" {...register('image')} required />
 
-        <button>Add</button>
+        <div className="buttons-container">
+          <button onClick={navigateToVacationsList}>Cancel</button>
+          <button>Add</button>
+        </div>
       </form>
     </div>
   );

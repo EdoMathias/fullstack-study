@@ -31,6 +31,10 @@ function AdminActions(): JSX.Element {
     (state) => state.vacations
   );
 
+  function navigateToAddVacation() {
+    navigate('/add');
+  }
+
   function navigateToCharts() {
     navigate('/charts');
   }
@@ -47,6 +51,9 @@ function AdminActions(): JSX.Element {
   return (
     <ThemeProvider theme={adminActionsTheme}>
       <div className="admin-actions">
+        <Button size="large" onClick={navigateToAddVacation}>
+          Add Vacation
+        </Button>
         <Button size="large" onClick={handleDownloadCSV}>
           Download as CSV
         </Button>
