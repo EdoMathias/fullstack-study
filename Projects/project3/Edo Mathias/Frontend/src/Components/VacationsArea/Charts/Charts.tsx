@@ -30,6 +30,9 @@ function VacationsCharts() {
   }));
 
   useEffect(() => {
+    if (user?.roleId === 2 || !user) {
+      return;
+    }
     const fetchVacations = async () => {
       try {
         await vacationService.getAllVacations();
