@@ -43,7 +43,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
     }
   }
 
-  async function editProduct() {
+  async function editVacation() {
     navigate(`/edit/${props.vacation.id}`);
   }
 
@@ -117,7 +117,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                 sx={{ fontFamily: 'Mantinia Regular' }}
                 size="small"
                 color="primary"
-                onClick={editProduct}
+                onClick={editVacation}
               >
                 Edit
               </Button>
