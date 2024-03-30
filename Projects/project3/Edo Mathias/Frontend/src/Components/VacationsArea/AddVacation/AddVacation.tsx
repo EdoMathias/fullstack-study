@@ -37,18 +37,6 @@ function AddVacation(): JSX.Element {
     navigate('/list');
   }
 
-  useEffect(() => {
-    const fetchVacations = async () => {
-      try {
-        await vacationService.getAllVacations();
-      } catch (error) {
-        notify.error('Failed to fetch vacations');
-      }
-    };
-
-    fetchVacations();
-  }, []);
-
   return (
     <div className="AddVacation">
       {user?.roleId === 2 && <></>}
