@@ -3,7 +3,7 @@ import VacationModel from '../Models/VacationModel';
 
 // Our slice's data is vacations array.
 
-// Define the original state variable
+// Define the original state variable for sorting purposes:
 let originalVacations: VacationModel[] = [];
 
 // Reducer for adding all vacations to the slice:
@@ -101,7 +101,7 @@ function removeLike(
 
 // Reducer for sorting vacations:
 function sortVacations(
-  currentState: VacationModel[], // Unused parameter
+  currentState: VacationModel[],
   action: PayloadAction<string>
 ): VacationModel[] {
   // action.payload is the sorting value
