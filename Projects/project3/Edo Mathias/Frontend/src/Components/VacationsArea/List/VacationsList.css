@@ -4,6 +4,12 @@
     flex-direction: column;
 }
 
+.sort-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
 .vacation-list {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
