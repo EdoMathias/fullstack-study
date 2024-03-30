@@ -15,7 +15,6 @@ import {
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useState } from 'react';
 import { likesService } from '../../../Services/LikeService';
 
 type VacationCardProps = {
@@ -24,16 +23,13 @@ type VacationCardProps = {
 };
 
 function VacationCard(props: VacationCardProps): JSX.Element {
-  const [isLiked, setIsLiked] = useState(props.vacation.isLiked);
   const navigate = useNavigate();
 
   async function handleLike() {
-    if (isLiked) {
+    if (props.vacation.isLiked) {
       await likesService.removeLike(props.vacation);
-      setIsLiked(0);
     } else {
       await likesService.addLike(props.vacation);
-      setIsLiked(1);
     }
   }
 
@@ -132,7 +128,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                 color="error"
                 onClick={() => handleLike()}
               >
-                {isLiked ? (
+                {props.vacation.isLiked ? (
                   <FavoriteIcon
                     sx={{
                       color: 'red',
