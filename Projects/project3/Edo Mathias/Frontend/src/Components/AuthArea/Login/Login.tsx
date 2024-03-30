@@ -5,6 +5,8 @@ import { appStore } from '../../../Redux/Store';
 import { authService } from '../../../Services/AuthService';
 import { notify } from '../../../Utils/Notify';
 import './Login.css';
+import { ThemeProvider } from '@emotion/react';
+import { Button, Divider, TextField, createTheme } from '@mui/material';
 
 function Login(): JSX.Element {
   const { register, handleSubmit } = useForm<CredentialsModel>();
@@ -22,19 +24,83 @@ function Login(): JSX.Element {
     }
   }
 
+  function goToRegister() {
+    navigate('/register');
+  }
+
   return (
-    <div className="Login">
-      <form onSubmit={handleSubmit(send)}>
-        <label>Email:</label>
-        <input type="text" {...register('email')} />
-
-        <label>Password:</label>
-        <input type="password" {...register('password')} />
-
-        <button>Login</button>
-      </form>
-    </div>
+    <ThemeProvider theme={loginFormTheme}>
+      <div className="form-container sign-up-container">
+        <form onSubmit={handleSubmit(send)} className="login-form">
+          <h1>Log in</h1>
+          <div className="form-inputs-container">
+            <TextField
+              autoComplete="email"
+              name="email"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              {...register('email')}
+              autoFocus
+            />
+            <TextField
+              autoComplete="current-password"
+              name="password"
+              required
+              fullWidth
+              id="password"
+              label="Password"
+              type="password"
+              {...register('password')}
+            />
+          </div>
+          <div className="form-buttons-container">
+            <Button type="submit">Log in</Button>
+            <Divider>Don't have an account?</Divider>
+            <Button onClick={goToRegister}>Sign up</Button>
+          </div>
+        </form>
+      </div>
+    </ThemeProvider>
   );
 }
+
+const loginFormTheme = createTheme({
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          marginBottom: '10px',
+          width: '70%',
+          fontFamily: 'Mantinia Regular',
+          backgroundColor: '#eee',
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          width: '100%',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          width: '100%',
+          fontFamily: 'Mantinia Regular',
+          color: '#E2C799',
+          border: '1px solid #E2C799',
+          backgroundColor: '#3D405B',
+          '&:hover': {
+            backgroundColor: '#E2C799',
+            color: '#3D405B',
+          },
+        },
+      },
+    },
+  },
+});
 
 export default Login;
