@@ -50,6 +50,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
       <Card
         sx={{
           maxWidth: 300,
+          minWidth: 300,
           maxHeight: 340,
           minHeight: 340,
           fontFamily: 'Mantinia Regular',
