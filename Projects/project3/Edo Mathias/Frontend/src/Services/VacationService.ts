@@ -2,11 +2,7 @@ import axios from 'axios';
 import VacationModel from '../Models/VacationModel';
 import { appConfig } from '../Utils/AppConfig';
 import { appStore } from '../Redux/Store';
-import {
-  vacationsActionCreators,
-  vacationsReducersContainer,
-} from '../Redux/VacationsSlice';
-import { authActionCreators, authReducersContainer } from '../Redux/AuthSlice';
+import { vacationsActionCreators } from '../Redux/VacationsSlice';
 
 class VacationService {
   // Get all vacations from backend:

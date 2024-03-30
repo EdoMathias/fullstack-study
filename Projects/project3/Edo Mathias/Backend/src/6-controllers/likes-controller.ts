@@ -23,7 +23,7 @@ class LikesController {
     try {
       const likedVacation = new LikeModel(request.body);
       await likesService.addLike(likedVacation);
-      response.status(StatusCode.Created);
+      response.status(StatusCode.Created).send('Like added successfully');
     } catch (err: any) {
       next(err);
     }
@@ -39,7 +39,7 @@ class LikesController {
       const userId = +params.userId;
       const vacationId = +params.vacationId;
       await likesService.removeLike(userId, vacationId);
-      response.status(StatusCode.NoContent);
+      response.status(StatusCode.NoContent).send('Like removed successfully');
     } catch (err: any) {
       next(err);
     }

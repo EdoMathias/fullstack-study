@@ -65,11 +65,37 @@ function deleteOne(
   return newState;
 }
 
+function addLike(
+  currentState: VacationModel[],
+  action: PayloadAction<number>
+): void {
+  // action.payload is the id of the vacation to like.
+  const idToLike = action.payload;
+  const vacation = currentState.find((v) => v.id === idToLike);
+  if (vacation) {
+    vacation.likesCount += 1;
+    vacation.isLiked = 1;
+  }
+}
+
+function removeLike(
+  currentState: VacationModel[],
+  action: PayloadAction<number>
+): void {
+  // action.payload is the id of the vacation to like.
+  const idToLike = action.payload;
+  const vacation = currentState.find((v) => v.id === idToLike);
+  if (vacation) {
+    vacation.likesCount -= 1;
+    vacation.isLiked = 0;
+  }
+}
+
 // Create the vacations slice - containing and managing only the vacations array:
 const vacationsSlice = createSlice({
   name: 'vacations', // Unique name for the slice
   initialState: [],
-  reducers: { initAll, addOne, updateOne, deleteOne },
+  reducers: { initAll, addOne, updateOne, deleteOne, addLike, removeLike },
 });
 
 // Expose a single object containing functions for creating Action objects:
