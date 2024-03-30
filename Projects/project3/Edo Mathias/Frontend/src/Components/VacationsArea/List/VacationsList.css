@@ -1,9 +1,10 @@
 .vacation-list {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: repeat(3, 1fr); */
     justify-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    overflow: auto;
+    gap: 15px;
 }
 
 .pagination {
