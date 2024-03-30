@@ -1,10 +1,9 @@
-import UserModel from "../Models/UserModel";
-import VacationModel from "../Models/VacationModel";
+import UserModel from '../Models/UserModel';
+import VacationModel from '../Models/VacationModel';
 
-// Application global state: 
+// Application global state:
 export type AppState = {
+  vacations: VacationModel[];
 
-    vacations: VacationModel[];
-
-    user: UserModel;
+  user: UserModel;
 };

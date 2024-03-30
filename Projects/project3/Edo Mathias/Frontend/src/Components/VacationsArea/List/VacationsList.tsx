@@ -17,6 +17,8 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import usePageinationIndex from '../../../Hooks/usePaginationIndex';
+import { appStore } from '../../../Redux/Store';
+import { vacationsActionCreators } from '../../../Redux/VacationsSlice';
 
 function VacationsList(): JSX.Element {
   const user = useAuthRedirect();
@@ -26,13 +28,12 @@ function VacationsList(): JSX.Element {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedVacations, setSortedVacations] = useState<VacationModel[]>([]);
-  const [sortValue, setSortValue] = useState('');
 
   useEffect(() => {
     const fetchVacations = async () => {
       try {
-        await vacationService.getAllVacations();
-        setSortedVacations(vacations);
+        const sorted = await vacationService.getAllVacations();
+        setSortedVacations(sorted);
       } catch (error) {
         notify.error('Failed to fetch vacations');
       }
@@ -48,29 +49,9 @@ function VacationsList(): JSX.Element {
   };
 
   const handleSortChange = (event: SelectChangeEvent) => {
-    setSortValue(event.target.value);
-  };
-
-  const sortVacations = (sortValue: string) => {
-    let sorted;
-    switch (sortValue) {
-      case 'likes':
-        sorted = [...vacations].sort((a, b) => b.likesCount - a.likesCount);
-        setSortValue('likes');
-        break;
-      case 'liked':
-        sorted = vacations.filter((vacation) => vacation.isLiked);
-        setSortValue('liked');
-        break;
-      case 'dates':
-        sorted = [...vacations].filter(
-          (vacation) => new Date(vacation.endDate) > new Date()
-        );
-        break;
-      default:
-        sorted = vacations;
-    }
-    setSortedVacations(sorted);
+    const sortValue = event.target.value;
+    const action = vacationsActionCreators.sortVacations(sortValue);
+    appStore.dispatch(action);
   };
 
   return (
@@ -82,10 +63,7 @@ function VacationsList(): JSX.Element {
             labelId="sort-label"
             id="sort"
             defaultValue=""
-            onChange={(event) => {
-              handleSortChange(event);
-              return sortVacations(event.target.value);
-            }}
+            onChange={(event) => handleSortChange(event)}
           >
             <MenuItem value="">All vacations</MenuItem>
             <MenuItem value="likes">Likes Count</MenuItem>
