@@ -3,12 +3,12 @@ import { vacationService } from '../../../Services/VacationService';
 import './VacationsList.css';
 import VacationModel from '../../../Models/VacationModel';
 import VacationCard from '../VacationCard/VacationCard';
-import Spinner from '../../SharedArea/Spinner/Spinner';
 import { notify } from '../../../Utils/Notify';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../Redux/AppState';
 import PaginationComponent from '../Pagination/PaginationComponent';
+import Skeleton from '@mui/material/Skeleton';
 
 function VacationsList(): JSX.Element {
   const user = useAuthRedirect();
@@ -45,7 +45,16 @@ function VacationsList(): JSX.Element {
   return (
     <>
       <div className="vacation-list">
-        {vacations.length === 0 && <Spinner />}
+        {/* Display Skeleton components while loading */}
+        {vacations.length === 0 &&
+          Array.from({ length: vacationsPerPage }).map((_, index) => (
+            <Skeleton
+              key={index}
+              variant="rectangular"
+              height={240}
+              width={340}
+            />
+          ))}
 
         {currentVacations.map((vacation) => (
           <VacationCard
