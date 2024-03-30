@@ -3,8 +3,6 @@ import VacationModel from '../Models/VacationModel';
 import { appConfig } from '../Utils/AppConfig';
 import { appStore } from '../Redux/Store';
 import { vacationsActionCreators } from '../Redux/VacationsSlice';
-// import { authActionCreators, authReducersContainer } from '../Redux/AuthSlice';
-// import LikeModel from '../Models/like-model';
 
 class LikesService {
   // Add like:
@@ -19,6 +17,10 @@ class LikesService {
       likedVacation,
       appConfig.axiosOptions
     );
+
+    const action = vacationsActionCreators.addLike(vacation.id);
+
+    appStore.dispatch(action);
   }
 
   // Remove like:
@@ -27,6 +29,10 @@ class LikesService {
     const vacationId = vacation.id;
 
     await axios.delete(appConfig.likeUrl + `${userId}/${vacationId}`);
+
+    const action = vacationsActionCreators.removeLike(vacation.id);
+
+    appStore.dispatch(action);
   }
 }
 
