@@ -1,9 +1,15 @@
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .vacation-list {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     justify-items: center;
     margin-top: 10px;
-    overflow: auto;
     gap: 15px;
 }
 

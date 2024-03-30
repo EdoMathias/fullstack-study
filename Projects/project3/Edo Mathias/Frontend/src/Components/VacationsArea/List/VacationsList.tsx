@@ -43,7 +43,7 @@ function VacationsList(): JSX.Element {
   };
 
   return (
-    <>
+    <div className="list-container">
       <div className="vacation-list">
         {/* Display Skeleton components while loading */}
         {vacations.length === 0 &&
@@ -70,7 +70,7 @@ function VacationsList(): JSX.Element {
           onPageChange={handlePageChange}
         />
       </div>
-    </>
+    </div>
   );
 }
 
