@@ -33,7 +33,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
     }
   }
 
-  async function editVacation() {
+  function editVacation() {
     navigate(`/edit/${props.vacation.id}`);
   }
 

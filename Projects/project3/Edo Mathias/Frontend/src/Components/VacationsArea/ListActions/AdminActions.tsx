@@ -4,6 +4,7 @@ import VacationModel from '../../../Models/VacationModel';
 import { AppState } from '../../../Redux/AppState';
 import { dataService } from '../../../Services/DataService';
 import { notify } from '../../../Utils/Notify';
+import { useNavigate } from 'react-router-dom';
 
 const adminActionsTheme = createTheme({
   components: {
@@ -25,9 +26,14 @@ const adminActionsTheme = createTheme({
 });
 
 function AdminActions(): JSX.Element {
+  const navigate = useNavigate();
   const vacations = useSelector<AppState, VacationModel[]>(
     (state) => state.vacations
   );
+
+  function navigateToCharts() {
+    navigate('/charts');
+  }
 
   async function handleDownloadCSV() {
     try {
@@ -44,7 +50,9 @@ function AdminActions(): JSX.Element {
         <Button size="large" onClick={handleDownloadCSV}>
           Download as CSV
         </Button>
-        <Button size="large">Charts</Button>
+        <Button size="large" onClick={navigateToCharts}>
+          Charts
+        </Button>
       </div>
     </ThemeProvider>
   );
