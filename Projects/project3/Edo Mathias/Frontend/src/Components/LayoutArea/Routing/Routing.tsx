@@ -6,6 +6,7 @@ import Register from '../../AuthArea/Register/Register';
 import Login from '../../AuthArea/Login/Login';
 import AddVacation from '../../VacationsArea/AddVacation/AddVacation';
 import EditVacation from '../../VacationsArea/EditVacation/EditVacation';
+import VacationsCharts from '../../VacationsArea/Charts/Charts';
 
 function Routing(): JSX.Element {
   return (
@@ -25,6 +26,9 @@ function Routing(): JSX.Element {
 
         {/* Edit: */}
         <Route path="/edit/:id" element={<EditVacation />} />
+
+        {/* Chats: */}
+        <Route path="/charts" element={<VacationsCharts />} />
 
         {/* Default Route: */}
         <Route path="/" element={<Navigate to="/list" />} />
