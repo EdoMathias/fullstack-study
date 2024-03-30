@@ -1,3 +1,12 @@
+.add-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    height: 800px;
+}
+
 .description-box {
     display: block;
     height: 200px;
@@ -6,9 +15,6 @@
     resize: none
 }
 
-.buttons-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.thumbnail {
+    width: 250px;
 }
