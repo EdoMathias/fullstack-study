@@ -11,7 +11,7 @@
     min-height: fit-content;
 }
 
-h1 {
+.site-title {
   background: linear-gradient(10deg, #F9F295, #E0AA3E,#E0AA3E, #B88A44);
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;    */
