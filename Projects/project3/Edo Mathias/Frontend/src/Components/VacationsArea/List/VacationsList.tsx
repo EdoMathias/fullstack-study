@@ -15,10 +15,13 @@ import {
   Select,
   MenuItem,
   SelectChangeEvent,
+  Button,
 } from '@mui/material';
 import usePageinationIndex from '../../../Hooks/usePaginationIndex';
 import { appStore } from '../../../Redux/Store';
 import { vacationsActionCreators } from '../../../Redux/VacationsSlice';
+import AdminActions from '../ListActions/AdminActions';
+import UserActions from '../ListActions/UserActions';
 
 function VacationsList(): JSX.Element {
   const user = useAuthRedirect();
@@ -26,7 +29,8 @@ function VacationsList(): JSX.Element {
     (state) => state.vacations
   );
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [sortBy, setSortBy] = useState<string>('');
   const [sortedVacations, setSortedVacations] = useState<VacationModel[]>([]);
 
   useEffect(() => {
@@ -48,30 +52,19 @@ function VacationsList(): JSX.Element {
     setCurrentPage(page);
   };
 
-  const handleSortChange = (event: SelectChangeEvent) => {
-    const sortValue = event.target.value;
-    const action = vacationsActionCreators.sortVacations(sortValue);
-    appStore.dispatch(action);
+  const handleSortByChange = (soryByValue: string) => {
+    setSortBy(soryByValue);
   };
 
   return (
     <div className="list-container">
-      {user?.roleId === 2 && (
-        <FormControl sx={{ width: 150, marginTop: 2 }}>
-          <InputLabel id="sort-label">Sort By</InputLabel>
-          <Select
-            labelId="sort-label"
-            id="sort"
-            defaultValue=""
-            onChange={(event) => handleSortChange(event)}
-          >
-            <MenuItem value="">All vacations</MenuItem>
-            <MenuItem value="likes">Likes Count</MenuItem>
-            <MenuItem value="liked">Liked</MenuItem>
-            <MenuItem value="dates">Upcoming</MenuItem>
-          </Select>
-        </FormControl>
-      )}
+      <div className="list-actions-container">
+        {user?.roleId === 1 && <AdminActions />}
+
+        {user?.roleId === 2 && (
+          <UserActions onSortByValueChanged={handleSortByChange} />
+        )}
+      </div>
       <div className="vacation-list">
         {/* Display Skeleton components while loading */}
         {vacations.length === 0 &&
