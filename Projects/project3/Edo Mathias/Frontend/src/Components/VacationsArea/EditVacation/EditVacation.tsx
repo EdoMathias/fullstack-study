@@ -50,11 +50,15 @@ function EditVacation(): JSX.Element {
     }
   }
 
+  function goToList() {
+    navigate('/list');
+  }
+
   return (
     <div className="editVacation">
       {user?.roleId === 2 && <></>}
       {user?.roleId === 1 && (
-        <form onSubmit={handleSubmit(send)}>
+        <form onSubmit={handleSubmit(send)} className="edit-form">
           <label>Destination: </label>
           <input
             type="text"
@@ -94,6 +98,7 @@ function EditVacation(): JSX.Element {
           <input type="file" {...register('image')} />
 
           <button>Update</button>
+          <button onClick={goToList}>Cancel</button>
         </form>
       )}
     </div>

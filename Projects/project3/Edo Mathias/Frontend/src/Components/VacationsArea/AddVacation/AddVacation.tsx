@@ -41,7 +41,7 @@ function AddVacation(): JSX.Element {
     <div className="AddVacation">
       {user?.roleId === 2 && <></>}
       {user?.roleId === 1 && (
-        <form onSubmit={handleSubmit(send)}>
+        <form onSubmit={handleSubmit(send)} className="add-form">
           <label>Destination: </label>
           <input
             type="text"
