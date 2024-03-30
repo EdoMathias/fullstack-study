@@ -3,6 +3,9 @@ import VacationModel from '../Models/VacationModel';
 
 // Our slice's data is vacations array.
 
+// Define the original state variable
+let originalVacations: VacationModel[] = [];
+
 // Reducer for adding all vacations to the slice:
 function initAll(
   currentState: VacationModel[],
@@ -10,6 +13,9 @@ function initAll(
 ): VacationModel[] {
   // action.payload is all vacations fetched from backend.
   const allVacations = action.payload;
+
+  originalVacations = allVacations;
+
   const newState = allVacations;
   return newState;
 }
@@ -65,6 +71,7 @@ function deleteOne(
   return newState;
 }
 
+// Reducer for liking one vacation from the slice:
 function addLike(
   currentState: VacationModel[],
   action: PayloadAction<number>
@@ -78,6 +85,7 @@ function addLike(
   }
 }
 
+// Reducer for removing like from one vacation from the slice:
 function removeLike(
   currentState: VacationModel[],
   action: PayloadAction<number>
@@ -91,11 +99,49 @@ function removeLike(
   }
 }
 
+// Reducer for sorting vacations:
+function sortVacations(
+  currentState: VacationModel[], // Unused parameter
+  action: PayloadAction<string>
+): VacationModel[] {
+  // action.payload is the sorting value
+  const sortValue = action.payload;
+  let sorted: VacationModel[];
+
+  switch (sortValue) {
+    case 'likes':
+      sorted = [...originalVacations].sort(
+        (a, b) => b.likesCount - a.likesCount
+      );
+      break;
+    case 'liked':
+      sorted = originalVacations.filter((vacation) => vacation.isLiked);
+      break;
+    case 'dates':
+      sorted = originalVacations.filter(
+        (vacation) => new Date(vacation.endDate) > new Date()
+      );
+      break;
+    default:
+      sorted = [...originalVacations]; // No sorting, return original state
+  }
+
+  return sorted;
+}
+
 // Create the vacations slice - containing and managing only the vacations array:
 const vacationsSlice = createSlice({
   name: 'vacations', // Unique name for the slice
   initialState: [],
-  reducers: { initAll, addOne, updateOne, deleteOne, addLike, removeLike },
+  reducers: {
+    initAll,
+    addOne,
+    updateOne,
+    deleteOne,
+    addLike,
+    removeLike,
+    sortVacations,
+  },
 });
 
 // Expose a single object containing functions for creating Action objects:
