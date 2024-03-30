@@ -6,12 +6,14 @@ import './EditVacation.css';
 import { notify } from '../../../Utils/Notify';
 import { useEffect, useState } from 'react';
 import useDateFormat from '../../../Hooks/useDateFormat';
+import useAuthRedirect from '../../../Hooks/useAuthRedirect';
 
 function EditVacation(): JSX.Element {
   const { register, handleSubmit, setValue } = useForm<VacationModel>();
   const [imageUrl, setImageUrl] = useState<string>();
   const params = useParams();
   const navigate = useNavigate();
+  const user = useAuthRedirect();
 
   useEffect(() => {
     vacationService
@@ -50,47 +52,50 @@ function EditVacation(): JSX.Element {
 
   return (
     <div className="editVacation">
-      <form onSubmit={handleSubmit(send)}>
-        <label>Destination: </label>
-        <input
-          type="text"
-          {...register('destination')}
-          required
-          minLength={2}
-          maxLength={50}
-        />
+      {user?.roleId === 2 && <></>}
+      {user?.roleId === 1 && (
+        <form onSubmit={handleSubmit(send)}>
+          <label>Destination: </label>
+          <input
+            type="text"
+            {...register('destination')}
+            required
+            minLength={2}
+            maxLength={50}
+          />
 
-        <label>Description: </label>
-        <textarea
-          className="description-box"
-          {...register('description')}
-          required
-          minLength={2}
-          maxLength={1000}
-        />
+          <label>Description: </label>
+          <textarea
+            className="description-box"
+            {...register('description')}
+            required
+            minLength={2}
+            maxLength={1000}
+          />
 
-        <label>Start Date: </label>
-        <input type="date" {...register('startDate')} />
+          <label>Start Date: </label>
+          <input type="date" {...register('startDate')} />
 
-        <label>End Date: </label>
-        <input type="date" {...register('endDate')} />
+          <label>End Date: </label>
+          <input type="date" {...register('endDate')} />
 
-        <label>Price: </label>
-        <input
-          type="number"
-          step="0.01"
-          {...register('price')}
-          required
-          min={0}
-          max={10000}
-        />
+          <label>Price: </label>
+          <input
+            type="number"
+            step="0.01"
+            {...register('price')}
+            required
+            min={0}
+            max={10000}
+          />
 
-        <label>Image: </label>
-        <img className="thumbnail" src={imageUrl} />
-        <input type="file" {...register('image')} />
+          <label>Image: </label>
+          <img className="thumbnail" src={imageUrl} />
+          <input type="file" {...register('image')} />
 
-        <button>Update</button>
-      </form>
+          <button>Update</button>
+        </form>
+      )}
     </div>
   );
 }

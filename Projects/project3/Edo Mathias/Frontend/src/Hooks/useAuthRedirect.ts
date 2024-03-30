@@ -10,6 +10,9 @@ function useAuthRedirect() {
     if (!user) {
       navigate('/login');
     }
+    if (user?.roleId === 2) {
+      navigate('/list');
+    }
   }, [user, navigate]);
 
   return user;
