@@ -1,3 +1,16 @@
+# Create image if not exist + create container + run container:
+# (-d = detached = free terminal)
+# docker-compose up -d
+
+# Create image if exists + create container + run container:
+# docker-compose up -d --build
+
+# Remove container but retain the image:
+# docker-compose down
+
+# Update image:
+# docker-compose pull
+
 # Docker compose version
 version: "3.8"
 
