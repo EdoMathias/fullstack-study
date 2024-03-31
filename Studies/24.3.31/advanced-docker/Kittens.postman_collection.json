@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "e82e011f-d4ca-4e0a-b512-8e82d69cf071",
+		"name": "Kittens",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "881012"
+	},
+	"item": [
+		{
+			"name": "Get Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Kittens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/kittens",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"kittens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Kitten Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/kittens/images/39cb9825-8187-493b-bb66-212aa7254f7c.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"kittens",
+						"images",
+						"39cb9825-8187-493b-bb66-212aa7254f7c.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Kitten",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Bitsi",
+							"type": "default"
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Docs/04 - Pictures/04 - Pets/007.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/kittens",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"kittens"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
