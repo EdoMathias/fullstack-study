@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "f65d25fa-3783-49ab-924e-79e70281a5af",
+		"name": "Kittens",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30981781"
+	},
+	"item": [
+		{
+			"name": "Get Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4010",
+					"host": [
+						"localhost"
+					],
+					"port": "4010"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Kittens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4010/api/kittens",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"kittens"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
