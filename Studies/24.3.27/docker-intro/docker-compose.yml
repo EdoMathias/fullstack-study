@@ -1,0 +1,23 @@
+# Docker compose version
+version: "3.8"
+
+# Services we need to run (service = project):
+services:
+  # Service name:
+  test-service:
+    # Image name:
+    image: edomathias/test-image:1.0
+
+    # Docker file location:
+    build: .
+
+    # Container name:
+    container_name: test-container
+
+    # Port binding:
+    ports:
+      # host:container
+      - 4010:4000
+
+    # Restart policy - when to restart the container:
+    restart: unless-stopped
