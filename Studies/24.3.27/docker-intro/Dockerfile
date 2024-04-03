@@ -31,17 +31,17 @@ ENTRYPOINT npm start
 
 # 1. Create image:
 # docker build -t <image-name> <Dockerfile location>
-# docker build -t kittens-image .
-# docker build -t assaffink/kittens-image:1.0 .
+# docker build -t test-image .
+# docker build -t edomathias/test-image:1.0 .
 
 # 2. Create container: 
 # docker create --name <container-name> -p <host-port:container-port> <image-name>
-# docker create --name kittens-container -p 4010:4000 kittens-image
-# docker create --name kittens-container -p 4010:4000 kobiarev/kittens-image:1.0
+# docker create --name test-container -p 4010:4000 test-image
+# docker create --name test-container -p 4010:4000 edomathias/test-image:1.0
 
 # 3. Run container: 
 # docker start <container-name>
-# docker start kittens-container
+# docker start test-container
 
 # Create container using given image + start it. If image not exist in our computer - download it:
 # docker run kobiarev/kittens-image:1.0

@@ -1,0 +1,79 @@
+# Create image if not exist + create container + run container:
+# (-d = detached = free terminal)
+# docker-compose up -d
+
+# Create image if exists + create container + run container:
+# docker-compose up -d --build
+
+# Remove container but retain the image:
+# docker-compose down
+
+# Update image:
+# docker-compose pull
+
+# Docker compose version
+version: "3.8"
+
+# Services we need to run (service = project):
+services:
+  # 1. DB service:
+  mysql-service:
+    # Image name:
+    image: edomathias/northwind-mysql:1.0
+
+    # Docker file location:
+    build: ./Database
+
+    # Container name:
+    container_name: northwind-mysql
+
+    # Restart policy - when to restart the container:
+    restart: unless-stopped
+
+    # Volumes for the service
+    volumes:
+      - northwind-volume:/var/lib/mysql
+
+    # Environment variables
+    environment:
+      MYSQL_HOST: localhost # Internally for the container
+      MYSQL_USER: Alice
+      MYSQL_PASSWORD: Wonderland
+      MYSQL_DATABASE: northwind
+      MYSQL_ROOT_PASSWORD: Wonderland
+
+  # -----------------------------------------------------------
+  # 2. API service:
+  api-service:
+    depends_on:
+      - mysql-service
+
+    # Image name:
+    image: edomathias/northwind-api:1.0
+
+    # Docker file location:
+    build: ./Backend
+
+    # Container name:
+    container_name: northwind-api
+
+    # Port binding:
+    ports:
+      # host:container
+      - 4010:4000
+
+    # Restart policy - when to restart the container:
+    restart: unless-stopped
+
+    # Backen Enviroments Variables:
+    environment:
+      MYSQL_HOST: mysql-service # The name of the computer in the network
+      MYSQL_USER: Alice
+      MYSQL_PASSWORD: Wonderland
+      MYSQL_DATABASE: northwind
+
+  # -----------------------------------------------------------
+
+# List of all our named-volume:
+volumes:
+  northwind-volume:

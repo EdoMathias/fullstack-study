@@ -1,0 +1,52 @@
+# Create image if not exist + create container + run container:
+# (-d = detached = free terminal)
+# docker-compose up -d
+
+# Create image if exists + create container + run container:
+# docker-compose up -d --build
+
+# Remove container but retain the image:
+# docker-compose down
+
+# Update image:
+# docker-compose pull
+
+# Docker compose version
+version: "3.8"
+
+# Services we need to run (service = project):
+services:
+  # Service name:
+  test-service:
+    # Image name:
+    image: edomathias/test-image:1.1
+
+    # Docker file location:
+    build: .
+
+    # Container name:
+    container_name: test-container
+
+    # Port binding:
+    ports:
+      # host:container
+      - 4010:4000
+
+    # Restart policy - when to restart the container:
+    restart: unless-stopped
+
+    # Volumes for the service
+    volumes:
+      - images-volume:/app/src/1-assets/images
+      - json-volume:/app/src/1-assets/json
+      - logs-volume:/app/src/1-assets/logs
+
+# -----------------------------------------------------------
+
+# -----------------------------------------------------------
+
+# List of all our named-volume:
+volumes:
+  images-volume:
+  json-volume:
+  logs-volume:
