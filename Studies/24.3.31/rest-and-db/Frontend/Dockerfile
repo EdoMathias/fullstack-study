@@ -1,9 +1,6 @@
 # Install Linux Alipne - specific version + Node.js - specific version (recommended):
 FROM node:20-alpine3.19
 
-# Install global installations: 
-RUN npm i -g ts-node
-
 # Create a new folder for our application inside the image: 
 WORKDIR /app
 
