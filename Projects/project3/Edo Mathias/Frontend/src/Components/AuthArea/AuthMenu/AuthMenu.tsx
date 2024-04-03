@@ -12,14 +12,6 @@ function AuthMenu(): JSX.Element {
   if (user) {
     return <AuthAvatar user={user} />;
   }
-
-  // return (
-  //   <div className="AuthMenu">
-  //     <NavLink to="/login">
-  //       <LoginIcon />
-  //     </NavLink>
-  //   </div>
-  // );
 }
 
 export default AuthMenu;

@@ -15,8 +15,7 @@ import {
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
+import { likesService } from '../../../Services/LikeService';
 
 type VacationCardProps = {
   vacation: VacationModel;
@@ -24,21 +23,17 @@ type VacationCardProps = {
 };
 
 function VacationCard(props: VacationCardProps): JSX.Element {
-  const [likes, setLikes] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
   const navigate = useNavigate();
 
   async function handleLike() {
-    if (isLiked) {
-      setLikes(likes - 1);
-      setIsLiked(false);
+    if (props.vacation.isLiked) {
+      await likesService.removeLike(props.vacation);
     } else {
-      setLikes(likes + 1);
-      setIsLiked(true);
+      await likesService.addLike(props.vacation);
     }
   }
 
-  async function editProduct() {
+  function editVacation() {
     navigate(`/edit/${props.vacation.id}`);
   }
 
@@ -55,6 +50,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
       <Card
         sx={{
           maxWidth: 300,
+          minWidth: 300,
           maxHeight: 340,
           minHeight: 340,
           fontFamily: 'Mantinia Regular',
@@ -112,7 +108,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                 sx={{ fontFamily: 'Mantinia Regular' }}
                 size="small"
                 color="primary"
-                onClick={editProduct}
+                onClick={editVacation}
               >
                 Edit
               </Button>
@@ -133,7 +129,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                 color="error"
                 onClick={() => handleLike()}
               >
-                {isLiked ? (
+                {props.vacation.isLiked ? (
                   <FavoriteIcon
                     sx={{
                       color: 'red',
@@ -146,7 +142,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                     }}
                   />
                 )}
-                <span>{likes}</span>
+                <span>{props.vacation.likesCount}</span>
               </Button>
             </>
           )}

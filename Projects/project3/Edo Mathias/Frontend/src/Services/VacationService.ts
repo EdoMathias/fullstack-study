@@ -2,11 +2,7 @@ import axios from 'axios';
 import VacationModel from '../Models/VacationModel';
 import { appConfig } from '../Utils/AppConfig';
 import { appStore } from '../Redux/Store';
-import {
-  vacationsActionCreators,
-  vacationsReducersContainer,
-} from '../Redux/VacationsSlice';
-import { authActionCreators, authReducersContainer } from '../Redux/AuthSlice';
+import { vacationsActionCreators } from '../Redux/VacationsSlice';
 
 class VacationService {
   // Get all vacations from backend:
@@ -36,73 +32,73 @@ class VacationService {
     return vacations;
   }
 
-  // Get one product:
+  // Get one vacation:
   public async getOneVacation(id: number): Promise<VacationModel> {
     // Get all vacations from global state:
     let vacations = appStore.getState().vacations;
 
-    // Find the desired product:
-    let product = vacations.find((p) => p.id === id);
+    // Find the desired vacation:
+    let vacation = vacations.find((p) => p.id === id);
 
-    // If we have that product in the global state - return it:
-    if (product) return product;
+    // If we have that vacation in the global state - return it:
+    if (vacation) return vacation;
 
-    // Get that product from the backend:
+    // Get that vacation from the backend:
     const response = await axios.get<VacationModel>(
       appConfig.vacationsUrl + id
     );
 
-    // Extract the product from the response:
-    product = response.data;
+    // Extract the vacation from the response:
+    vacation = response.data;
 
-    // Return the product:
-    return product;
+    // Return the vacation:
+    return vacation;
   }
 
-  // Add product:
-  public async addVacation(product: VacationModel): Promise<void> {
-    // Add the new product to backend:
+  // Add vacation:
+  public async addVacation(vacation: VacationModel): Promise<void> {
+    // Add the new vacation to backend:
     const response = await axios.post<VacationModel>(
       appConfig.vacationsUrl,
-      product,
+      vacation,
       appConfig.axiosOptions
     );
 
-    // Extract the added product from the response:
+    // Extract the added vacation from the response:
     const addedProduct = response.data;
 
-    // Create action for adding a product to the global state:
+    // Create action for adding a vacation to the global state:
     const action = vacationsActionCreators.addOne(addedProduct);
 
     // Send action to global state:
     appStore.dispatch(action);
   }
 
-  // Update product:
-  public async updateVacation(product: VacationModel): Promise<void> {
+  // Update vacation:
+  public async updateVacation(vacation: VacationModel): Promise<void> {
     // Send the update to backend:
     const response = await axios.put<VacationModel>(
-      appConfig.vacationsUrl + product.id,
-      product,
+      appConfig.vacationsUrl + vacation.id,
+      vacation,
       appConfig.axiosOptions
     );
 
-    // Extract the updated product from the backend:
+    // Extract the updated vacation from the backend:
     const updatedProduct = response.data;
 
-    // Create action for updating a product in the global state:
+    // Create action for updating a vacation in the global state:
     const action = vacationsActionCreators.updateOne(updatedProduct);
 
     // Send action to global state:
     appStore.dispatch(action);
   }
 
-  // Delete product:
+  // Delete vacation:
   public async deleteVacation(id: number): Promise<void> {
-    // Delete product from backend:
+    // Delete vacation from backend:
     await axios.delete(appConfig.vacationsUrl + id);
 
-    // Create action for deleting a product from the global state:
+    // Create action for deleting a vacation from the global state:
     const action = vacationsActionCreators.deleteOne(id);
 
     // Send action to global state:

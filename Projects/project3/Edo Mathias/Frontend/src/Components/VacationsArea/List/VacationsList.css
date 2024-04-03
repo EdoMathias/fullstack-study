@@ -1,9 +1,23 @@
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.sort-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
 .vacation-list {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: repeat(3, 1fr); */
+    grid-template-rows: repeat(3, 1fr);
     justify-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    gap: 15px;
 }
 
 .pagination {

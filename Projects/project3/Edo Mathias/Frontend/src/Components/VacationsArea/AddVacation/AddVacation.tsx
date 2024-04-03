@@ -8,9 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { vacationsActionCreators } from '../../../Redux/VacationsSlice';
 import { AppState } from '../../../Redux/AppState';
 import { useEffect } from 'react';
+import useAuthRedirect from '../../../Hooks/useAuthRedirect';
+import { appStore } from '../../../Redux/Store';
 
 function AddVacation(): JSX.Element {
   const { register, handleSubmit } = useForm<VacationModel>();
+  const user = useAuthRedirect();
 
   const navigate = useNavigate();
 
@@ -30,60 +33,58 @@ function AddVacation(): JSX.Element {
     }
   }
 
-  useEffect(() => {
-    const fetchVacations = async () => {
-      try {
-        await vacationService.getAllVacations();
-      } catch (error) {
-        notify.error('Failed to fetch vacations');
-      }
-    };
-
-    fetchVacations();
-  }, []);
+  function navigateToVacationsList() {
+    navigate('/list');
+  }
 
   return (
     <div className="AddVacation">
-      <form onSubmit={handleSubmit(send)}>
-        <label>Destination: </label>
-        <input
-          type="text"
-          {...register('destination')}
-          required
-          minLength={2}
-          maxLength={50}
-        />
+      {user?.roleId === 2 && <></>}
+      {user?.roleId === 1 && (
+        <form onSubmit={handleSubmit(send)} className="add-form">
+          <label>Destination: </label>
+          <input
+            type="text"
+            {...register('destination')}
+            required
+            minLength={2}
+            maxLength={50}
+          />
 
-        <label>Description: </label>
-        <textarea
-          className="description-box"
-          {...register('description')}
-          required
-          minLength={2}
-          maxLength={1000}
-        />
+          <label>Description: </label>
+          <textarea
+            className="description-box"
+            {...register('description')}
+            required
+            minLength={2}
+            maxLength={1000}
+          />
 
-        <label>Start Date: </label>
-        <input type="date" {...register('startDate')} required />
+          <label>Start Date: </label>
+          <input type="date" {...register('startDate')} required />
 
-        <label>End Date: </label>
-        <input type="date" {...register('endDate')} required />
+          <label>End Date: </label>
+          <input type="date" {...register('endDate')} required />
 
-        <label>Price: </label>
-        <input
-          type="number"
-          step="0.01"
-          {...register('price')}
-          required
-          min={0}
-          max={10000}
-        />
+          <label>Price: </label>
+          <input
+            type="number"
+            step="0.01"
+            {...register('price')}
+            required
+            min={0}
+            max={10000}
+          />
 
-        <label>Image: </label>
-        <input type="file" {...register('image')} required />
+          <label>Image: </label>
+          <input type="file" {...register('image')} required />
 
-        <button>Add</button>
-      </form>
+          <div className="buttons-container">
+            <button onClick={navigateToVacationsList}>Cancel</button>
+            <button>Add</button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

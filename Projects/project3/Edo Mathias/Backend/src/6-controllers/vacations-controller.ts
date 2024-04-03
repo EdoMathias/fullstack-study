@@ -15,7 +15,7 @@ class VacationsController {
     this.router.get('/vacations-by-user/:userId', this.getAllVacations);
     this.router.get('/vacations/:id', this.getVacationById);
     this.router.put('/vacations/:id', this.editVacation);
-    this.router.delete('/vacations/:id', this.deleteProduct);
+    this.router.delete('/vacations/:id', this.deleteVacation);
     this.router.post('/vacations', this.addVacation);
     this.router.get('/vacations/images/:imageName', this.getImageFile);
   }
@@ -95,7 +95,7 @@ class VacationsController {
     }
   }
 
-  private async deleteProduct(
+  private async deleteVacation(
     request: Request,
     response: Response,
     next: NextFunction

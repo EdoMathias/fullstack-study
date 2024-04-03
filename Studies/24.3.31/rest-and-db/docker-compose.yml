@@ -60,7 +60,7 @@ services:
     # Port binding:
     ports:
       # host:container
-      - 4010:4000
+      - 81:4000
 
     # Restart policy - when to restart the container:
     restart: unless-stopped
@@ -74,6 +74,30 @@ services:
 
   # -----------------------------------------------------------
 
-# List of all our named-volume:
+  # 3. Frontend (react):
+  frontend-service:
+      depends_on:
+      - api-service
+
+      # Image name:
+      image: edomathias/northwind-frontend:1.0
+
+    # Docker file location:
+      build: ./Frontend
+
+    # Container name:
+      container_name: northwind-frontend
+
+    # Port binding:
+      ports:
+        # host:container
+        - 80:3000
+
+    # Restart policy - when to restart the container:
+      restart: unless-stopped
+
+  # -----------------------------------------------------------
+
+# List of all our named-volumes:
 volumes:
   northwind-volume:

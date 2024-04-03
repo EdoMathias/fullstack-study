@@ -1,20 +1,26 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import VacationModel from '../Models/VacationModel';
 
-// Our slice's data is products array.
+// Our slice's data is vacations array.
 
-// Reducer for adding all products to the slice:
+// Define the original state variable for sorting purposes:
+let originalVacations: VacationModel[] = [];
+
+// Reducer for adding all vacations to the slice:
 function initAll(
   currentState: VacationModel[],
   action: PayloadAction<VacationModel[]>
 ): VacationModel[] {
-  // action.payload is all products fetched from backend.
+  // action.payload is all vacations fetched from backend.
   const allVacations = action.payload;
+
+  originalVacations = allVacations;
+
   const newState = allVacations;
   return newState;
 }
 
-// Reducer for adding one product to the slice:
+// Reducer for adding one vacation to the slice:
 function addOne(
   currentState: VacationModel[],
   action: PayloadAction<VacationModel>
@@ -39,12 +45,12 @@ function addOne(
   return newState;
 }
 
-// Reducer for updating one product in the slice:
+// Reducer for updating one vacation in the slice:
 function updateOne(
   currentState: VacationModel[],
   action: PayloadAction<VacationModel>
 ): VacationModel[] {
-  // action.payload is a single product to update.
+  // action.payload is a single vacation to update.
   const vacationToUpdate = action.payload;
   const newState = [...currentState];
   const index = newState.findIndex((p) => p.id === vacationToUpdate.id);
@@ -52,12 +58,12 @@ function updateOne(
   return newState;
 }
 
-// Reducer for deleting one product from the slice:
+// Reducer for deleting one vacation from the slice:
 function deleteOne(
   currentState: VacationModel[],
   action: PayloadAction<number>
 ): VacationModel[] {
-  // action.payload is the id of the product to delete.
+  // action.payload is the id of the vacation to delete.
   const idToDelete = action.payload;
   const newState = [...currentState];
   const index = newState.findIndex((p) => p.id === idToDelete);
@@ -65,11 +71,77 @@ function deleteOne(
   return newState;
 }
 
-// Create the products slice - containing and managing only the products array:
+// Reducer for liking one vacation from the slice:
+function addLike(
+  currentState: VacationModel[],
+  action: PayloadAction<number>
+): void {
+  // action.payload is the id of the vacation to like.
+  const idToLike = action.payload;
+  const vacation = currentState.find((v) => v.id === idToLike);
+  if (vacation) {
+    vacation.likesCount += 1;
+    vacation.isLiked = 1;
+  }
+}
+
+// Reducer for removing like from one vacation from the slice:
+function removeLike(
+  currentState: VacationModel[],
+  action: PayloadAction<number>
+): void {
+  // action.payload is the id of the vacation to like.
+  const idToLike = action.payload;
+  const vacation = currentState.find((v) => v.id === idToLike);
+  if (vacation) {
+    vacation.likesCount -= 1;
+    vacation.isLiked = 0;
+  }
+}
+
+// Reducer for sorting vacations:
+function sortVacations(
+  currentState: VacationModel[],
+  action: PayloadAction<string>
+): VacationModel[] {
+  // action.payload is the sorting value
+  const sortValue = action.payload;
+  let sorted: VacationModel[];
+
+  switch (sortValue) {
+    case 'likes':
+      sorted = [...originalVacations].sort(
+        (a, b) => b.likesCount - a.likesCount
+      );
+      break;
+    case 'liked':
+      sorted = originalVacations.filter((vacation) => vacation.isLiked);
+      break;
+    case 'dates':
+      sorted = originalVacations.filter(
+        (vacation) => new Date(vacation.endDate) > new Date()
+      );
+      break;
+    default:
+      sorted = [...originalVacations]; // No sorting, return original state
+  }
+
+  return sorted;
+}
+
+// Create the vacations slice - containing and managing only the vacations array:
 const vacationsSlice = createSlice({
   name: 'vacations', // Unique name for the slice
   initialState: [],
-  reducers: { initAll, addOne, updateOne, deleteOne },
+  reducers: {
+    initAll,
+    addOne,
+    updateOne,
+    deleteOne,
+    addLike,
+    removeLike,
+    sortVacations,
+  },
 });
 
 // Expose a single object containing functions for creating Action objects:
