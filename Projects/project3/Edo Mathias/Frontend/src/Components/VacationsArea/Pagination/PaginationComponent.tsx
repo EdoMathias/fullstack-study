@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Pagination from '@mui/material/Pagination';
-import { PaginationProps } from '@mui/material/Pagination';
 import { ThemeProvider, createTheme } from '@mui/material';
 
 interface PaginationComponentProps {

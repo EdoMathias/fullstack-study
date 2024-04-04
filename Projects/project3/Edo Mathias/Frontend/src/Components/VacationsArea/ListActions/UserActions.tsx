@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import {
   FormControl,
-  InputLabel,
   Select,
   MenuItem,
   SelectChangeEvent,
   createTheme,
   ThemeProvider,
 } from '@mui/material';
-import { appStore } from '../../../Redux/Store';
-import { vacationsActionCreators } from '../../../Redux/VacationsSlice';
 
 interface UserActionsProps {
   onSortByValueChanged: (sortByValue: string) => void;
@@ -22,8 +19,6 @@ function UserActions(props: UserActionsProps) {
     const sortValue = event.target.value;
     setSortBy(sortValue);
     props.onSortByValueChanged(sortValue);
-    const action = vacationsActionCreators.sortVacations(sortValue);
-    appStore.dispatch(action);
   };
 
   return (

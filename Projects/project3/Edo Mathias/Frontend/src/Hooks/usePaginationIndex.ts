@@ -1,6 +1,6 @@
 import VacationModel from '../Models/VacationModel';
 
-function usePageinationIndex(
+function usePaginationIndex(
   currentPage: number,
   sortedVacations: VacationModel[]
 ) {
@@ -13,4 +13,4 @@ function usePageinationIndex(
   return currentVacations;
 }
 
-export default usePageinationIndex;
+export default usePaginationIndex;
