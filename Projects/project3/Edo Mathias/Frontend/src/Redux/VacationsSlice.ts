@@ -3,9 +3,6 @@ import VacationModel from '../Models/VacationModel';
 
 // Our slice's data is vacations array.
 
-// Define the original state variable for sorting purposes:
-let originalVacations: VacationModel[] = [];
-
 // Reducer for adding all vacations to the slice:
 function initAll(
   currentState: VacationModel[],
@@ -13,8 +10,6 @@ function initAll(
 ): VacationModel[] {
   // action.payload is all vacations fetched from backend.
   const allVacations = action.payload;
-
-  originalVacations = allVacations;
 
   const newState = allVacations;
   return newState;
@@ -90,43 +85,13 @@ function removeLike(
   currentState: VacationModel[],
   action: PayloadAction<number>
 ): void {
-  // action.payload is the id of the vacation to like.
+  // action.payload is the id of the vacation to dislike.
   const idToLike = action.payload;
   const vacation = currentState.find((v) => v.id === idToLike);
   if (vacation) {
     vacation.likesCount -= 1;
     vacation.isLiked = 0;
   }
-}
-
-// Reducer for sorting vacations:
-function sortVacations(
-  currentState: VacationModel[],
-  action: PayloadAction<string>
-): VacationModel[] {
-  // action.payload is the sorting value
-  const sortValue = action.payload;
-  let sorted: VacationModel[];
-
-  switch (sortValue) {
-    case 'likes':
-      sorted = [...originalVacations].sort(
-        (a, b) => b.likesCount - a.likesCount
-      );
-      break;
-    case 'liked':
-      sorted = originalVacations.filter((vacation) => vacation.isLiked);
-      break;
-    case 'dates':
-      sorted = originalVacations.filter(
-        (vacation) => new Date(vacation.endDate) > new Date()
-      );
-      break;
-    default:
-      sorted = [...originalVacations]; // No sorting, return original state
-  }
-
-  return sorted;
 }
 
 // Create the vacations slice - containing and managing only the vacations array:
@@ -140,7 +105,6 @@ const vacationsSlice = createSlice({
     deleteOne,
     addLike,
     removeLike,
-    sortVacations,
   },
 });
 

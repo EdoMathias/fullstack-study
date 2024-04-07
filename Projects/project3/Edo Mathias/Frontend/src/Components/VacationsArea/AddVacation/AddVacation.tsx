@@ -4,12 +4,7 @@ import VacationModel from '../../../Models/VacationModel';
 import { vacationService } from '../../../Services/VacationService';
 import './AddVacation.css';
 import { notify } from '../../../Utils/Notify';
-import { useDispatch, useSelector } from 'react-redux';
-import { vacationsActionCreators } from '../../../Redux/VacationsSlice';
-import { AppState } from '../../../Redux/AppState';
-import { useEffect } from 'react';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
-import { appStore } from '../../../Redux/Store';
 
 function AddVacation(): JSX.Element {
   const { register, handleSubmit } = useForm<VacationModel>();
