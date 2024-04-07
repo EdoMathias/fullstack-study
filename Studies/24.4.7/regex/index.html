@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <label>Enter your mobile phone:</label>
+    <input type="tel" id="phoneBox" />
+    <button onclick="testPhone()">Test if valid</button>
+    <hr />
+    <form action="save.html">
+      <label>Enter your zip-code</label>
+      <input
+        type="text"
+        title="5 digits or 7 digits"
+        id="zipcodeBox"
+        required
+        pattern="^(\d{5}|\d{7})$"
+      />
+      <br />
+      <label>Enter your user-name</label>
+      <input
+        type="text"
+        title="4-10 characters"
+        id="username"
+        required
+        pattern="^\w{4,10}$"
+      />
+      <br />
+
+      <button>Validate</button>
+    </form>
+  </body>
+</html>
