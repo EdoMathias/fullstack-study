@@ -1,0 +1,85 @@
+// Comments are allowed on scss
+
+// 1. Nesting
+p {
+  span {
+    color: red;
+  }
+
+  > span {
+    color: aqua;
+  }
+
+  a {
+    span {
+      background-color: yellow;
+    }
+  }
+}
+
+// 2. Extend
+td {
+  border: 1px solid black;
+  text-align: center;
+  color: darkcyan;
+  background-color: burlywood;
+}
+
+th {
+  @extend td;
+  font-weight: bold;
+  font-style: italic;
+  background-color: antiquewhite;
+}
+
+// 3. Variables
+$color: yellowgreen;
+$width: 300px;
+
+input[type='text'] {
+  background-color: $color;
+  border: 1px solid red;
+  width: $width;
+}
+
+textarea {
+  background-color: $color;
+  height: 100px;
+  width: $width;
+}
+
+// 4. Operators
+$thickness: 2px;
+
+input[type='url'] {
+  border: $thickness - 1 solid black;
+}
+
+input[type='tel'] {
+  border: $thickness * 2 solid black;
+}
+
+// 5. Mixins
+@mixin box {
+  font-size: x-large;
+  text-align: center;
+  width: 400px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px gray;
+}
+
+@mixin color-box($c1: red, $c2: yellow, $c3: blue) {
+  border: 2px solid black;
+  background-image: linear-gradient(to right, $c1, $c2, $c3);
+}
+
+.paid-ad {
+  @include box;
+  @include color-box;
+}
+
+.free-ad {
+  @include box;
+  @include color-box(green, yellowgreen, white);
+}
