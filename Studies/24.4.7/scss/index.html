@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SCSS</title>
+
+    <!-- Linking to the final .css file: -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      h3 {
+        margin: 0;
+        text-align: center;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 1. ---------- Nesting: ---------- -->
+    <h3>1. Nesting</h3>
+    <p>
+      <span>Bunny</span>
+      <a>
+        <span>Kitten</span>
+      </a>
+      <span>Puppy</span>
+    </p>
+    <hr />
+
+    <!-- 2. ---------- Extend: ---------- -->
+    <h3>2. Extend</h3>
+    <table>
+      <tr>
+        <th>Animal</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>Bunny</td>
+        <td>$10.00</td>
+      </tr>
+      <tr>
+        <td>Kitten</td>
+        <td>$20.00</td>
+      </tr>
+      <tr>
+        <td>Puppy</td>
+        <td>$30.00</td>
+      </tr>
+    </table>
+    <hr />
+
+    <!-- 3. ---------- Variables: ---------- -->
+    <h3>3. Variables</h3>
+    <label>Animal: </label>
+    <br />
+    <input type="text" />
+    <br />
+    <label>Description: </label>
+    <br />
+    <textarea></textarea>
+    <hr />
+
+    <!-- 4. ---------- Operators: ---------- -->
+    <h3>4. Operators</h3>
+    <label>URL: </label>
+    <input type="url" placeholder="http://..." />
+    <br /><br />
+    <label>Phone: </label>
+    <input type="tel" placeholder="05x-xxxxxxx" />
+    <hr />
+
+    <!-- 5. ---------- Mixin: ---------- -->
+    <h3>5. Mixin</h3>
+    <p class="paid-ad">Buy a Puppy from our Store</p>
+    <p class="free-ad">Adopt a Puppy from our Shelter</p>
+    <hr />
+
+    <!-- 6. ---------- Functions: ---------- -->
+    <h3>6. Functions</h3>
+    <p class="funny">Kittens are Funny!</p>
+    <p class="cute">Puppies are Cute!</p>
+    <hr />
+
+    <!-- 7. ---------- Built-In Functions: ---------- -->
+    <h3>7. Built-In Functions</h3>
+    <p id="kittens">Kittens for Sale!</p>
+    <p id="puppies">Puppies for Adoption!</p>
+    <hr />
+
+    <!-- 8. ---------- If-Else: ---------- -->
+    <h3>8. If-Else</h3>
+    <input type="email" placeholder="Email..." />
+    <hr />
+
+    <!-- 9. ---------- Lists: ---------- -->
+    <h3>9. Lists</h3>
+    <ul>
+      <li>Bunnies</li>
+      <li>Kittens</li>
+      <li>Puppies</li>
+    </ul>
+    <hr />
+
+    <!-- 10. ---------- While: ---------- -->
+    <h3>10. While</h3>
+    <h4>Bunnies</h4>
+    <h4>Kittens</h4>
+    <h4>Puppies</h4>
+    <hr />
+
+    <!-- 11. ---------- For: ---------- -->
+    <h3>11. For</h3>
+    <h5>Bunnies</h5>
+    <h5>Kittens</h5>
+    <h5>Puppies</h5>
+    <hr />
+
+    <!-- 12. ---------- Each: ---------- -->
+    <h3>12. Each</h3>
+    <div class="bunny"></div>
+    <div class="kitten"></div>
+    <div class="puppy"></div>
+  </body>
+</html>
