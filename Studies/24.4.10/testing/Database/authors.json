@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "65e8a7ae949999852501838b"
+  },
+  "firstName": "Bart",
+  "lastName": "Simpson"
+},{
+  "_id": {
+    "$oid": "65e8a7ca949999852501838d"
+  },
+  "firstName": "Lisa",
+  "lastName": "Simpson"
+},{
+  "_id": {
+    "$oid": "65e8a7ce949999852501838f"
+  },
+  "firstName": "Homer",
+  "lastName": "Simpson"
+},{
+  "_id": {
+    "$oid": "65e8a97603f3882935bc805d"
+  },
+  "firstName": "Marge",
+  "lastName": "Simpson"
+}]

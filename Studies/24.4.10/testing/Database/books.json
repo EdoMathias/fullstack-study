@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "65e8b0d9a46c144f7bd975a1"
+  },
+  "name": "Node.js for Dummies",
+  "price": 50,
+  "authorId": {
+    "$oid": "65e8a7ae949999852501838b"
+  }
+},{
+  "_id": {
+    "$oid": "65e8b13aa46c144f7bd975a3"
+  },
+  "name": "HTML",
+  "price": 30,
+  "authorId": {
+    "$oid": "65e8a7ae949999852501838b"
+  }
+},{
+  "_id": {
+    "$oid": "65e8b152a46c144f7bd975a5"
+  },
+  "name": "CSS for Experts",
+  "price": 80,
+  "authorId": {
+    "$oid": "65e8a7ca949999852501838d"
+  }
+},{
+  "_id": {
+    "$oid": "65e8bd4284e26ef8e20a9602"
+  },
+  "name": "C#",
+  "price": 50,
+  "authorId": {
+    "$oid": "65e8a7ca949999852501838d"
+  }
+}]
