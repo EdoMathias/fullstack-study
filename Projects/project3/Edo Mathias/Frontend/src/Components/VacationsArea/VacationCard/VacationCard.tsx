@@ -94,7 +94,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                 variant="subtitle2"
                 color="text.secondary"
               >
-                {useDateFormat(props.vacation.startDate)} -{' '}
+                Dates: {useDateFormat(props.vacation.startDate)} -{' '}
                 {useDateFormat(props.vacation.endDate)}
               </Typography>
 
