@@ -5,6 +5,7 @@ import { vacationService } from '../../../Services/VacationService';
 import './AddVacation.css';
 import { notify } from '../../../Utils/Notify';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
+import { ChangeEvent, useState } from 'react';
 
 function AddVacation(): JSX.Element {
   const { register, handleSubmit } = useForm<VacationModel>();
@@ -31,6 +32,19 @@ function AddVacation(): JSX.Element {
   function navigateToVacationsList() {
     navigate('/list');
   }
+
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="AddVacation">
@@ -72,7 +86,19 @@ function AddVacation(): JSX.Element {
           />
 
           <label>Image: </label>
-          <input type="file" {...register('image')} required />
+          {imagePreview && (
+            <img
+              src={imagePreview}
+              alt="Uploaded Preview"
+              className="preview-image"
+            />
+          )}
+          <input
+            type="file"
+            {...register('image')}
+            onChange={handleImageChange}
+            required
+          />
 
           <div className="buttons-container">
             <button onClick={navigateToVacationsList}>Cancel</button>
