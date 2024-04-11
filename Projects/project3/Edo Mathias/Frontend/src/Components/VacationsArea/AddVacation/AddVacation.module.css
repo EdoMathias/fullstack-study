@@ -3,9 +3,14 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background-color: #3d405b;
   height: 850px;
   border-radius: 5px;
+}
+
+.addVacationHeader {
+  color: #e2c799;
+  font-size: 30px;
 }
 
 .fieldContainer {
@@ -18,10 +23,14 @@
 
 .fieldContainer > label {
   align-self: flex-start;
+  color: #e2c799;
 }
 
 .inputFields {
   width: 100%;
+  background-color: #3d405b;
+  color: #e2c799;
+  border: 1px solid #e2c799;
 }
 
 .descriptionBox {
@@ -30,6 +39,9 @@
   height: 200px;
   text-align: left;
   resize: none;
+  background-color: #3d405b;
+  color: #e2c799;
+  border: 1px solid #e2c799;
 }
 
 .thumbnail {
@@ -47,4 +59,18 @@
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+}
+
+.buttonsContainer > button {
+  width: 100px;
+  background-color: #3d405b;
+  color: #e2c799;
+  border: 1px solid #e2c799;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.buttonsContainer > button:hover {
+  background-color: #e2c799;
+  color: #3d405b;
 }

@@ -53,7 +53,7 @@ function AddVacation(): JSX.Element {
       {user?.roleId === 1 && (
         <form onSubmit={handleSubmit(send)}>
           <div className={styles.addVacationForm}>
-            <h1>Add Vacation</h1>
+            <h1 className={styles.addVacationHeader}>Add Vacation</h1>
             <div className={styles.fieldContainer}>
               <label>Destination: </label>
               <input
@@ -129,6 +129,7 @@ function AddVacation(): JSX.Element {
                 />
               )}
               <input
+                className={styles.inputFields}
                 type="file"
                 {...register('image')}
                 onChange={handleImageChange}
