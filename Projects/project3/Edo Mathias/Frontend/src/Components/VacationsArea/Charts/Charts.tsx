@@ -5,11 +5,11 @@ import { AppState } from '../../../Redux/AppState';
 import { ThemeProvider } from '@emotion/react';
 import { Button, Skeleton, createTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import './Charts.css';
 import { vacationService } from '../../../Services/VacationService';
 import { notify } from '../../../Utils/Notify';
 import { useEffect } from 'react';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
+import styles from './Charts.module.css';
 
 function VacationsCharts() {
   const navigate = useNavigate();
@@ -19,9 +19,9 @@ function VacationsCharts() {
   const user = useAuthRedirect();
 
   const chartSetting = {
-    width: 800,
+    width: 900,
     height: 800,
-    margin: { left: 100 },
+    margin: { left: 300 },
   };
 
   const dataSet = vacations?.map((vacation) => ({
@@ -41,7 +41,7 @@ function VacationsCharts() {
       }
     };
     fetchVacations();
-  }, []);
+  }, [user]);
 
   function navigateToVacationsList() {
     navigate('/list');
@@ -49,7 +49,7 @@ function VacationsCharts() {
 
   return (
     <ThemeProvider theme={chartsPageTheme}>
-      <div className="charts-page-container">
+      <div className={styles.chartsPageContainer}>
         {user?.roleId === 2 && <></>}
         {user?.roleId === 1 && (
           <>
@@ -62,8 +62,8 @@ function VacationsCharts() {
               <Skeleton
                 key="chart-skeleton"
                 variant="rectangular"
-                height={800}
-                width={800}
+                height={chartSetting.height}
+                width={chartSetting.width}
                 animation="wave"
               />
             )}
@@ -75,13 +75,13 @@ function VacationsCharts() {
                 yAxis={[
                   {
                     dataKey: 'destination',
-                    label: 'Destination',
                     scaleType: 'band',
                   },
                 ]}
                 xAxis={[
                   {
                     dataKey: 'likesCount',
+                    label: 'Likes Count',
                     tickMinStep: 1,
                   },
                 ]}
@@ -109,7 +109,7 @@ const chartsPageTheme = createTheme({
       styleOverrides: {
         root: {
           width: '10%',
-          'margin-bottom': '15px',
+          marginBottom: '15px',
           fontFamily: 'Mantinia Regular',
           color: '#E2C799',
           border: '1px solid #E2C799',
