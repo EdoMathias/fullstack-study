@@ -9,7 +9,7 @@ import { Skeleton } from '@mui/material';
 import styles from './AddVacation.module.css';
 
 function AddVacation(): JSX.Element {
-  const { register, handleSubmit } = useForm<VacationModel>();
+  const { register, handleSubmit, watch, setValue } = useForm<VacationModel>();
   const user = useAuthRedirect();
 
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function AddVacation(): JSX.Element {
 
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -45,7 +45,14 @@ function AddVacation(): JSX.Element {
       };
       reader.readAsDataURL(file);
     }
-  };
+  }
+
+  const startDate = watch('startDate');
+
+  function handleStartDateChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setValue('startDate', e.target.value);
+    setValue('endDate', '');
+  }
 
   return (
     <div className="AddVacation">
@@ -83,6 +90,8 @@ function AddVacation(): JSX.Element {
                 className={styles.inputFields}
                 type="date"
                 {...register('startDate')}
+                onChange={handleStartDateChange}
+                min={new Date().toISOString().split('T')[0]}
                 required
               />
             </div>
@@ -93,6 +102,7 @@ function AddVacation(): JSX.Element {
                 className={styles.inputFields}
                 type="date"
                 {...register('endDate')}
+                min={startDate}
                 required
               />
             </div>
