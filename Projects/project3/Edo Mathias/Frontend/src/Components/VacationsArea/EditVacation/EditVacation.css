@@ -1,20 +1,18 @@
-.edit-form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-    height: 800px;
+/* .edit-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 800px;
 }
-
 .description-box {
-    display: block;
-    height: 200px;
-    width: 100%;
-    text-align: left;
-    resize: none
+  display: block;
+  height: 200px;
+  text-align: left;
+  resize: none;
 }
 
 .thumbnail {
-    width: 250px;
-}
+  width: 250px;
+} */

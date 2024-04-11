@@ -1,7 +1,6 @@
 import { Logout } from '@mui/icons-material';
 import {
   Box,
-  Tooltip,
   IconButton,
   Avatar,
   Menu,
