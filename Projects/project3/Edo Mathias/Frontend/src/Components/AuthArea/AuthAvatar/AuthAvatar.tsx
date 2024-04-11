@@ -35,9 +35,9 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
   };
 
   function logMeOut(): void {
-    notify.success(`Logging out...`);
     authService.logout();
     navigate('/');
+    notify.success(`Logging out...`);
   }
   return (
     <React.Fragment>
