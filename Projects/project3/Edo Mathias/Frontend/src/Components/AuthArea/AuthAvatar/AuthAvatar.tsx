@@ -42,6 +42,7 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
   return (
     <React.Fragment>
       <Box>
+        {props.user.firstName} {props.user.lastName}
         <IconButton
           onClick={handleClick}
           size="large"
