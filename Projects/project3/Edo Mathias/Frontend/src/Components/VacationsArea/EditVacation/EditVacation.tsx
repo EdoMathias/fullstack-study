@@ -2,10 +2,11 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import VacationModel from '../../../Models/VacationModel';
 import { vacationService } from '../../../Services/VacationService';
-import './EditVacation.css';
 import { notify } from '../../../Utils/Notify';
 import { useEffect, useState } from 'react';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
+import styles from './EditVacation.module.css';
+import { Skeleton } from '@mui/material';
 
 function EditVacation(): JSX.Element {
   const { register, handleSubmit, setValue } = useForm<VacationModel>();
@@ -49,7 +50,7 @@ function EditVacation(): JSX.Element {
     }
   }
 
-  function goToList() {
+  function navigateToVacationsList() {
     navigate('/list');
   }
 
@@ -58,46 +59,95 @@ function EditVacation(): JSX.Element {
       {user?.roleId === 2 && <></>}
       {user?.roleId === 1 && (
         <form onSubmit={handleSubmit(send)} className="edit-form">
-          <label>Destination: </label>
-          <input
-            type="text"
-            {...register('destination')}
-            required
-            minLength={2}
-            maxLength={50}
-          />
+          <div className={styles.editVacationForm}>
+            <h1 className={styles.editVacationHeader}>Edit Vacation</h1>
+            <div className={styles.fieldContainer}>
+              <label>Destination: </label>
+              <input
+                className={styles.inputFields}
+                type="text"
+                {...register('destination')}
+                minLength={2}
+                maxLength={50}
+                required
+              />
+            </div>
 
-          <label>Description: </label>
-          <textarea
-            className="description-box"
-            {...register('description')}
-            required
-            minLength={2}
-            maxLength={1000}
-          />
+            <div className={styles.fieldContainer}>
+              <label>Description: </label>
+              <textarea
+                className={styles.descriptionBox}
+                {...register('description')}
+                minLength={2}
+                maxLength={1000}
+                required
+              />
+            </div>
 
-          <label>Start Date: </label>
-          <input type="date" {...register('startDate')} />
+            <div className={styles.fieldContainer}>
+              <label>Start Date: </label>
+              <input
+                className={styles.inputFields}
+                type="date"
+                {...register('startDate')}
+                required
+              />
+            </div>
 
-          <label>End Date: </label>
-          <input type="date" {...register('endDate')} />
+            <div className={styles.fieldContainer}>
+              <label>End Date: </label>
+              <input
+                className={styles.inputFields}
+                type="date"
+                {...register('endDate')}
+                required
+              />
+            </div>
 
-          <label>Price: </label>
-          <input
-            type="number"
-            step="0.01"
-            {...register('price')}
-            required
-            min={0}
-            max={10000}
-          />
+            <div className={styles.fieldContainer}>
+              <label>Price: </label>
+              <input
+                className={styles.inputFields}
+                type="number"
+                step="0.01"
+                {...register('price')}
+                required
+                min={0}
+                max={10000}
+              />
+            </div>
 
-          <label>Image: </label>
-          <img className="thumbnail" src={imageUrl} />
-          <input type="file" {...register('image')} />
+            <div className={styles.fieldContainer}>
+              <label>Image: </label>
+              {imageUrl ? (
+                <div>
+                  <img
+                    src={imageUrl}
+                    alt="Uploaded Preview"
+                    className={styles.previewImage}
+                  />
+                </div>
+              ) : (
+                <Skeleton
+                  animation="wave"
+                  height={80}
+                  width={370}
+                  variant="rectangular"
+                />
+              )}
+              <input
+                className={styles.inputFields}
+                type="file"
+                {...register('image')}
+                required
+              />
+            </div>
 
-          <button>Update</button>
-          <button onClick={goToList}>Cancel</button>
+            <div className={styles.buttonsContainer}>
+              <button onClick={navigateToVacationsList}>Cancel</button>
+              <button>Update</button>
+            </div>
+          </div>
         </form>
       )}
     </div>
