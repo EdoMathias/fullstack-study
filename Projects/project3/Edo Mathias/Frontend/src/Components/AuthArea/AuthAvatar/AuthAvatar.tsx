@@ -6,6 +6,7 @@ import {
   Menu,
   MenuItem,
   ListItemIcon,
+  Typography,
 } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -41,7 +42,13 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
   return (
     <React.Fragment>
       <Box>
-        {props.user.firstName} {props.user.lastName}
+        <Typography
+          sx={{
+            display: { xs: 'none', sm: 'none', md: 'inline' },
+          }}
+        >
+          {props.user.firstName} {props.user.lastName}
+        </Typography>
         <IconButton
           onClick={handleClick}
           size="large"
