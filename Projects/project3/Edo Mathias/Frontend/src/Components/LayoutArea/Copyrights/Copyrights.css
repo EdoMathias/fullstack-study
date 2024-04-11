@@ -5,3 +5,7 @@
   align-items: center;
   background-color: #344955;
 }
+
+.Copyrights > p {
+  color: white;
+}
