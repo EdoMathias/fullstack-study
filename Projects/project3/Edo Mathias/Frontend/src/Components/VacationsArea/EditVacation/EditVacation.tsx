@@ -9,7 +9,7 @@ import styles from './EditVacation.module.css';
 import { Skeleton } from '@mui/material';
 
 function EditVacation(): JSX.Element {
-  const { register, handleSubmit, setValue } = useForm<VacationModel>();
+  const { register, handleSubmit, watch, setValue } = useForm<VacationModel>();
   const [imageUrl, setImageUrl] = useState<string>();
   const params = useParams();
   const navigate = useNavigate();
@@ -35,6 +35,8 @@ function EditVacation(): JSX.Element {
     const localTimeDate = new Date(date.getTime() - timezoneOffset * 60 * 1000);
     return localTimeDate.toISOString().split('T')[0];
   };
+
+  const startDate = watch('startDate');
 
   async function send(vacation: VacationModel) {
     try {
@@ -100,6 +102,7 @@ function EditVacation(): JSX.Element {
                 className={styles.inputFields}
                 type="date"
                 {...register('endDate')}
+                min={startDate}
                 required
               />
             </div>
