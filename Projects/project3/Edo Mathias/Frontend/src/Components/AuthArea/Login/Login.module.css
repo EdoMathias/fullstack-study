@@ -1,0 +1,75 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d405b;
+  height: 500px;
+  width: 1000px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+/* .introSection {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introSection > h2 {
+  color: #e2c799;
+}
+
+.introSection > p {
+  color: #e2c799;
+} */
+
+.loginForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 500px;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.formInputsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+}
+
+/* .siteHeader {
+  background: linear-gradient(0deg, #f9f295, #e0aa3e, #e0aa3e, #b88a44);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: 'Spectral Regular';
+  background-size: 100% 60%;
+  background-position: 50% 120%;
+} */
+
+/* Media query to set a fixed width when viewport width is less than 1000px */
+@media (max-width: 1000px) {
+  .formContainer {
+    width: 800px; /* Set a fixed width */
+  }
+}
+
+@media (max-width: 800px) {
+  .formContainer {
+    width: 600px; /* Set a fixed width */
+  }
+}
+@media (max-width: 600px) {
+  .formContainer {
+    width: 500px; /* Set a fixed width */
+  }
+}

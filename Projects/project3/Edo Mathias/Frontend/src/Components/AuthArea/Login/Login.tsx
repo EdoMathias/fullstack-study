@@ -4,9 +4,10 @@ import CredentialsModel from '../../../Models/CredentialsModel';
 import { appStore } from '../../../Redux/Store';
 import { authService } from '../../../Services/AuthService';
 import { notify } from '../../../Utils/Notify';
-import './Login.css';
 import { ThemeProvider } from '@emotion/react';
 import { Button, Divider, TextField, createTheme } from '@mui/material';
+import styles from './Login.module.css';
+import About from '../About/About';
 
 function Login(): JSX.Element {
   const { register, handleSubmit } = useForm<CredentialsModel>();
@@ -30,8 +31,9 @@ function Login(): JSX.Element {
 
   return (
     <ThemeProvider theme={loginFormTheme}>
-      <div className="form-container sign-up-container">
-        <form onSubmit={handleSubmit(send)} className="login-form">
+      <div className={styles.formContainer}>
+        <About />
+        <form onSubmit={handleSubmit(send)} className={styles.loginForm}>
           <h1>Log in</h1>
           <div className="form-inputs-container">
             <TextField
@@ -55,7 +57,7 @@ function Login(): JSX.Element {
               {...register('password')}
             />
           </div>
-          <div className="form-buttons-container">
+          <div className={styles.formInputsContainer}>
             <Button type="submit">Log in</Button>
             <Divider>Don't have an account?</Divider>
             <Button onClick={goToRegister}>Sign up</Button>
