@@ -35,7 +35,7 @@ function Login(): JSX.Element {
         <About />
         <form onSubmit={handleSubmit(send)} className={styles.loginForm}>
           <h1>Log in</h1>
-          <div className="form-inputs-container">
+          <div className={styles.formInputsContainer}>
             <TextField
               autoComplete="email"
               name="email"

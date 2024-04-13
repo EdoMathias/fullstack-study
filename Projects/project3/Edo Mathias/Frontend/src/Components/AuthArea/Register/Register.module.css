@@ -9,7 +9,7 @@
   margin: 0 auto;
 }
 
-.loginForm {
+.registerForm {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,16 +27,6 @@
   align-items: center;
   flex-direction: column;
   width: 75%;
-}
-
-.siteHeader {
-  background: linear-gradient(0deg, #f9f295, #e0aa3e, #e0aa3e, #b88a44);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  font-family: 'Spectral Regular';
-  background-size: 100% 60%;
-  background-position: 50% 120%;
 }
 
 @media (max-width: 1000px) {

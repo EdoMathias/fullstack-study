@@ -2,10 +2,11 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import UserModel from '../../../Models/UserModel';
 import { authService } from '../../../Services/AuthService';
-import './Register.css';
 import { notify } from '../../../Utils/Notify';
 import { Button, Divider, TextField, createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
+import styles from './Register.module.css';
+import About from '../About/About';
 
 function Register(): JSX.Element {
   const { register, handleSubmit } = useForm<UserModel>();
@@ -29,10 +30,11 @@ function Register(): JSX.Element {
 
   return (
     <ThemeProvider theme={registerFormTheme}>
-      <div className="form-container sign-up-container">
-        <form onSubmit={handleSubmit(send)} className="form">
+      <div className={styles.formContainer}>
+        <About />
+        <form onSubmit={handleSubmit(send)} className={styles.registerForm}>
           <h1>Create Account</h1>
-          <div className="form-inputs-container">
+          <div className={styles.formInputsContainer}>
             <TextField
               autoComplete="given-name"
               name="firstName"
@@ -72,7 +74,7 @@ function Register(): JSX.Element {
               {...register('password')}
             />
           </div>
-          <div className="form-buttons-container">
+          <div className={styles.formInputsContainer}>
             <Button type="submit">Sign Up</Button>
             <Divider>Already have an account?</Divider>
             <Button onClick={goToLogin}>Log in</Button>
