@@ -1,12 +1,12 @@
 import { Logout } from '@mui/icons-material';
 import {
   Box,
-  Tooltip,
   IconButton,
   Avatar,
   Menu,
   MenuItem,
   ListItemIcon,
+  Typography,
 } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -35,13 +35,20 @@ function AuthAvatar(props: AuthAvatarProps): JSX.Element {
   };
 
   function logMeOut(): void {
-    notify.success(`Logging out...`);
     authService.logout();
-    navigate('/');
+    navigate('/login');
+    notify.success(`Logging out...`);
   }
   return (
     <React.Fragment>
       <Box>
+        <Typography
+          sx={{
+            display: { xs: 'none', sm: 'none', md: 'inline' },
+          }}
+        >
+          {props.user.firstName} {props.user.lastName}
+        </Typography>
         <IconButton
           onClick={handleClick}
           size="large"

@@ -2,12 +2,14 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import VacationModel from '../../../Models/VacationModel';
 import { vacationService } from '../../../Services/VacationService';
-import './AddVacation.css';
 import { notify } from '../../../Utils/Notify';
 import useAuthRedirect from '../../../Hooks/useAuthRedirect';
+import { useState } from 'react';
+import { Skeleton } from '@mui/material';
+import styles from './AddVacation.module.css';
 
 function AddVacation(): JSX.Element {
-  const { register, handleSubmit } = useForm<VacationModel>();
+  const { register, handleSubmit, watch, setValue } = useForm<VacationModel>();
   const user = useAuthRedirect();
 
   const navigate = useNavigate();
@@ -32,51 +34,123 @@ function AddVacation(): JSX.Element {
     navigate('/list');
   }
 
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  const startDate = watch('startDate');
+
+  function handleStartDateChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setValue('startDate', e.target.value);
+    setValue('endDate', '');
+  }
+
   return (
     <div className="AddVacation">
       {user?.roleId === 2 && <></>}
       {user?.roleId === 1 && (
-        <form onSubmit={handleSubmit(send)} className="add-form">
-          <label>Destination: </label>
-          <input
-            type="text"
-            {...register('destination')}
-            required
-            minLength={2}
-            maxLength={50}
-          />
+        <form onSubmit={handleSubmit(send)}>
+          <div className={styles.addVacationForm}>
+            <h1 className={styles.addVacationHeader}>Add Vacation</h1>
+            <div className={styles.fieldContainer}>
+              <label>Destination: </label>
+              <input
+                className={styles.inputFields}
+                type="text"
+                {...register('destination')}
+                minLength={2}
+                maxLength={50}
+                required
+              />
+            </div>
 
-          <label>Description: </label>
-          <textarea
-            className="description-box"
-            {...register('description')}
-            required
-            minLength={2}
-            maxLength={1000}
-          />
+            <div className={styles.fieldContainer}>
+              <label>Description: </label>
+              <textarea
+                className={styles.descriptionBox}
+                {...register('description')}
+                minLength={2}
+                maxLength={1000}
+                required
+              />
+            </div>
 
-          <label>Start Date: </label>
-          <input type="date" {...register('startDate')} required />
+            <div className={styles.fieldContainer}>
+              <label>Start Date: </label>
+              <input
+                className={styles.inputFields}
+                type="date"
+                {...register('startDate')}
+                onChange={handleStartDateChange}
+                min={new Date().toISOString().split('T')[0]}
+                required
+              />
+            </div>
 
-          <label>End Date: </label>
-          <input type="date" {...register('endDate')} required />
+            <div className={styles.fieldContainer}>
+              <label>End Date: </label>
+              <input
+                className={styles.inputFields}
+                type="date"
+                {...register('endDate')}
+                min={startDate}
+                required
+              />
+            </div>
 
-          <label>Price: </label>
-          <input
-            type="number"
-            step="0.01"
-            {...register('price')}
-            required
-            min={0}
-            max={10000}
-          />
+            <div className={styles.fieldContainer}>
+              <label>Price: </label>
+              <input
+                className={styles.inputFields}
+                type="number"
+                step="0.01"
+                {...register('price')}
+                required
+                min={0}
+                max={10000}
+              />
+            </div>
 
-          <label>Image: </label>
-          <input type="file" {...register('image')} required />
+            <div className={styles.fieldContainer}>
+              <label>Image: </label>
+              {imagePreview ? (
+                <div>
+                  <img
+                    src={imagePreview}
+                    alt="Uploaded Preview"
+                    className={styles.previewImage}
+                  />
+                </div>
+              ) : (
+                <Skeleton
+                  animation="wave"
+                  height={80}
+                  width={370}
+                  variant="rectangular"
+                />
+              )}
+              <input
+                className={styles.inputFields}
+                type="file"
+                {...register('image')}
+                onChange={handleImageChange}
+                required
+              />
+            </div>
 
-          <div className="buttons-container">
-            <button onClick={navigateToVacationsList}>Cancel</button>
-            <button>Add</button>
+            <div className={styles.buttonsContainer}>
+              <button onClick={navigateToVacationsList}>Cancel</button>
+              <button>Add</button>
+            </div>
           </div>
         </form>
       )}

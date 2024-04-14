@@ -1,0 +1,47 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d405b;
+  height: 500px;
+  width: 1000px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.registerForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 500px;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.formInputsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+}
+
+@media (max-width: 1000px) {
+  .formContainer {
+    width: 800px;
+  }
+}
+
+@media (max-width: 800px) {
+  .formContainer {
+    width: 600px;
+  }
+}
+@media (max-width: 600px) {
+  .formContainer {
+    width: 500px;
+  }
+}

@@ -94,6 +94,13 @@ function removeLike(
   }
 }
 
+function resetState(
+  currentState: VacationModel[],
+  action: PayloadAction
+): VacationModel[] {
+  return [];
+}
+
 // Create the vacations slice - containing and managing only the vacations array:
 const vacationsSlice = createSlice({
   name: 'vacations', // Unique name for the slice
@@ -105,6 +112,7 @@ const vacationsSlice = createSlice({
     deleteOne,
     addLike,
     removeLike,
+    resetState,
   },
 });
 

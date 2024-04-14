@@ -1,39 +1,35 @@
 @font-face {
-    font-family: 'Spectral Regular';
-    src: url('./Assets/fonts/Spectral-Regular.woff') format('woff');
+  font-family: 'Spectral Regular';
+  src: url('./Assets/fonts/Spectral-Regular.woff') format('woff');
 }
 
-html, body, #root {
-    margin: 0;
-    height: 100%;
-    text-align: center;
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  font-family: 'Spectral Regular', sans-serif;
 }
 
 a {
-    color: blue;
+  color: blue;
 }
 
 form {
-    width: 500px;
-    text-align: left;
-    padding: 10px;
-    margin: 20px auto;
+  width: 500px;
+  text-align: left;
+  padding: 10px;
+  margin: 20px auto;
 }
 
-/* form > input, form > button {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    font-size: large;
-} */
-
 form {
-    position: relative;
+  position: relative;
 }
 
 .error {
-    color: red;
-    position: absolute;
-    margin-left: 20px;
-    width: 100%;
+  color: red;
+  position: absolute;
+  margin-left: 20px;
+  width: 100%;
 }

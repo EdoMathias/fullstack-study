@@ -12,9 +12,13 @@ import Skeleton from '@mui/material/Skeleton';
 import usePaginationIndex from '../../../Hooks/usePaginationIndex';
 import AdminActions from '../ListActions/AdminActions';
 import UserActions from '../ListActions/UserActions';
+import UserModel from '../../../Models/UserModel';
+import { useNavigate } from 'react-router-dom';
 
 function VacationsList(): JSX.Element {
-  const user = useAuthRedirect();
+  const user = useSelector<AppState, UserModel | null>((state) => state.user);
+  const navigate = useNavigate();
+
   const vacations = useSelector<AppState, VacationModel[]>(
     (state) => state.vacations
   );
@@ -45,6 +49,11 @@ function VacationsList(): JSX.Element {
   }, [vacations, sortBy]);
 
   useEffect(() => {
+    if (!user) {
+      navigate('/login');
+      notify.error('You must be logged in to view this page');
+      return;
+    }
     const fetchVacations = async () => {
       try {
         await vacationService.getAllVacations();

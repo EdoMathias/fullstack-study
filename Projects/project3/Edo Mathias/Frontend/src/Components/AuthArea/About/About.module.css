@@ -1,0 +1,26 @@
+.introSection {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introSection > h2 {
+  color: #e2c799;
+}
+
+.introSection > p {
+  color: #e2c799;
+}
+
+.siteHeader {
+  background: linear-gradient(0deg, #f9f295, #e0aa3e, #e0aa3e, #b88a44);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: 'Spectral Regular';
+  background-size: 100% 60%;
+  background-position: 50% 120%;
+}

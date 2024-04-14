@@ -1,0 +1,47 @@
+<div>
+  <form (submit)="send()" ngNativeValidate>
+    <label>Target audience:</label>
+    <select class="form-control" required>
+      <option disabled selected>Select Audience</option>
+      <option *ngFor="let a of audiences" [value]="a.id">{{ a.name }}</option>
+    </select>
+
+    <label>Gift Name:</label>
+    <input
+      type="text"
+      name="gift-name"
+      [(ngModel)]="gift.name"
+      class="form-control"
+      required
+    />
+
+    <label>Gift Description:</label>
+    <input
+      type="text"
+      name="gift-description"
+      [(ngModel)]="gift.description"
+      class="form-control"
+      required
+    />
+
+    <label>Gift Price:</label>
+    <input
+      type="number"
+      name="gift-price"
+      [(ngModel)]="gift.price"
+      class="form-control"
+      required
+    />
+
+    <label>Gift Discount:</label>
+    <input
+      type="text"
+      name="gift-discount"
+      [(ngModel)]="gift.discount"
+      class="form-control"
+      required
+    />
+
+    <button class="form-control">Add gift</button>
+  </form>
+</div>
