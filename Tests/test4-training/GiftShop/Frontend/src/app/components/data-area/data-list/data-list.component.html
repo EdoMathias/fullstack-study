@@ -1,0 +1,25 @@
+<div>
+  <select (change)="displayGifts($event)" class="form-control w-auto m-auto">
+    <option disabled selected>Select Audience</option>
+    <option *ngFor="let a of audiences" [value]="a.id">{{ a.name }}</option>
+  </select>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Discount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of gifts">
+        <td>{{ g.name }}</td>
+        <td>{{ g.description }}</td>
+        <td>{{ g.price }}</td>
+        <td>{{ g.discount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
