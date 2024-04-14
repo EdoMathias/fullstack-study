@@ -1,0 +1,38 @@
+<div class="event-list m-auto">
+  <select (change)="displayEvents($event)" class="form-select w-50 m-auto">
+    <option disabled selected>Select Event Type...</option>
+    <option *ngFor="let type of eventTypes" [value]="type.id">
+      {{ type.name }}
+    </option>
+  </select>
+
+  <br /><br />
+
+  <table class="table table-striped table-hover w-100 m-auto">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Capacity</th>
+        <th>Event Passed?</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.date | date : 'yyyy-MM-dd HH:mm' }}</td>
+        <td class="description">{{ event.description }}</td>
+        <td>{{ event.address }}</td>
+        <td>{{ event.capacity }} people</td>
+        <td>
+          {{ getEventStatus(event.date).passed ? 'Yes' : 'No' }}
+          <span *ngIf="!getEventStatus(event.date).passed">
+            ({{ getEventStatus(event.date).daysUntil }} days)
+          </span>
+        </td>
+        <td><button (click)="deleteEvent(event.id)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
