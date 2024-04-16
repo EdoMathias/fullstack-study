@@ -48,7 +48,9 @@ function updateOne(
   // action.payload is a single vacation to update.
   const vacationToUpdate = action.payload;
   const newState = [...currentState];
-  const index = newState.findIndex((p) => p.id === vacationToUpdate.id);
+  const index = newState.findIndex(
+    (vacation) => vacation.id === vacationToUpdate.id
+  );
   if (index >= 0) newState[index] = vacationToUpdate;
   return newState;
 }
@@ -61,7 +63,7 @@ function deleteOne(
   // action.payload is the id of the vacation to delete.
   const idToDelete = action.payload;
   const newState = [...currentState];
-  const index = newState.findIndex((p) => p.id === idToDelete);
+  const index = newState.findIndex((vacation) => vacation.id === idToDelete);
   if (index >= 0) newState.splice(index, 1); // 1 = how many to delete
   return newState;
 }
