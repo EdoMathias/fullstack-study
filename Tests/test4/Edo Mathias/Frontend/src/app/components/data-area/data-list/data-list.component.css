@@ -1,0 +1,12 @@
+.event-list {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 100%;
+}
+
+.description {
+  max-width: 200px;
+  word-wrap: break-word;
+}

@@ -38,7 +38,7 @@ class VacationService {
     let vacations = appStore.getState().vacations;
 
     // Find the desired vacation:
-    let vacation = vacations.find((p) => p.id === id);
+    let vacation = vacations.find((vacation) => vacation.id === id);
 
     // If we have that vacation in the global state - return it:
     if (vacation) return vacation;
@@ -65,10 +65,10 @@ class VacationService {
     );
 
     // Extract the added vacation from the response:
-    const addedProduct = response.data;
+    const addedVacation = response.data;
 
     // Create action for adding a vacation to the global state:
-    const action = vacationsActionCreators.addOne(addedProduct);
+    const action = vacationsActionCreators.addOne(addedVacation);
 
     // Send action to global state:
     appStore.dispatch(action);
@@ -84,10 +84,10 @@ class VacationService {
     );
 
     // Extract the updated vacation from the backend:
-    const updatedProduct = response.data;
+    const updatedVacation = response.data;
 
     // Create action for updating a vacation in the global state:
-    const action = vacationsActionCreators.updateOne(updatedProduct);
+    const action = vacationsActionCreators.updateOne(updatedVacation);
 
     // Send action to global state:
     appStore.dispatch(action);
