@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "nodemon --exec ts-node src/app.ts --quiet"
+        "start": "nodemon --exec ts-node src/app.ts --quiet",
+        "start:docker": "ts-node src/app.ts"
     },
     "keywords": [],
     "author": "",
