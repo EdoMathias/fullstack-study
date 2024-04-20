@@ -1,0 +1,17 @@
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  background: linear-gradient(135deg, #e4c59e, #af8260, #803d3b, #322c2b);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
