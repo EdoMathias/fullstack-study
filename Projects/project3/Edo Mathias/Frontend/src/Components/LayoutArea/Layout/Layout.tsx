@@ -5,8 +5,6 @@ import Routing from '../Routing/Routing';
 import './Layout.css';
 
 function Layout(): JSX.Element {
-  const user = appStore.getState().user;
-
   return (
     <div className="Layout">
       <header>

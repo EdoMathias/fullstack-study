@@ -45,7 +45,7 @@ function EditVacation(): JSX.Element {
 
       await vacationService.updateVacation(vacation);
 
-      notify.success('Vacation has been added.');
+      notify.success('Vacation updated successfully.');
       navigate('/list');
     } catch (err: any) {
       notify.error(err);
@@ -142,7 +142,6 @@ function EditVacation(): JSX.Element {
                 className={styles.inputFields}
                 type="file"
                 {...register('image')}
-                required
               />
             </div>
 

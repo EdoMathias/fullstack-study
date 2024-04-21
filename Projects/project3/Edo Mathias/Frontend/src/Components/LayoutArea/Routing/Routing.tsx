@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import VacationsList from '../../VacationsArea/List/VacationsList';
-import Page404 from '../Page404/Page404';
+import Page404 from '../page404/Page404';
 import './Routing.css';
 import Register from '../../AuthArea/Register/Register';
 import Login from '../../AuthArea/Login/Login';
